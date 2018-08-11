@@ -1,0 +1,30 @@
+{
+  "ver": "2.0.0",
+  "uuid": "ca5dfafb-e314-4bc0-963a-db4ed03af7a5",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "achie_gold_bg": {
+      "ver": "1.0.3",
+      "uuid": "742f1b99-03d6-4909-836f-b3f479cdc8c6",
+      "rawTextureUuid": "ca5dfafb-e314-4bc0-963a-db4ed03af7a5",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0.5,
+      "offsetY": -0.5,
+      "trimX": 1,
+      "trimY": 1,
+      "width": 218,
+      "height": 218,
+      "rawWidth": 219,
+      "rawHeight": 219,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

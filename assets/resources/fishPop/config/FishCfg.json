@@ -1,0 +1,650 @@
+{
+  "1": {
+    "key": "1",
+    "level": 1,
+    "targetType": 0,
+    "num": 10,
+    "target_content": "被大鱼吃掉10条小鱼",
+    "rewardType": "[0]",
+    "rewardNum": "[10]"
+  },
+  "2": {
+    "key": "2",
+    "level": 2,
+    "targetType": 0,
+    "num": 15,
+    "target_content": "被大鱼吃掉15条小鱼",
+    "rewardType": "[0]",
+    "rewardNum": "[15]"
+  },
+  "3": {
+    "key": "3",
+    "level": 3,
+    "targetType": 0,
+    "num": 20,
+    "target_content": "被大鱼吃掉20条小鱼",
+    "rewardType": "[0]",
+    "rewardNum": "[20]"
+  },
+  "4": {
+    "key": "4",
+    "level": 4,
+    "targetType": 0,
+    "num": 25,
+    "target_content": "被大鱼吃掉25条小鱼",
+    "rewardType": "[0]",
+    "rewardNum": "[25]"
+  },
+  "5": {
+    "key": "5",
+    "level": 5,
+    "targetType": 0,
+    "num": 30,
+    "target_content": "被大鱼吃掉30条小鱼",
+    "rewardType": "[0]",
+    "rewardNum": "[30]"
+  },
+  "6": {
+    "key": "6",
+    "level": 6,
+    "targetType": 0,
+    "num": 35,
+    "target_content": "被大鱼吃掉35条小鱼",
+    "rewardType": "[0]",
+    "rewardNum": "[35]"
+  },
+  "7": {
+    "key": "7",
+    "level": 7,
+    "targetType": 0,
+    "num": 40,
+    "target_content": "被大鱼吃掉40条小鱼",
+    "rewardType": "[0]",
+    "rewardNum": "[40]"
+  },
+  "8": {
+    "key": "8",
+    "level": 8,
+    "targetType": 0,
+    "num": 45,
+    "target_content": "被大鱼吃掉45条小鱼",
+    "rewardType": "[0]",
+    "rewardNum": "[45]"
+  },
+  "9": {
+    "key": "9",
+    "level": 9,
+    "targetType": 0,
+    "num": 50,
+    "target_content": "被大鱼吃掉50条小鱼",
+    "rewardType": "[0]",
+    "rewardNum": "[50]"
+  },
+  "10": {
+    "key": "10",
+    "level": 10,
+    "targetType": 0,
+    "num": 55,
+    "target_content": "被大鱼吃掉55条小鱼",
+    "rewardType": "[0]",
+    "rewardNum": "[55]"
+  },
+  "11": {
+    "key": "11",
+    "level": 1,
+    "targetType": 1,
+    "num": 10,
+    "target_content": "鱼群总数达到10条",
+    "rewardType": "[0]",
+    "rewardNum": "[10]"
+  },
+  "12": {
+    "key": "12",
+    "level": 2,
+    "targetType": 1,
+    "num": 13,
+    "target_content": "鱼群总数达到13条",
+    "rewardType": "[0]",
+    "rewardNum": "[13]"
+  },
+  "13": {
+    "key": "13",
+    "level": 3,
+    "targetType": 1,
+    "num": 16,
+    "target_content": "鱼群总数达到16条",
+    "rewardType": "[0]",
+    "rewardNum": "[16]"
+  },
+  "14": {
+    "key": "14",
+    "level": 4,
+    "targetType": 1,
+    "num": 19,
+    "target_content": "鱼群总数达到19条",
+    "rewardType": "[0]",
+    "rewardNum": "[19]"
+  },
+  "15": {
+    "key": "15",
+    "level": 5,
+    "targetType": 1,
+    "num": 22,
+    "target_content": "鱼群总数达到22条",
+    "rewardType": "[0]",
+    "rewardNum": "[22]"
+  },
+  "16": {
+    "key": "16",
+    "level": 6,
+    "targetType": 1,
+    "num": 25,
+    "target_content": "鱼群总数达到25条",
+    "rewardType": "[0]",
+    "rewardNum": "[25]"
+  },
+  "17": {
+    "key": "17",
+    "level": 7,
+    "targetType": 1,
+    "num": 28,
+    "target_content": "鱼群总数达到28条",
+    "rewardType": "[0]",
+    "rewardNum": "[28]"
+  },
+  "18": {
+    "key": "18",
+    "level": 8,
+    "targetType": 1,
+    "num": 31,
+    "target_content": "鱼群总数达到31条",
+    "rewardType": "[0]",
+    "rewardNum": "[31]"
+  },
+  "19": {
+    "key": "19",
+    "level": 9,
+    "targetType": 1,
+    "num": 34,
+    "target_content": "鱼群总数达到34条",
+    "rewardType": "[0]",
+    "rewardNum": "[34]"
+  },
+  "20": {
+    "key": "20",
+    "level": 10,
+    "targetType": 1,
+    "num": 37,
+    "target_content": "鱼群总数达到37条",
+    "rewardType": "[0]",
+    "rewardNum": "[37]"
+  },
+  "21": {
+    "key": "21",
+    "level": 1,
+    "targetType": 3,
+    "num": 10,
+    "target_content": "小鱼总量累计不少于10条",
+    "rewardType": "[0]",
+    "rewardNum": "[10]"
+  },
+  "22": {
+    "key": "22",
+    "level": 2,
+    "targetType": 3,
+    "num": 20,
+    "target_content": "小鱼总量累计不少于20条",
+    "rewardType": "[0]",
+    "rewardNum": "[15]"
+  },
+  "23": {
+    "key": "23",
+    "level": 3,
+    "targetType": 3,
+    "num": 30,
+    "target_content": "小鱼总量累计不少于30条",
+    "rewardType": "[0]",
+    "rewardNum": "[20]"
+  },
+  "24": {
+    "key": "24",
+    "level": 4,
+    "targetType": 3,
+    "num": 40,
+    "target_content": "小鱼总量累计不少于40条",
+    "rewardType": "[0]",
+    "rewardNum": "[25]"
+  },
+  "25": {
+    "key": "25",
+    "level": 5,
+    "targetType": 3,
+    "num": 50,
+    "target_content": "小鱼总量累计不少于50条",
+    "rewardType": "[0]",
+    "rewardNum": "[30]"
+  },
+  "26": {
+    "key": "26",
+    "level": 6,
+    "targetType": 3,
+    "num": 60,
+    "target_content": "小鱼总量累计不少于60条",
+    "rewardType": "[0]",
+    "rewardNum": "[35]"
+  },
+  "27": {
+    "key": "27",
+    "level": 7,
+    "targetType": 3,
+    "num": 70,
+    "target_content": "小鱼总量累计不少于70条",
+    "rewardType": "[0]",
+    "rewardNum": "[40]"
+  },
+  "28": {
+    "key": "28",
+    "level": 8,
+    "targetType": 3,
+    "num": 80,
+    "target_content": "小鱼总量累计不少于80条",
+    "rewardType": "[0]",
+    "rewardNum": "[45]"
+  },
+  "29": {
+    "key": "29",
+    "level": 9,
+    "targetType": 3,
+    "num": 90,
+    "target_content": "小鱼总量累计不少于90条",
+    "rewardType": "[0]",
+    "rewardNum": "[50]"
+  },
+  "30": {
+    "key": "30",
+    "level": 10,
+    "targetType": 3,
+    "num": 100,
+    "target_content": "小鱼总量累计不少于100条",
+    "rewardType": "[0]",
+    "rewardNum": "[55]"
+  },
+  "31": {
+    "key": "31",
+    "level": 1,
+    "targetType": 5,
+    "num": 20,
+    "target_content": "当局获得鱼食20颗",
+    "rewardType": "[0]",
+    "rewardNum": "[5]"
+  },
+  "32": {
+    "key": "32",
+    "level": 2,
+    "targetType": 5,
+    "num": 25,
+    "target_content": "当局获得鱼食25颗",
+    "rewardType": "[0]",
+    "rewardNum": "[10]"
+  },
+  "33": {
+    "key": "33",
+    "level": 3,
+    "targetType": 5,
+    "num": 30,
+    "target_content": "当局获得鱼食30颗",
+    "rewardType": "[0]",
+    "rewardNum": "[15]"
+  },
+  "34": {
+    "key": "34",
+    "level": 4,
+    "targetType": 5,
+    "num": 35,
+    "target_content": "当局获得鱼食35颗",
+    "rewardType": "[0]",
+    "rewardNum": "[20]"
+  },
+  "35": {
+    "key": "35",
+    "level": 5,
+    "targetType": 5,
+    "num": 40,
+    "target_content": "当局获得鱼食40颗",
+    "rewardType": "[0]",
+    "rewardNum": "[25]"
+  },
+  "36": {
+    "key": "36",
+    "level": 6,
+    "targetType": 5,
+    "num": 45,
+    "target_content": "当局获得鱼食45颗",
+    "rewardType": "[0]",
+    "rewardNum": "[30]"
+  },
+  "37": {
+    "key": "37",
+    "level": 7,
+    "targetType": 5,
+    "num": 50,
+    "target_content": "当局获得鱼食50颗",
+    "rewardType": "[0]",
+    "rewardNum": "[35]"
+  },
+  "38": {
+    "key": "38",
+    "level": 8,
+    "targetType": 5,
+    "num": 55,
+    "target_content": "当局获得鱼食55颗",
+    "rewardType": "[0]",
+    "rewardNum": "[40]"
+  },
+  "39": {
+    "key": "39",
+    "level": 9,
+    "targetType": 5,
+    "num": 60,
+    "target_content": "当局获得鱼食60颗",
+    "rewardType": "[0]",
+    "rewardNum": "[45]"
+  },
+  "40": {
+    "key": "40",
+    "level": 10,
+    "targetType": 5,
+    "num": 65,
+    "target_content": "当局获得鱼食65颗",
+    "rewardType": "[0]",
+    "rewardNum": "[50]"
+  },
+  "41": {
+    "key": "41",
+    "level": 1,
+    "targetType": 14,
+    "num": 1,
+    "target_content": "成功打开宝箱1次",
+    "rewardType": "[0]",
+    "rewardNum": "[10]"
+  },
+  "42": {
+    "key": "42",
+    "level": 2,
+    "targetType": 14,
+    "num": 2,
+    "target_content": "成功打开宝箱2次",
+    "rewardType": "[0]",
+    "rewardNum": "[20]"
+  },
+  "43": {
+    "key": "43",
+    "level": 3,
+    "targetType": 14,
+    "num": 3,
+    "target_content": "成功打开宝箱3次",
+    "rewardType": "[0]",
+    "rewardNum": "[30]"
+  },
+  "44": {
+    "key": "44",
+    "level": 1,
+    "targetType": 6,
+    "num": 500,
+    "target_content": "本局得分超过500",
+    "rewardType": "[0]",
+    "rewardNum": "[10]"
+  },
+  "45": {
+    "key": "45",
+    "level": 2,
+    "targetType": 6,
+    "num": 1000,
+    "target_content": "本局得分超过1000",
+    "rewardType": "[0]",
+    "rewardNum": "[15]"
+  },
+  "46": {
+    "key": "46",
+    "level": 3,
+    "targetType": 6,
+    "num": 1500,
+    "target_content": "本局得分超过1500",
+    "rewardType": "[0]",
+    "rewardNum": "[20]"
+  },
+  "47": {
+    "key": "47",
+    "level": 4,
+    "targetType": 6,
+    "num": 2000,
+    "target_content": "本局得分超过2000",
+    "rewardType": "[0]",
+    "rewardNum": "[25]"
+  },
+  "48": {
+    "key": "48",
+    "level": 5,
+    "targetType": 6,
+    "num": 2500,
+    "target_content": "本局得分超过2500",
+    "rewardType": "[0]",
+    "rewardNum": "[30]"
+  },
+  "49": {
+    "key": "49",
+    "level": 6,
+    "targetType": 6,
+    "num": 3000,
+    "target_content": "本局得分超过3000",
+    "rewardType": "[0]",
+    "rewardNum": "[35]"
+  },
+  "50": {
+    "key": "50",
+    "level": 7,
+    "targetType": 6,
+    "num": 3500,
+    "target_content": "本局得分超过3500",
+    "rewardType": "[0]",
+    "rewardNum": "[40]"
+  },
+  "51": {
+    "key": "51",
+    "level": 8,
+    "targetType": 6,
+    "num": 4000,
+    "target_content": "本局得分超过4000",
+    "rewardType": "[0]",
+    "rewardNum": "[45]"
+  },
+  "52": {
+    "key": "52",
+    "level": 9,
+    "targetType": 6,
+    "num": 4500,
+    "target_content": "本局得分超过4500",
+    "rewardType": "[0]",
+    "rewardNum": "[50]"
+  },
+  "53": {
+    "key": "53",
+    "level": 10,
+    "targetType": 6,
+    "num": 5000,
+    "target_content": "本局得分超过5000",
+    "rewardType": "[0]",
+    "rewardNum": "[55]"
+  },
+  "54": {
+    "key": "54",
+    "level": 1,
+    "targetType": 7,
+    "num": 180,
+    "target_content": "存活时间超过180s",
+    "rewardType": "[0]",
+    "rewardNum": "[10]"
+  },
+  "55": {
+    "key": "55",
+    "level": 2,
+    "targetType": 7,
+    "num": 240,
+    "target_content": "存活时间超过240s",
+    "rewardType": "[0]",
+    "rewardNum": "[15]"
+  },
+  "56": {
+    "key": "56",
+    "level": 3,
+    "targetType": 7,
+    "num": 300,
+    "target_content": "存活时间超过300s",
+    "rewardType": "[0]",
+    "rewardNum": "[20]"
+  },
+  "57": {
+    "key": "57",
+    "level": 4,
+    "targetType": 7,
+    "num": 360,
+    "target_content": "存活时间超过360s",
+    "rewardType": "[0]",
+    "rewardNum": "[25]"
+  },
+  "58": {
+    "key": "58",
+    "level": 5,
+    "targetType": 7,
+    "num": 420,
+    "target_content": "存活时间超过420s",
+    "rewardType": "[0]",
+    "rewardNum": "[30]"
+  },
+  "59": {
+    "key": "59",
+    "level": 6,
+    "targetType": 7,
+    "num": 480,
+    "target_content": "存活时间超过480s",
+    "rewardType": "[0]",
+    "rewardNum": "[35]"
+  },
+  "60": {
+    "key": "60",
+    "level": 7,
+    "targetType": 7,
+    "num": 540,
+    "target_content": "存活时间超过540s",
+    "rewardType": "[0]",
+    "rewardNum": "[40]"
+  },
+  "61": {
+    "key": "61",
+    "level": 8,
+    "targetType": 7,
+    "num": 600,
+    "target_content": "存活时间超过600s",
+    "rewardType": "[0]",
+    "rewardNum": "[45]"
+  },
+  "62": {
+    "key": "62",
+    "level": 9,
+    "targetType": 7,
+    "num": 660,
+    "target_content": "存活时间超过660s",
+    "rewardType": "[0]",
+    "rewardNum": "[50]"
+  },
+  "63": {
+    "key": "63",
+    "level": 10,
+    "targetType": 7,
+    "num": 720,
+    "target_content": "存活时间超过720s",
+    "rewardType": "[0]",
+    "rewardNum": "[55]"
+  },
+  "64": {
+    "key": "64",
+    "level": 1,
+    "targetType": 2,
+    "num": 1,
+    "target_content": "鱼的种类达到1种",
+    "rewardType": "[0]",
+    "rewardNum": "[5]"
+  },
+  "65": {
+    "key": "65",
+    "level": 2,
+    "targetType": 2,
+    "num": 2,
+    "target_content": "鱼的种类达到2种",
+    "rewardType": "[0]",
+    "rewardNum": "[10]"
+  },
+  "66": {
+    "key": "66",
+    "level": 3,
+    "targetType": 2,
+    "num": 3,
+    "target_content": "鱼的种类达到3种",
+    "rewardType": "[0]",
+    "rewardNum": "[15]"
+  },
+  "67": {
+    "key": "67",
+    "level": 4,
+    "targetType": 2,
+    "num": 4,
+    "target_content": "鱼的种类达到4种",
+    "rewardType": "[0]",
+    "rewardNum": "[20]"
+  },
+  "68": {
+    "key": "68",
+    "level": 5,
+    "targetType": 2,
+    "num": 5,
+    "target_content": "鱼的种类达到5种",
+    "rewardType": "[0]",
+    "rewardNum": "[25]"
+  },
+  "69": {
+    "key": "69",
+    "level": 6,
+    "targetType": 2,
+    "num": 6,
+    "target_content": "鱼的种类达到6种",
+    "rewardType": "[0]",
+    "rewardNum": "[30]"
+  },
+  "70": {
+    "key": "70",
+    "level": 7,
+    "targetType": 2,
+    "num": 7,
+    "target_content": "鱼的种类达到7种",
+    "rewardType": "[0]",
+    "rewardNum": "[35]"
+  },
+  "71": {
+    "key": "71",
+    "level": 8,
+    "targetType": 2,
+    "num": 8,
+    "target_content": "鱼的种类达到8种",
+    "rewardType": "[0]",
+    "rewardNum": "[40]"
+  },
+  "72": {
+    "key": "72",
+    "level": 9,
+    "targetType": 2,
+    "num": 9,
+    "target_content": "鱼的种类达到9种",
+    "rewardType": "[0]",
+    "rewardNum": "[45]"
+  }
+}
