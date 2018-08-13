@@ -16,11 +16,11 @@ var o = require("./Common_ShareUtils"),
                 enumerable: !0,
                 configurable: !0
             }),
-            exports.prototype.start = function() {}, exports.prototype.getData = function() {
+            t.prototype.start = function() {}, t.prototype.getData = function() {
                 var a = this;
                 o.default.getShareRewardList(this.pageData.pageType, function(t) {
                     console.log("BaseResourcePage.getData() 获取到数据：", t), a.refresh(t);
                 });
-            }, exports.prototype.refresh = function() {}, exports = __decorate([n], exports);
+            }, t.prototype.refresh = function() {}, t = __decorate([n], t);
     }(cc.Component));
 exports.default = a;
