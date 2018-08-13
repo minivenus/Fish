@@ -1,3 +1,8 @@
+function t(t) {
+    return t && t.__esModule ? t : {
+        default: t
+    };
+}
 var r = require("../lib/Fish_UserData"),
     n = t(require("../lib/Common_Data")),
     i = t(require("../lib/EChannelPrefix"));

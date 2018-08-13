@@ -1,8 +1,8 @@
-var o = require("./utils/Common_CommonUtil"),
-    m = require("../../lib_gamesdk/gamesdk"),
-    d = require("../../lib_gamesdk/lib/EChannelPrefix"),
-    c = require("./utils/wxShortcut"),
-    i = require("../../../Script/Fish_UserData"),
+var o = require("./Common_CommonUtil"),
+    m = require("./gamesdk"),
+    d = require("./EChannelPrefix"),
+    c = require("./wxShortcut"),
+    i = require("./Fish_UserData"),
     s = function() {
         c.default.showToast("联网超时", 2e3);
     },

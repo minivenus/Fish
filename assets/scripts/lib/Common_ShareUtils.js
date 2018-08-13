@@ -12,10 +12,10 @@ var y = require("./Common_CommonUtil"),
     p = require("./ResourcePageData"),
     m = function() {
         function t() {}
-        return t.jailactivity = "jailactivity", t.jiongactivity = "jiongactivity", t.puzzleactivity = "puzzleactivity",
+        return exports.jailactivity = "jailactivity", exports.jiongactivity = "jiongactivity", exports.puzzleactivity = "puzzleactivity",
             t;
     }();
-t.EActivityEnter = m;
+exports.EActivityEnter = m;
 var h = function() {
     function m() {}
     return m.getRedPacket = function(a, t) {

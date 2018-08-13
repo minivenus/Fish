@@ -16,7 +16,7 @@ var i = function() {
     }(),
     d = o(require("./config")),
     a = o(require("./trackTable"));
-t.default = new(function() {
+exports.default = new(function() {
     function t() {
         (function(o, e) {
             if (!(o instanceof e)) throw new TypeError("Cannot call a class as a function");

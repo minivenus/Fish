@@ -1,4 +1,4 @@
-var o = r("./Common_ShareUtils"),
+var o = require("./Common_ShareUtils"),
     i = cc._decorator,
     n = i.ccclass,
     a = (i.property, function(a) {
@@ -16,11 +16,11 @@ var o = r("./Common_ShareUtils"),
                 enumerable: !0,
                 configurable: !0
             }),
-            t.prototype.start = function() {}, t.prototype.getData = function() {
+            exports.prototype.start = function() {}, exports.prototype.getData = function() {
                 var a = this;
                 o.default.getShareRewardList(this.pageData.pageType, function(t) {
                     console.log("BaseResourcePage.getData() 获取到数据：", t), a.refresh(t);
                 });
-            }, t.prototype.refresh = function() {}, t = __decorate([n], t);
+            }, exports.prototype.refresh = function() {}, exports = __decorate([n], exports);
     }(cc.Component));
 exports.default = a;

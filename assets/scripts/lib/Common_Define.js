@@ -1,13 +1,13 @@
 var o = function() {
     function t() {}
-    return t.GetShareCode = "share/getShareCode", t.GetAcvitityStatus = "share/getAcvitityStatus",
-        t.JoinShare = "share/joinShare", t.UpdateShareStatus = "share/updateShareStatus",
-        t.GetRedpacketList = "share/getRedpacketList", t.GetHelperRedpacketList = "share/getHelperRedpacketList",
-        t.GetRedpacketBalance = "share/getRedpacketBalance", t.GetWorldRankingList = "commonRank/getCommonRank",
-        t.UpdateCommonRank = "commonRank/updateCommonRank", t;
+    return exports.GetShareCode = "share/getShareCode", exports.GetAcvitityStatus = "share/getAcvitityStatus",
+        exports.JoinShare = "share/joinShare", exports.UpdateShareStatus = "share/updateShareStatus",
+        exports.GetRedpacketList = "share/getRedpacketList", exports.GetHelperRedpacketList = "share/getHelperRedpacketList",
+        exports.GetRedpacketBalance = "share/getRedpacketBalance", exports.GetWorldRankingList = "commonRank/getCommonRank",
+        exports.UpdateCommonRank = "commonRank/updateCommonRank", exports;
 }();
-t.Common_Http = o;
-t.Commom_Obj_HelpJoinRed = function() {
+exports.Common_Http = o;
+exports.Commom_Obj_HelpJoinRed = function() {
     this.channelCode = 0, this.shareCode = 0, this.shareId = null, this.ruleText = "",
         this.redState = !1, this.callback = null, this.activityRuleText = "";
 }

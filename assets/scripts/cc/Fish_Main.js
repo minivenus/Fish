@@ -7,10 +7,10 @@ function t(t) {
 function u(o, e) {
     return d(Math.random() * (e - o + 1) + o);
 }
-var a = t(o("./Common_RankList")),
-    s = o("./FishCfgMgr"),
-    r = o("./Fish_UserData"),
-    l = t(o("./ReadyGo"));
+var a = t(require("../lib/Common_RankList")),
+    s = require("../lib/FishCfgMgr"),
+    r = require("../lib/Fish_UserData"),
+    l = t(require("../lib/ReadyGo"));
 cc.Class({
     extends: cc.Component,
     properties: {

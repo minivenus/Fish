@@ -1,5 +1,5 @@
 var t = require("../lib/ComPage"),
-    n = require("../libFish_UserData");
+    n = require("../lib/Fish_UserData");
 cc.Class({
     extends: cc.Component,
     properties: {

@@ -31,7 +31,7 @@ var r = require("./Common_CommonUtil"),
             });
         }, d.clearId = 0, d;
     }();
-t.default = o;
+exports.default = o;
 var s = function() {
     function t() {}
     return t.showToast = function(t) {

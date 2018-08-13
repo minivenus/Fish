@@ -1,6 +1,6 @@
 var o, i = require("./Util"),
     d = require("./Fish_UserData");
-(o = t.emTargetType || (t.emTargetType = {}))[o.T_BeEaten = 0] = "T_BeEaten", o[o.T_FishMax = 1] = "T_FishMax",
+(o = exports.emTargetType || (exports.emTargetType = {}))[o.T_BeEaten = 0] = "T_BeEaten", o[o.T_FishMax = 1] = "T_FishMax",
     o[o.T_FishTypeMax = 2] = "T_FishTypeMax", o[o.T_EatFishTotal = 3] = "T_EatFishTotal",
     o[o.T_BigFishNum = 4] = "T_BigFishNum", o[o.T_FishFeedTotal = 5] = "T_FishFeedTotal",
     o[o.T_BigFishFeedTotal = 6] = "T_BigFishFeedTotal", o[o.T_ContinuousFeed_1 = 7] = "T_ContinuousFeed_1",
@@ -9,9 +9,9 @@ var o, i = require("./Util"),
     o[o.T_ContinuousGold_2 = 13] = "T_ContinuousGold_2", o[o.T_OpenBoxNum = 14] = "T_OpenBoxNum";
 var n = function() {
     function t() {}
-    return t.CfgLoadComplete = function() {
+    return exports.CfgLoadComplete = function() {
             return 6 <= this.loadNum;
-        }, t.LoadCfg = function() {
+        }, exports.LoadCfg = function() {
             if (!(7 <= this.loadNum)) {
                 console.log("初始化json存储数据");
                 var t = cc.url.raw("resources/fishPop/config/FishCfg.json");
@@ -37,22 +37,22 @@ var n = function() {
                         this.RewardSpriteFrames[2] = e);
                 }.bind(this));
             }
-        }, t.pushObj = function(a, e, t, o) {
+        }, exports.pushObj = function(a, e, t, o) {
             void 0 === o && (o = 0), e.rewardNum = JSON.parse(e.rewardNum), e.rewardType = "" == e.rewardType ? [] : JSON.parse(e.rewardType),
                 void 0 === t[a] && (t[a] = []), 0 == o ? t[a].push(e) : t[a] = e;
-        }, t.analysisFishCfg = function(r, e, t, o) {
+        }, exports.analysisFishCfg = function(r, e, t, o) {
             void 0 === o && (o = 0);
             for (var i, s = 0; r;) {
                 if (i = r[(++s).toString()], !i) return;
                 this.pushObj(i[e], i, t, o);
             }
             console.log(t);
-        }, t.getSignRewardByDay = function(t) {
+        }, exports.getSignRewardByDay = function(t) {
             return this.FishSignList[t] || null;
-        }, t.getTargetsByType = function(t) {
+        }, exports.getTargetsByType = function(t) {
             return this.FishTargetDatas[t] ? this.FishTargetDatas[t] : (console.error("不存在该类型目标_1" + t),
                 null);
-        }, t.getTargetValidByType = function(r, e, t) {
+        }, exports.getTargetValidByType = function(r, e, t) {
             var o = this.FishTargetDatas[r];
             this.FishCompleteList = d.Fish_UserData.getCompleteList();
             var l = this.FishCompleteList[t],
@@ -63,7 +63,7 @@ var n = function() {
                 l < o[a].level && n.push(o[a]);
             }
             return n;
-        }, t.getAllTargetValidByArryType = function(r) {
+        }, exports.getAllTargetValidByArryType = function(r) {
             for (var e, i = [], t = 0; t < r.length; t++) {
                 e = this.FishTargetDatas[t], this.FishCompleteList = d.Fish_UserData.getCompleteList();
                 var o = this.FishCompleteList[t];
@@ -73,7 +73,7 @@ var n = function() {
                 else console.log("不存在该类型目标_3" + t);
             }
             return d.Fish_UserData.setCompleteList(this.FishCompleteList), i;
-        }, t.getNoCompleteByType = function(a, e) {
+        }, exports.getNoCompleteByType = function(a, e) {
             var t = this.FishTargetDatas[a];
             this.FishCompleteList = d.Fish_UserData.getCompleteList();
             var o = this.FishCompleteList[a];
@@ -84,17 +84,17 @@ var n = function() {
                 return console.log("该类型不存在未完成目标"), null;
             }
             return console.log("不存在该类型目标_3" + a), null;
-        }, t.getSkinList = function() {
+        }, exports.getSkinList = function() {
             return this.FishSkinDatas;
-        }, t.getSkinSpriteFrameByKey = function(t) {
+        }, exports.getSkinSpriteFrameByKey = function(t) {
             return this.FishSkinSpriteFrames[t];
-        }, t.saveComplete = function(o) {
+        }, exports.saveComplete = function(o) {
             var e = JSON.stringify(o);
             console.log("本地保存完成记录：" + e), i.Util.SaveDataByKey("fristComplete", e);
-        }, t.getRewardFrameByKey = function(t) {
+        }, exports.getRewardFrameByKey = function(t) {
             return this.RewardSpriteFrames[t];
-        }, t.loadNum = 0, t.FishTargetDatas = {}, t.FishSkinDatas = {}, t.FishSkinSpriteFrames = {},
-        t.FishCompleteList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], t.FishSignList = {},
-        t.RewardSpriteFrames = [null, null, null], t;
+        }, exports.loadNum = 0, exports.FishTargetDatas = {}, exports.FishSkinDatas = {}, exports.FishSkinSpriteFrames = {},
+        exports.FishCompleteList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], exports.FishSignList = {},
+        exports.RewardSpriteFrames = [null, null, null], exports;
 }();
 exports.FishCfgMgr = n;
