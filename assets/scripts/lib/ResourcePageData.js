@@ -33,9 +33,9 @@ var o = function() {
             this._clickHomeCallback = e;
     }, r.get = function(a, e, t, o) {
         void 0 === e && (e = null), void 0 === t && (t = ""), void 0 === o && (o = "");
-        var i = new r();
-        return i._pageType = a, i._subTitle = t || i._subTitle, i._desc = o || i._desc,
-            i._clickHomeCallback = e, i;
+        var s = new r();
+        return s._pageType = a, s._subTitle = t || s._subTitle, s._desc = o || s._desc,
+            s._clickHomeCallback = e, s;
     }, r;
 }();
 exports.default = o;

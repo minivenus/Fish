@@ -1,12 +1,12 @@
 var o = require("./Common_CommonUtil"),
-    i = require("./EChannelPrefix"),
+    m = require("./EChannelPrefix"),
     n = require("./Common_Data"),
     a = require("./Common_ShareUtils"),
     s = require("./gamesdk"),
     c = cc._decorator,
     r = c.ccclass,
     l = c.property,
-    d = function(d) {
+    g = function(d) {
         function t() {
             var t = null !== d && d.apply(this, arguments) || this;
             return t.icon = null, t.iconName = null, t.btnInvite = null, t.btnStr = null, t.itemData = null,
@@ -29,11 +29,11 @@ var o = require("./Common_CommonUtil"),
                 var o = this;
                 console.log("点击邀请");
                 var t = "propId=" + this.itemData.id + "&shareId=" + s.game.getOpenId();
-                n.default.share(i.default.reward, t, null, function() {
+                n.default.share(m.default.reward, t, null, function() {
                     console.log("发送邀请成功！"), a.default.requestForServerRecord(o.itemData.id);
                 });
             }, __decorate([l(cc.Sprite)], t.prototype, "icon", void 0), __decorate([l(cc.RichText)], t.prototype, "iconName", void 0),
             __decorate([l(cc.Button)], t.prototype, "btnInvite", void 0), __decorate([l(cc.RichText)], t.prototype, "btnStr", void 0),
             t = __decorate([r], t);
     }(cc.Component);
-exports.default = d;
+exports.default = g;

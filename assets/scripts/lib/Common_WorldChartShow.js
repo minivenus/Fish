@@ -2,8 +2,8 @@ var o = require("./Common_CommonUtil"),
     p = require("./Common_ShareUtils"),
     n = require("./Common_RankUtils"),
     a = cc._decorator,
-    i = a.ccclass,
-    s = a.property,
+    s = a.ccclass,
+    c = a.property,
     r = function(a) {
         function t() {
             var t = null !== a && a.apply(this, arguments) || this;
@@ -27,10 +27,10 @@ var o = require("./Common_CommonUtil"),
                 if (e === cc.ScrollView.EventType.BOUNCE_BOTTOM && (cc.log("下拉世界排行榜列表：BOUNCE_BOTTOM"),
                         200 < o.getScrollOffset().y - o.getMaxScrollOffset().y && 0 == this.isNowRefreshing)) {
                     console.log("世界排行榜列表：刷新");
-                    var i = this.curPos + 1,
+                    var r = this.curPos + 1,
                         n = this.curPos + this.needShowPos;
-                    if (console.log("开始名次：" + i + " 结束名次：" + n), 1e3 <= i) return void(this.isNowRefreshing = !1);
-                    n = 1e3 < n ? 1e3 : n, console.log("检测后 开始名次：" + i + " 结束名次：" + n), p.default._updateWorldRankList(i, n, function(o) {
+                    if (console.log("开始名次：" + r + " 结束名次：" + n), 1e3 <= r) return void(this.isNowRefreshing = !1);
+                    n = 1e3 < n ? 1e3 : n, console.log("检测后 开始名次：" + r + " 结束名次：" + n), p.default._updateWorldRankList(r, n, function(o) {
                         o && o.list && t.addWorldList(o.list), t.isNowRefreshing = !1;
                     });
                 }
@@ -47,10 +47,10 @@ var o = require("./Common_CommonUtil"),
                 console.log("更新名次：" + this.curPos);
             }, t.prototype.onClose = function() {
                 this.node.destroy();
-            }, __decorate([s(cc.Label)], t.prototype, "labRank", void 0), __decorate([s(cc.Label)], t.prototype, "labScore", void 0),
-            __decorate([s(cc.Label)], t.prototype, "labName", void 0), __decorate([s(cc.Label)], t.prototype, "labTitle", void 0),
-            __decorate([s(cc.Sprite)], t.prototype, "spHead", void 0), __decorate([s(cc.Prefab)], t.prototype, "fbRankItem", void 0),
-            __decorate([s(cc.Prefab)], t.prototype, "fbRankTip", void 0), __decorate([s(cc.Node)], t.prototype, "ndRankList", void 0),
-            t = __decorate([i], t);
+            }, __decorate([c(cc.Label)], t.prototype, "labRank", void 0), __decorate([c(cc.Label)], t.prototype, "labScore", void 0),
+            __decorate([c(cc.Label)], t.prototype, "labName", void 0), __decorate([c(cc.Label)], t.prototype, "labTitle", void 0),
+            __decorate([c(cc.Sprite)], t.prototype, "spHead", void 0), __decorate([c(cc.Prefab)], t.prototype, "fbRankItem", void 0),
+            __decorate([c(cc.Prefab)], t.prototype, "fbRankTip", void 0), __decorate([c(cc.Node)], t.prototype, "ndRankList", void 0),
+            t = __decorate([s], t);
     }(cc.Component);
 exports.default = r;

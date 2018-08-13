@@ -1,4 +1,4 @@
-exports.default = [{
+export default [{
     type: "onScreen",
     onScreenAti: 3
 }, {

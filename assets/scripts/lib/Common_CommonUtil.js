@@ -4,10 +4,10 @@ var r = require("./Common_Data"),
         return a.isWeChat = function() {
             return cc.sys.platform == cc.sys.WECHAT_GAME;
         }, a.showTips = function(e, a) {
-            cc.loader.loadRes("common/prefabs/h5game_Tips", function(n, i) {
+            cc.loader.loadRes("common/prefabs/h5game_Tips", function(n, r) {
                 if (n) cc.error(n);
                 else {
-                    var t = cc.instantiate(i);
+                    var t = cc.instantiate(r);
                     t.getComponent("h5game_Tips").setText(e, a), t.parent = cc.director.getScene();
                 }
             });

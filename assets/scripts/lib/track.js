@@ -4,8 +4,7 @@ function o(t) {
     };
 }
 
-
-var i = function() {
+var s = function() {
         function a(a, e) {
             for (var t, n = 0; n < e.length; n++) t = e[n], t.enumerable = t.enumerable || !1,
                 t.configurable = !0, "value" in t && (t.writable = !0), Object.defineProperty(a, t.key, t);
@@ -16,13 +15,13 @@ var i = function() {
     }(),
     d = o(require("./config")),
     a = o(require("./trackTable"));
-exports.default = new(function() {
+export default new(function() {
     function t() {
         (function(o, e) {
             if (!(o instanceof e)) throw new TypeError("Cannot call a class as a function");
         })(this, t), this.trackTable = a.default;
     }
-    return i(t, [{
+    return s(t, [{
         key: "getExtraParamKey",
         value: function(t) {
             try {
@@ -31,8 +30,8 @@ exports.default = new(function() {
                     var e = Object.keys(n);
                     t == n.type && (a = e[1]);
                 }), a;
-            } catch (e) {
-                console.log(e);
+            } catch (t) {
+                console.log(t);
             }
         }
     }, {
@@ -41,7 +40,7 @@ exports.default = new(function() {
             try {
                 (function(a) {
                     var n = 0;
-                    ! function i() {
+                    (function r() {
                         wx.request({
                             url: "https://h5game-log.kuaiyugo.com/dataAnalysis/saveUserBehaviorLogV2",
                             data: a,
@@ -53,10 +52,10 @@ exports.default = new(function() {
                                 console.log(a);
                             },
                             fail: function(t) {
-                                return 2 > n ? (n++, a.retryTimes = n, void i()) : void console.log(t, "数据上报日志失败");
+                                return 2 > n ? (n++, a.retryTimes = n, void r()) : void console.log(t, "数据上报日志失败");
                             }
                         });
-                    }();
+                    })();
                 })({
                     userLog: this.getObject(o, e)
                 });
@@ -69,14 +68,14 @@ exports.default = new(function() {
         value: function(r, s, d) {
             try {
                 return "GET" == d && (r = this.stringify(r, s)), new Promise(function(l, o) {
-                    var i = wx.getStorageSync("sessionId") || "";
+                    var p = wx.getStorageSync("sessionId") || "";
                     wx.request({
                         url: r,
                         data: s,
                         method: d,
                         header: {
                             "content-type": "application/json",
-                            "session-id": i
+                            "session-id": p
                         },
                         success: function(a) {
                             var e = a.data.code;
@@ -87,8 +86,8 @@ exports.default = new(function() {
                         }
                     });
                 });
-            } catch (e) {
-                console.log(e);
+            } catch (t) {
+                console.log(t);
             }
         }
     }, {
@@ -97,7 +96,7 @@ exports.default = new(function() {
             try {
                 var t = wx.getSystemInfoSync(),
                     o = {
-                        v: "1.0.7"
+                        v: "1.0.8"
                     };
                 if (o.ext = {
                         ak: d.default.appKey,
@@ -107,8 +106,8 @@ exports.default = new(function() {
                         uid: wx.getStorageSync("uid"),
                         scene: wx.getStorageSync("scene") || ""
                     }, o.device = t, void 0 !== r) {
-                    var i = this.getExtraParamKey(a);
-                    "extraParam" != i && "" != i && (o.ext[i] = r);
+                    var s = this.getExtraParamKey(a);
+                    "extraParam" != s && "" != s && (o.ext[s] = r);
                 }
                 return o.ext = function(o) {
                     for (var e in o) "number" != typeof o[e] && ("" != o[e] && null != o[e] && null != o[e] && "{}" != JSON.stringify(o[e]) || delete o[e]);

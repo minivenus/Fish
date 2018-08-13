@@ -1,3 +1,7 @@
+function a(o, e) {
+    return C(Math.random() * (e - o + 1) + o);
+}
+
 cc.Class({
     extends: cc.Component,
     properties: {
@@ -11,10 +15,10 @@ cc.Class({
             this.chuansong2.active = !1, this.node.active = !1, this.setNewPos();
     },
     setNewPos: function() {
-        var n = -C / 180 * (a(0, 359) + 90),
+        var n = -y / 180 * (a(0, 359) + 90),
             e = window.gameCrtl._hero.parent.getPosition(),
-            t = (e = window.gameCrtl._hero.parent.parent.convertToWorldSpaceAR(e)).x + y(n) * a(400, 600),
-            o = e.y + f(n) * a(700, 1e3);
+            t = (e = window.gameCrtl._hero.parent.parent.convertToWorldSpaceAR(e)).x + f(n) * a(400, 600),
+            o = e.y + _(n) * a(700, 1e3);
         e = this.node.parent.convertToNodeSpaceAR(cc.p(t, o)), this.node.setPosition(e),
             this.scheduleOnce(function() {
                 this.chuansong1.active = !0, this.chuansong2.active = !0, this.node.active = !0;
@@ -38,7 +42,7 @@ cc.Class({
             var e = window.gameCrtl._hero.parent.getPosition();
             e = window.gameCrtl._hero.parent.parent.convertToWorldSpaceAR(e);
             var t = this.node.getPosition();
-            2500 < g(_(e.x - t.x, 2) + _(e.y - t.y, 2)) && this.setNewPos();
+            2500 < g(u(e.x - t.x, 2) + u(e.y - t.y, 2)) && this.setNewPos();
         }
     }
 });

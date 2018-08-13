@@ -4,8 +4,8 @@ var o = function() {
     }
     return r.get = function(a, e, t, o) {
         void 0 === o && (o = "");
-        var i = new r();
-        return i.propId = a, i.currentCount = e, i.limitCount = t, i.propIcon = o, i;
+        var s = new r();
+        return s.propId = a, s.currentCount = e, s.limitCount = t, s.propIcon = o, s;
     }, r;
 }();
 exports.default = o;

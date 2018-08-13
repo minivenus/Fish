@@ -1,5 +1,5 @@
-var m = require("./Common_CommonUtil"),
-    i = require("./wxDisplayCheck"),
+var p = require("./Common_CommonUtil"),
+    m = require("./wxDisplayCheck"),
     n = require("./wxShortcut"),
     a = require("./Common_Data"),
     o = cc._decorator,
@@ -13,10 +13,10 @@ var m = require("./Common_CommonUtil"),
         return __extends(t, o), t.prototype.start = function() {
             var o = this;
             if (this.bg || (this.bg = this.node.getChildByName("bg")), this.bg.active = !1,
-                m.default.isWeChat() && n.Wx.showLoading({
+                p.default.isWeChat() && n.Wx.showLoading({
                     title: "连接中..."
-                }), cc.director.setClearColor(cc.Color.GRAY), m.default.fitScreen(), i.default.onShowRes) {
-                if (!m.default.isWeChat()) return;
+                }), cc.director.setClearColor(cc.Color.GRAY), p.default.fitScreen(), m.default.onShowRes) {
+                if (!p.default.isWeChat()) return;
                 n.Wx.getSystemInfo({
                     success: function(t) {
                         console.log("手机系统信息：", t), o.login(t.screenWidth, t.screenHeight);
@@ -28,10 +28,10 @@ var m = require("./Common_CommonUtil"),
             }
         }, t.prototype.login = function(r, e) {
             var t = this;
-            a.default.login2(i.default.onShowRes, function() {
+            a.default.login2(m.default.onShowRes, function() {
                 t.loginComplete();
             }, null, function() {
-                t.bg.active = !0, m.default.isWeChat() && n.Wx.hideLoading();
+                t.bg.active = !0, p.default.isWeChat() && n.Wx.hideLoading();
             }, function() {
                 n.default.showModal("提示", "登录失败，请稍候再试");
             }, null, r, e);

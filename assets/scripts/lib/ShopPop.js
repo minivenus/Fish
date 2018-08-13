@@ -1,13 +1,13 @@
 var m = require("./Fish_UserData"),
-    o = require("./utils/NodeUtil"),
+    o = require("./NodeUtil"),
     n = require("./ComPage"),
     a = require("./FishCfgMgr"),
-    i = require("./Common_GlobalEventUtil"),
-    s = require("./SoundUtil"),
+    s = require("./Common_GlobalEventUtil"),
+    c = require("./SoundUtil"),
     r = cc._decorator,
     l = r.ccclass,
-    d = r.property,
-    c = function(o) {
+    g = r.property,
+    d = function(o) {
         function t() {
             var t = null !== o && o.apply(this, arguments) || this;
             return t.labName = null, t.labGold = null, t.btnSelect = null, t.fbShopItem = null,
@@ -39,12 +39,12 @@ var m = require("./Fish_UserData"),
                         this.labName.string = this.skinDatas[t].name;
                 }
             }, t.prototype.onLeft = function() {
-                if (s.SoundUtil.PlayEffectByKey(1), !(this.pageView.getCurrentPageIndex() + 1 >= this.pageView.getPages().length)) {
+                if (c.SoundUtil.PlayEffectByKey(1), !(this.pageView.getCurrentPageIndex() + 1 >= this.pageView.getPages().length)) {
                     var t = this.pageView.getCurrentPageIndex() + 1;
                     this.pageView.scrollToPage(t, .3);
                 }
             }, t.prototype.onRight = function() {
-                if (s.SoundUtil.PlayEffectByKey(1), !(0 > this.pageView.getCurrentPageIndex() - 1)) {
+                if (c.SoundUtil.PlayEffectByKey(1), !(0 > this.pageView.getCurrentPageIndex() - 1)) {
                     var t = this.pageView.getCurrentPageIndex() - 1;
                     this.pageView.scrollToPage(t, .3);
                 }
@@ -68,13 +68,13 @@ var m = require("./Fish_UserData"),
                 }
                 this.curType = o;
             }, t.prototype.onSelect = function() {
-                switch (s.SoundUtil.PlayEffectByKey(1), this.curType) {
+                switch (c.SoundUtil.PlayEffectByKey(1), this.curType) {
                     case 0:
                         break;
 
                     case 1:
                         this.curSkin = this.pageView.getCurrentPageIndex(), this.setState(0), m.Fish_UserData.setCurSkin(this.curSkin),
-                            i.GlobalEventUtil.emit("UpdateSkin");
+                            s.GlobalEventUtil.emit("UpdateSkin");
                         break;
 
                     case 2:
@@ -83,12 +83,12 @@ var m = require("./Fish_UserData"),
                             t = this.myGold - e;
                         0 <= t ? (this.setState(1), this.skinUserData.push(a), this.myGold = t, this.labGold.string = this.myGold.toString(),
                             n.ComPage.ShowTip("购买" + this.skinDatas[a].name + "成功", 1, 1), m.Fish_UserData.setHaveSkins(this.skinUserData),
-                            m.Fish_UserData.setGold(this.myGold), i.GlobalEventUtil.emit("UpdateGold")) : n.ComPage.ShowTip("金币不足，无法购买");
+                            m.Fish_UserData.setGold(this.myGold), s.GlobalEventUtil.emit("UpdateGold")) : n.ComPage.ShowTip("金币不足，无法购买");
                 }
             }, t.prototype.onClose = function() {
-                s.SoundUtil.PlayEffectByKey(1), this.node.destroy();
-            }, __decorate([d(cc.Label)], t.prototype, "labName", void 0), __decorate([d(cc.Label)], t.prototype, "labGold", void 0),
-            __decorate([d(cc.Node)], t.prototype, "btnSelect", void 0), __decorate([d(cc.Prefab)], t.prototype, "fbShopItem", void 0),
+                c.SoundUtil.PlayEffectByKey(1), this.node.destroy();
+            }, __decorate([g(cc.Label)], t.prototype, "labName", void 0), __decorate([g(cc.Label)], t.prototype, "labGold", void 0),
+            __decorate([g(cc.Node)], t.prototype, "btnSelect", void 0), __decorate([g(cc.Prefab)], t.prototype, "fbShopItem", void 0),
             t = __decorate([l], t);
     }(o.NodeUtil);
-exports.default = c;
+exports.default = d;

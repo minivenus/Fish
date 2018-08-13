@@ -1,5 +1,5 @@
 var o = cc._decorator,
-    i = o.ccclass,
+    s = o.ccclass,
     n = (o.property, function(o) {
         function e() {
             return null !== o && o.apply(this, arguments) || this;
@@ -12,6 +12,6 @@ var o = cc._decorator,
                 this.tex.handleLoadedTexture(), this.display.spriteFrame = new cc.SpriteFrame(this.tex));
         }, e.prototype.update = function() {
             this._updateSubDomainCanvas();
-        }, e = __decorate([i], e);
+        }, e = __decorate([s], e);
     }(cc.Component));
 exports.default = n;

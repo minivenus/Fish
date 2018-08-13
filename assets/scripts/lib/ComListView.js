@@ -1,5 +1,5 @@
 var o = cc._decorator,
-    i = o.ccclass,
+    d = o.ccclass,
     n = o.property,
     a = function(o) {
         function t() {
@@ -46,6 +46,6 @@ var o = cc._decorator,
                 }
             }, __decorate([n(cc.ScrollView)], t.prototype, "scrollView", void 0), __decorate([n(cc.Node)], t.prototype, "itemTemplate", void 0),
             __decorate([n()], t.prototype, "spawnCount", void 0), __decorate([n()], t.prototype, "spacing", void 0),
-            __decorate([n()], t.prototype, "bufferZone", void 0), t = __decorate([i], t);
+            __decorate([n()], t.prototype, "bufferZone", void 0), t = __decorate([d], t);
     }(cc.Component);
-exports.default = a
+exports.default = a;

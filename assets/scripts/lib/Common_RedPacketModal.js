@@ -1,5 +1,5 @@
 var o = require("./Common_CommonUtil"),
-    i = require("./Common_ShareUtils"),
+    p = require("./Common_ShareUtils"),
     n = require("./EChannelPrefix"),
     a = require("./gamesdk"),
     s = require("./wxShortcut"),
@@ -25,7 +25,7 @@ var o = require("./Common_CommonUtil"),
         }, t.prototype.onInvite = function() {
             this.onClose();
             var t = "shareCode=" + (this._shareCode || " ") + "&shareId=" + (a.game.getOpenId() || " ");
-            i.default.share(n.default.getred66, t, function() {
+            p.default.share(n.default.getred66, t, function() {
                 console.log("分享成功"), s.default.showModal("邀请发送成功", "记得提醒好友帮你点哦", "返回游戏");
             });
         }, t = __decorate([r], t);

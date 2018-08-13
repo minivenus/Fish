@@ -27,7 +27,7 @@ cc.Class({
             var e = this._heroNode.getPosition();
             e = this._heroNode.parent.convertToWorldSpaceAR(e);
             var t = this._pos;
-            2500 < g(_(e.x - t.x, 2) + _(e.y - t.y, 2)) && this.node.removeFromParent();
+            2500 < g(u(e.x - t.x, 2) + u(e.y - t.y, 2)) && this.node.removeFromParent();
         }
     }
 });

@@ -24,24 +24,24 @@ var r = require("./LogUtil"),
             t.push(this.node);
             for (var o = 0; o < e.length; o++) {
                 e[o];
-                var i = t[o].getChildByName(e[o]);
-                if (null == i) return r.LogUtil.ErroLog("BaseGameUI.GetNodeByName : Not find node=>'" + e[o] + "'"),
+                var s = t[o].getChildByName(e[o]);
+                if (null == s) return r.LogUtil.ErroLog("BaseGameUI.GetNodeByName : Not find node=>'" + e[o] + "'"),
                     null;
-                t.push(i);
+                t.push(s);
             }
             return t[t.length - 1];
-        }, e.prototype.AddToggleEvent = function(s, e, t, o, i) {
+        }, e.prototype.AddToggleEvent = function(s, e, t, o, d) {
             try {
                 var n = new cc.Component.EventHandler();
-                n.target = s, n.component = e, n.handler = t, n.customEventData = null == i ? "" : i,
+                n.target = s, n.component = e, n.handler = t, n.customEventData = null == d ? "" : d,
                     o.getComponent(cc.Toggle).checkEvents.push(n);
             } catch (t) {
                 r.LogUtil.ErroLog("NodeUtil<AddToggleEvent> " + o.name + " " + t);
             }
-        }, e.prototype.AddButtonEvent = function(s, e, t, o, i) {
+        }, e.prototype.AddButtonEvent = function(s, e, t, o, d) {
             try {
                 var n = new cc.Component.EventHandler();
-                n.target = s, n.component = e, n.handler = t, n.customEventData = null == i ? "" : i,
+                n.target = s, n.component = e, n.handler = t, n.customEventData = null == d ? "" : d,
                     o.getComponent(cc.Button).clickEvents.push(n);
             } catch (t) {
                 r.LogUtil.ErroLog("NodeUtil<AddButtonEvent> " + o.name + " " + t);
@@ -51,7 +51,7 @@ var r = require("./LogUtil"),
         }, e.prototype.SetFlipx = function(a, e) {
             var t = cc.flipX(e);
             a.runAction(t);
-        }, e.prototype.LoadSprite = function(r, t, i, n, a) {
+        }, e.prototype.LoadSprite = function(r, t, d, n, a) {
             "" != t && null != t && void 0 !== t ? cc.loader.load({
                 url: t,
                 type: "jpg"
@@ -60,8 +60,8 @@ var r = require("./LogUtil"),
                     var t = new cc.SpriteFrame(e);
                     this.spUserHead.getComponent(cc.Sprite).spriteFrame = t, this.spUserHead.node.width = n,
                         this.spUserHead.node.height = a;
-                } else r.getComponent(cc.Sprite).spriteFrame = i, r.width = n, r.height = a;
-            }.bind(this)) : (r.getComponent(cc.Sprite).spriteFrame = i, r.width = n, r.height = a);
+                } else r.getComponent(cc.Sprite).spriteFrame = d, r.width = n, r.height = a;
+            }.bind(this)) : (r.getComponent(cc.Sprite).spriteFrame = d, r.width = n, r.height = a);
         }, e;
     }(cc.Component);
 exports.NodeUtil = o;

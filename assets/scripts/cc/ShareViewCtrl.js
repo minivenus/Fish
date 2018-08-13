@@ -3,9 +3,11 @@ function t(t) {
         default: t
     };
 }
+
 var r = require("../lib/Fish_UserData"),
     n = t(require("../lib/Common_Data")),
-    i = t(require("../lib/EChannelPrefix"));
+    d = t(require("../lib/EChannelPrefix")),
+    a = require("../lib/Define");
 cc.Class({
     extends: cc.Component,
     properties: {
@@ -15,22 +17,27 @@ cc.Class({
         has: cc.Label,
         enablelable: cc.Node,
         fistGameLable: cc.Label,
+        goldreliveBtn: cc.Node,
+        kankanreliveBtn: cc.Node,
         game: cc.Node,
         _SeeAvState: !1,
         gobt: cc.Node,
-        shareBt: cc.Node,
-        shareBt2: cc.Node,
         reliveGoldLabel: cc.Label,
         reliveBt: cc.Node,
         shareCoid: 1,
         shareCoidDob: 1
     },
     start: function() {
-        this.node.setLocalZOrder(4), this.enablelable.setLocalZOrder(4), this.GameCtrl = this.game.getComponent("Fish_Main"),
+        this.node.setLocalZOrder(4), this.enablelable.setLocalZOrder(4), this.GameCtrl = window.gameCrtl,
             this.reliveNeedGold = this.GameCtrl.reliveNeedGold || 120, this.TimeNum = 10, this.TimeTex.string = this.TimeNum,
             this.timeOut = !1, this.CountDownClick(1e3);
-        var t = r.Fish_UserData.getFristGame();
-        console.log("state======", t), t && (this.fistGameLable.string = "免费复活"), this.gobt.on("touchstart", this.ShowSkipBtn, this);
+        var a, e, t = r.Fish_UserData.getFristGame();
+        if (console.log("state======", t), t) this.fistGameLable.string = "免费复活", this.kankanreliveBtn.active = !1;
+        else {
+            var o = (e = 3, (a = 1) < C(Math.random() * (e - a + 1) + a));
+            this.kankanreliveBtn.active = o, this.goldreliveBtn.active = !o;
+        }
+        this.gobt.on("touchstart", this.ShowSkipBtn, this);
     },
     ShowSkipBtn: function() {
         this.ShowView(!1), console.log("ShowSkipBtn!!!!!!!!!!!!"), this.GameCtrl.RealGameOver();
@@ -42,15 +49,16 @@ cc.Class({
     DeleteTimeNum: function() {
         this._SeeAvState || (this.TimeNum -= 1, this.TimeTex.string = this.TimeNum, this.TimeNum);
     },
-    SetScoreLabel: function(a) {
-        this.Score.string = a, this.has.string = r.Fish_UserData.getGold();
+    onKanKan: function() {
+        var o = this;
+        a.Define.wxShowVideo("adunit-9d8fdf17e13482f5", function(t) {
+            t && (o.shareCoid = 0, o.GameCtrl.ReliveGame("你已原地复活", 2), o.ShowView(!1));
+        });
+    },
+    SetScoreLabel: function(o) {
+        this.Score.string = o, this.has.string = r.Fish_UserData.getGold();
         var e = r.Fish_UserData.getHeightScore();
-        console.log("score===", a, e);
-        var t = r.Fish_UserData.getShareOpen(),
-            o = r.Fish_UserData.getFristGame();
-        t && !o ? e < a ? (this.shareCoidDob = 0, this.shareBt.active = !1, this.shareBt2.active = !0) : (this.shareCoidDob = .5,
-            this.shareBt.active = !0, this.shareBt2.active = !1) : (this.shareBt.active = !1,
-            this.shareBt2.active = !1);
+        console.log("score===", o, e);
     },
     ShareBtnClick: function() {
         var o = this.reliveNeedGold * this.shareCoid,
@@ -64,9 +72,9 @@ cc.Class({
     ShareBtnClick2: function() {
         var e = this,
             t = this;
-        n.default.share(i.default.resurrection, "", null, function() {
+        n.default.share(d.default.resurrection, "", null, function() {
             console.log("发送复活成功！"), .5 == e.shareCoidDob ? (e.shareCoid = .5, e.reliveGoldLabel.string = "50金币复活") : 0 == e.shareCoidDob && (e.shareCoid = 0,
-                t.GameCtrl.ReliveGame("你已原地复活", 2), e.ShowView(!1)), e.shareBt.active = !1, e.shareBt2.active = !1;
+                t.GameCtrl.ReliveGame("你已原地复活", 2), e.ShowView(!1));
         });
     },
     cancelBtnClick: function() {

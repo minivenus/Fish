@@ -1,6 +1,6 @@
 var d = require("./Common_Data"),
     o = require("./Util"),
-    i = require("./ComPage"),
+    l = require("./ComPage"),
     n = function() {
         function t() {}
         return t.setShareOpen = function(t) {
@@ -61,7 +61,7 @@ var d = require("./Common_Data"),
                             n = parseInt(d[0]),
                             a = 0 == n ? 1 : n + 1,
                             s = (a = 7 < a ? 1 : a) + "-1-" + new Date().getTime().toString();
-                        this.setSign(s), i.ComPage.ShowTip(this.signTip), this.setSignReward([], "");
+                        this.setSign(s), l.ComPage.ShowTip(this.signTip), this.setSignReward([], "");
                     } else console.log("签到效验不通过");
                 }
             }, t.addReward = function(o) {
@@ -99,6 +99,10 @@ var d = require("./Common_Data"),
                 return t = this.openGameBoxTemp ? o.Util.isToday(this.openGameBoxTemp) : t;
             }, t.getOpenGameBoxTimer = function() {
                 return this.getOpenGameBoxtemp() || (this.openGameBoxTimer = 0), this.openGameBoxTimer;
+            }, t.setAgainGame = function(t) {
+                this.settleAgain = t;
+            }, t.getAgainGame = function() {
+                return this.settleAgain;
             }, t.userdataArryToStr = function() {
                 var o = [this.gold, this.curSkin, this.haveSkins, this.protect, this.heightScore, this.newgift, this.fristgame, this.sign, this.openGameBoxTimer, this.openGameBoxTemp, this.fishCompleteList],
                     e = JSON.stringify(o);
@@ -159,6 +163,7 @@ var d = require("./Common_Data"),
             t.sign = "", t.signLocal = "", t.curScore = 0, t.heightScore = 0, t.newgift = !0,
             t.fristgame = !0, t.openGameBoxTimer = 0, t.openGameBoxTemp = null, t.fishCompleteList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             t.fishTempList = [], t.nickName = "", t.Init = !1, t.shareOpen = !1, t.signReward = [],
-            t.signTip = "", t;
+            t.signTip = "", t.challRoomScore = 0, t.challRoomID = "", t.challRoomIntervalTime = 0,
+            t.settleAgain = !1, t;
     }();
 exports.Fish_UserData = n;

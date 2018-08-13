@@ -1,5 +1,5 @@
 var l = require("./Common_RankUtils"),
-    i = require("../utils/Common_CommonUtil"),
+    p = require("./Common_CommonUtil"),
     o = cc._decorator,
     a = o.ccclass,
     n = o.property,
@@ -14,7 +14,7 @@ var l = require("./Common_RankUtils"),
                     this.labRank.string = e.toString(), this.labName.string = l.Common_RankUtils.nameCheck(a.nick_name),
                         this.labScore.string = l.Common_RankUtils.scoreCheck(a.score);
                     var t = l.Common_RankUtils.getTitle(a.score);
-                    "" == t ? this.labTitle.node.parent.active = !1 : this.labTitle.string = t, "" != a.avatar_url && i.default.setSprite(this.spHead, a.avatar_url + "?a=a.jpg");
+                    "" == t ? this.labTitle.node.parent.active = !1 : this.labTitle.string = t, "" != a.avatar_url && p.default.setSprite(this.spHead, a.avatar_url + "?a=a.jpg");
                 }
             }, __decorate([n(cc.Label)], t.prototype, "labRank", void 0), __decorate([n(cc.Label)], t.prototype, "labScore", void 0),
             __decorate([n(cc.Label)], t.prototype, "labName", void 0), __decorate([n(cc.Label)], t.prototype, "labTitle", void 0),

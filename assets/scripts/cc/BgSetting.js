@@ -8,4 +8,4 @@ cc.Class({
             window.adapt_scaleX = this.node.scaleX, window.adapt_scaleY = this.node.scaleY,
             console.log("this.node.position:", this.node.position);
     }
-})
+});

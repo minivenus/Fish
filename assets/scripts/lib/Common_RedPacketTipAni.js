@@ -1,5 +1,5 @@
 var o = cc._decorator,
-    i = o.ccclass,
+    s = o.ccclass,
     n = (o.property, function(o) {
         function t() {
             var t = null !== o && o.apply(this, arguments) || this;
@@ -15,10 +15,10 @@ var o = cc._decorator,
                     var t = this.cashLength - 1,
                         o = Math.random();
                     this.cashCount = Math.round(o * t), console.log("总配置条数：" + this.cashLength), console.log("随机显示现金下标：" + this.cashCount);
-                    var i = this.cashLength <= this.cashCount ? 0 : this.cashCount;
-                    this.cashCount = i, this.node.getChildByName("spLine1").getChildByName("labText").getComponent(cc.Label).string = this.cashConfig[i].content,
-                        this.cashCount++, i = this.cashLength <= this.cashCount ? 0 : this.cashCount, this.cashCount = i,
-                        this.node.getChildByName("spLine2").getChildByName("labText").getComponent(cc.Label).string = this.cashConfig[i].content,
+                    var r = this.cashLength <= this.cashCount ? 0 : this.cashCount;
+                    this.cashCount = r, this.node.getChildByName("spLine1").getChildByName("labText").getComponent(cc.Label).string = this.cashConfig[r].content,
+                        this.cashCount++, r = this.cashLength <= this.cashCount ? 0 : this.cashCount, this.cashCount = r,
+                        this.node.getChildByName("spLine2").getChildByName("labText").getComponent(cc.Label).string = this.cashConfig[r].content,
                         this.node.getComponent(cc.Animation).play();
                 }
             }.bind(this));
@@ -30,6 +30,6 @@ var o = cc._decorator,
             this.cashCount++;
             var t = this.cashLength <= this.cashCount ? 0 : this.cashCount;
             this.cashCount = t, this.node.getChildByName("spLine2").getChildByName("labText").getComponent(cc.Label).string = this.cashConfig[t].content;
-        }, t = __decorate([i], t);
+        }, t = __decorate([s], t);
     }(cc.Component));
 exports.default = n;

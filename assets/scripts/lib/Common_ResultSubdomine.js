@@ -1,5 +1,5 @@
 var o = require("./Common_ResultPage"),
-    i = require("./EChannelPrefix"),
+    p = require("./EChannelPrefix"),
     n = require("./Common_RankList"),
     a = require("./Common_Data"),
     s = cc._decorator,
@@ -16,7 +16,7 @@ var o = require("./Common_ResultPage"),
             }, t.prototype.onBack = function() {
                 this.btns.active = !1, this.node.active = !1, n.default.showGameResultList(), this.refresh(2);
             }, t.prototype.onGroupRank = function() {
-                a.default.share(i.default.grouprank);
+                a.default.share(p.default.grouprank);
             }, t.prototype.refresh = function(t) {
                 switch (this.node.active = !0, this.btns.active = !0, t) {
                     case 0:

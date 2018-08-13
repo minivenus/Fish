@@ -1,13 +1,13 @@
 var o = require("./Common_CommonUtil"),
-    i = cc._decorator,
-    n = i.ccclass,
-    a = i.property,
-    s = function(i) {
+    d = cc._decorator,
+    n = d.ccclass,
+    a = d.property,
+    s = function(r) {
         function t() {
-            var t = null !== i && i.apply(this, arguments) || this;
+            var t = null !== r && r.apply(this, arguments) || this;
             return t.icon = null, t.alertIcon = null, t.propName = null, t._data = null, t;
         }
-        return __extends(t, i), Object.defineProperty(t.prototype, "data", {
+        return __extends(t, r), Object.defineProperty(t.prototype, "data", {
                 set: function(t) {
                     t != this._data && (this._data = t, this.refresh());
                 },

@@ -22,7 +22,7 @@ cc.Class({
             var o = cc.scaleTo(.4, 1.1, .95),
                 e = cc.scaleTo(.4, .95, 1.1);
             this.node.runAction(cc.sequence(o, e));
-        }, 1), this._startFish || (this.node.rotation = 90, this.myFish = !1, cc.director.getCollisionManager().enabled = !0);
+        }, 1), this.myFish || (this.node.rotation = 90, cc.director.getCollisionManager().enabled = !0);
     },
     onCollisionEnter: function(a) {
         this.myFish = !!this._startFish || this.myFish;
@@ -35,12 +35,12 @@ cc.Class({
                     other: a,
                     target: this.node
                 });
-                for (var i = 0; i < this.gameCrtl._fishPosEvent.length; i++) "" == this.gameCrtl._fishPosEvent[i] && this.node.fishID == this.gameCrtl._fishPosEvent.length && (this.node.fishID = i);
+                for (var s = 0; s < this.gameCrtl._fishPosEvent.length; s++) "" == this.gameCrtl._fishPosEvent[s] && this.node.fishID == this.gameCrtl._fishPosEvent.length && (this.node.fishID = s);
                 50 <= this.gameCrtl._fishPosEvent.length && 50 <= this.node.fishID ? (t = this.node.getPosition(),
                         t = this.node.parent.convertToWorldSpaceAR(t), t = this._heroNode.convertToNodeSpaceAR(cc.p(t.x, t.y))) : (this.gameCrtl._fishPosEvent[this.node.fishID] = this.node,
                         t = this.gameCrtl._fishPos[this.node.fishID]), this.node.parent = this._heroNode,
-                    this.node.setPosition(t), this.add_label && this.add_label.setPosition(t), 1 == window.worktype && (window.gameCrtl._achievementList[1] = window.gameCrtl._achievementList[1] < this.node.fishID + 1 ? this.node.fishID + 1 : window.gameCrtl._achievementList[1],
-                        window.Achievement.checkWork(1)), 3 == window.worktype && (window.gameCrtl._achievementList[3] += 1,
+                    this.node.setPosition(t), this.add_label && this.add_label.setPosition(t), 1 == window.worktype && "mainpt" != window.cur_scence && (window.gameCrtl._achievementList[1] = window.gameCrtl._achievementList[1] < this.node.fishID + 1 ? this.node.fishID + 1 : window.gameCrtl._achievementList[1],
+                        window.Achievement.checkWork(1)), 3 == window.worktype && "mainpt" != window.cur_scence && (window.gameCrtl._achievementList[3] += 1,
                         window.Achievement.checkWork(3)), a.node.getComponent("Fish_fishCtr").wudiState && this.onWuDi();
             } else if ("Missile" == r) {
             if (this.wudiState) return void a.node.destroy();
@@ -53,7 +53,7 @@ cc.Class({
                 this.redNode.runAction(cc.sequence(cc.fadeIn(.1), cc.fadeOut(.2), cc.callFunc(n, this))),
                     cc.audioEngine.play(this.blastSound, !1, 1);
             }
-            this.node.fishID && (this.gameCrtl._fishPosEvent[this.node.fishID] = ""), 0 == window.worktype && this.myFish && (window.gameCrtl._achievementList[0] += 1,
+            this.node.fishID && (this.gameCrtl._fishPosEvent[this.node.fishID] = ""), 0 == window.worktype && this.myFish && "mainpt" != window.cur_scence && (window.gameCrtl._achievementList[0] += 1,
                 window.Achievement.checkWork(0)), this.onBlast();
         } else if ("puffer" == r || "point5" == r || "stone01" == r || "point4" == r || "point3" == r || "point2" == r || "point1" == r || "pufferMod" == r) {
             if (this.wudiState) return;
@@ -77,11 +77,11 @@ cc.Class({
         }), a.node.active = !1) : "gold" == r && this.myFish ? (cc.director.getScene().getChildByName("Canvas").emit("Gold_push", {
             other: a,
             target: this.node
-        }), a.node.active = !1, console.log("window.worktype===", window.worktype), 5 == window.worktype && (window.gameCrtl._achievementList[5] += 1,
+        }), a.node.active = !1, console.log("window.worktype===", window.worktype), 5 == window.worktype && "mainpt" != window.cur_scence && (window.gameCrtl._achievementList[5] += 1,
             window.Achievement.checkWork(5))) : "biggold" == r && this.myFish ? (cc.director.getScene().getChildByName("Canvas").emit("Gold_push", {
             other: a,
             target: this.node
-        }), console.log("window.worktype===", window.worktype), 5 == window.worktype && (window.gameCrtl._achievementList[5] += 1,
+        }), console.log("window.worktype===", window.worktype), 5 == window.worktype && "mainpt" != window.cur_scence && (window.gameCrtl._achievementList[5] += 1,
             window.Achievement.checkWork(5)), a.node.active = !1) : "citie" == r && this.myFish ? (window.gameCrtl.onCiTie(),
             a.node.active = !1) : "newgold" == r && this.myFish && (cc.director.getScene().getChildByName("Canvas").emit("New_Gold_push", {
             other: a,
@@ -121,12 +121,12 @@ cc.Class({
                 e = this._heroNode.parent.convertToWorldSpaceAR(e);
                 var t = this.node.getPosition();
                 t = this.node.parent.convertToWorldSpaceAR(t);
-                var o = g(_(e.x - t.x, 2) + _(e.y - t.y, 2)),
-                    i = 100 * (1 * r);
-                this.node.rotation += d(2 * Math.random()) - 1;
-                var n = -C / 180 * this.node.rotation,
-                    a = t.x - y(n) * i,
-                    s = t.y - f(n) * i;
+                var o = g(u(e.x - t.x, 2) + u(e.y - t.y, 2)),
+                    d = 100 * (1 * r);
+                this.node.rotation += C(2 * Math.random()) - 1;
+                var n = -y / 180 * this.node.rotation,
+                    a = t.x - f(n) * d,
+                    s = t.y - _(n) * d;
                 return t = this.node.parent.convertToNodeSpaceAR(cc.p(a, s)), this.node.setPosition(t),
                     this._time -= r, 2500 < o ? (this._isdestroy = !0, void this.node.destroy()) : void 0;
             }

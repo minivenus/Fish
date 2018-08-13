@@ -1,13 +1,13 @@
 var g = require("./Common_ResultPropItem"),
-    i = require("./Common_ResultSubdomine"),
+    _ = require("./Common_ResultSubdomine"),
     o = require("./EChannelPrefix"),
     a = require("./Common_RankList"),
     n = require("./Common_CommonUtil"),
     s = require("./Common_Data"),
     r = require("./wxDisplayCheck"),
     l = cc._decorator,
-    d = l.ccclass,
-    c = l.property,
+    c = l.ccclass,
+    d = l.property,
     u = function(l) {
         function t() {
             var t = null !== l && l.apply(this, arguments) || this;
@@ -71,11 +71,11 @@ var g = require("./Common_ResultPropItem"),
                     var e = -this.data.props.length / 2 + .5 + t;
                     a.position = cc.p(220 * e, 0), a.getComponent(g.default).data = this.data.props[t];
                 }
-            }, __decorate([c(cc.RichText)], t.prototype, "score", void 0), __decorate([c(cc.Label)], t.prototype, "bestScore", void 0),
-            __decorate([c(cc.Label)], t.prototype, "coins", void 0), __decorate([c(cc.Label)], t.prototype, "title", void 0),
-            __decorate([c(cc.Label)], t.prototype, "surpassLabel", void 0), __decorate([c(cc.Label)], t.prototype, "tipLabel", void 0),
-            __decorate([c(cc.Node)], t.prototype, "propRoot", void 0), __decorate([c(cc.Prefab)], t.prototype, "propPrefab", void 0),
-            __decorate([c(i.default)], t.prototype, "resultSubdomine", void 0), t = p = __decorate([d], t);
+            }, __decorate([d(cc.RichText)], t.prototype, "score", void 0), __decorate([d(cc.Label)], t.prototype, "bestScore", void 0),
+            __decorate([d(cc.Label)], t.prototype, "coins", void 0), __decorate([d(cc.Label)], t.prototype, "title", void 0),
+            __decorate([d(cc.Label)], t.prototype, "surpassLabel", void 0), __decorate([d(cc.Label)], t.prototype, "tipLabel", void 0),
+            __decorate([d(cc.Node)], t.prototype, "propRoot", void 0), __decorate([d(cc.Prefab)], t.prototype, "propPrefab", void 0),
+            __decorate([d(_.default)], t.prototype, "resultSubdomine", void 0), t = p = __decorate([c], t);
         var p;
     }(cc.Component);
 exports.default = u;

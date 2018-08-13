@@ -10,14 +10,22 @@ cc.Class({
         isPause: !0,
         gameCtl: null,
         heroPos: null,
-        _radian: null
+        _radian: null,
+        speed: 400,
+        redRode: cc.Node
     },
     start: function() {
         this._time = 5, cc.director.getCollisionManager().enabled = !0, this.ration = .5 < Math.random(),
-            this.node.y = this.ration ? -1e3 : 1e3, this.node.rotation = this.ration ? 0 : 180;
+            this.node.y = this.ration ? -1e3 : 1e3, this.node.rotation = this.ration ? 0 : 180,
+            this.speed = 200 * C(window.gameCrtl.timergo / 10) + 400, 800 < this.speed && (this.speed = 800);
+        var a = cc.fadeTo(.5, 255),
+            e = cc.fadeTo(.2, 200),
+            t = cc.fadeTo(.2, 255),
+            o = cc.fadeTo(.5, 100);
+        this.redRode.runAction(cc.sequence(a, e, t, o));
     },
-    onCollisionEnter: function() {
-        "gold" != name && this.onRunAction();
+    onCollisionEnter: function(t) {
+        "gold" != t.node.name && this.onRunAction();
     },
     onBlast: function() {},
     onRunAction: function() {
@@ -28,7 +36,9 @@ cc.Class({
             }, .2);
     },
     update: function(o) {
-        var e = this.ration ? 1 : -1;
-        this.node.y += 800 * o * e, (2e3 <= this.node.y || -2e3 >= this.node.y) && this.node.parent.removeFromParent();
+        if (window.gameCrtl && !window.gameCrtl.isPause) {
+            var e = this.ration ? 1 : -1;
+            this.node.y += o * this.speed * e, (1e3 <= this.node.y || -1e3 >= this.node.y) && this.node.parent.destroy();
+        }
     }
 });

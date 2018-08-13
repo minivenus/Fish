@@ -1,5 +1,5 @@
 var o = cc._decorator,
-    i = o.ccclass,
+    d = o.ccclass,
     n = o.property,
     a = function(o) {
         function t() {
@@ -7,6 +7,6 @@ var o = cc._decorator,
             return t.label = null, t.text = "hello", t;
         }
         return __extends(t, o), t.prototype.start = function() {}, __decorate([n(cc.Label)], t.prototype, "label", void 0),
-            __decorate([n], t.prototype, "text", void 0), t = __decorate([i], t);
+            __decorate([n], t.prototype, "text", void 0), t = __decorate([d], t);
     }(cc.Component);
 exports.default = a;

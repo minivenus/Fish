@@ -24,7 +24,8 @@ function l(r, s, d) {
         });
     });
 }
-var i = function() {
+
+var n = function() {
         function a(a, e) {
             for (var t, n = 0; n < e.length; n++) t = e[n], t.enumerable = t.enumerable || !1,
                 t.configurable = !0, "value" in t && (t.writable = !0), Object.defineProperty(a, t.key, t);
@@ -33,55 +34,55 @@ var i = function() {
             return e && a(n.prototype, e), t && a(n, t), n;
         };
     }(),
-    p = o(require("./config")),
-    n = o(require("./dataStatistics")),
-    r = function() {
+    r = o(require("./config")),
+    p = o(require("./dataStatistics")),
+    s = function() {
         function t() {
             (function(o, e) {
                 if (!(o instanceof e)) throw new TypeError("Cannot call a class as a function");
             })(this, t);
         }
-        return i(t, null, [{
+        return n(t, null, [{
             key: "updateGold",
-            value: function(r, s, d, c, i) {
+            value: function(s, d, c, m, g) {
                 try {
-                    var m = {
-                        appId: p.default.appId,
-                        gold: r,
-                        goldSource: s,
-                        from: d
+                    var n = {
+                        appId: r.default.appId,
+                        gold: s,
+                        goldSource: d,
+                        from: c
                     };
-                    l(p.default.api + "user/updateGold", m, "POST").then(function(t) {
-                        c(t), n.default.goldCount(r, t.data.gold);
+                    l(r.default.api + "user/updateGold", n, "POST").then(function(t) {
+                        m(t), p.default.goldCount(s, t.data.gold);
                     }, function(t) {
-                        i(t);
+                        g(t);
                     });
-                } catch (e) {
-                    i(e);
+                } catch (t) {
+                    g(t);
                 }
             }
         }, {
             key: "getGameGoldBalance",
-            value: function(a, n) {
+            value: function(a, t) {
                 try {
-                    l(p.default.api + "user/getGameGoldBalance?appId=" + p.default.appId, "", "GET").then(function(t) {
+                    l(r.default.api + "user/getGameGoldBalance?appId=" + r.default.appId, "", "GET").then(function(t) {
                         a(t);
-                    }, function(t) {
-                        n(t);
+                    }, function(o) {
+                        t(o);
                     });
-                } catch (e) {
-                    n(e);
+                } catch (o) {
+                    t(o);
                 }
             }
         }, {
             key: "addUserOpenidMapping",
-            value: function(r, e, d, o) {
-                var i = this,
+            value: function(d, e, p, o) {
+                var c = this,
                     n = "";
-                if (r.query.openid ? n = r.query.openid : r.referrerInfo && r.referrerInfo.extraData && r.referrerInfo.extraData.openid && (n = r.referrerInfo.extraData.openid),
-                    "" == n || null == n || null == n) i.checkSynchronized(function(t) {
-                    t.data.isSynchronized ? i.getGameGoldBalance(function(t) {
-                        d(t);
+                if (d.query.openid ? n = d.query.openid : d.referrerInfo && d.referrerInfo.extraData && d.referrerInfo.extraData.openid && (n = d.referrerInfo.extraData.openid),
+                    "" == n || null == n || null == n) c.checkSynchronized(function(t) {
+                    t.data.isSynchronized ? c.getGameGoldBalance(function(t) {
+                        p(t);
                     }, function(t) {
                         o(t);
                     }) : o({
@@ -93,15 +94,15 @@ var i = function() {
                     o(t);
                 }, "gold");
                 else {
-                    var c = {
+                    var m = {
                         openId: n,
-                        appId: p.default.appId,
+                        appId: r.default.appId,
                         gold: e
                     };
-                    l(p.default.api + "user/addUserOpenidMapping", c, "POST").then(function() {
-                        i.checkSynchronized(function(t) {
-                            t.data.isSynchronized ? i.getGameGoldBalance(function(t) {
-                                d(t);
+                    l(r.default.api + "user/addUserOpenidMapping", m, "POST").then(function() {
+                        c.checkSynchronized(function(t) {
+                            t.data.isSynchronized ? c.getGameGoldBalance(function(t) {
+                                p(t);
                             }, function(t) {
                                 o(t);
                             }) : o({
@@ -119,31 +120,31 @@ var i = function() {
             }
         }, {
             key: "checkSynchronized",
-            value: function(a, n) {
-                var t = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : "";
+            value: function(a, t) {
+                var o = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : "";
                 try {
-                    l(p.default.api + "user/checkSynchronized?checkTarget=" + t, "", "GET").then(function(t) {
+                    l(r.default.api + "user/checkSynchronized?checkTarget=" + o, "", "GET").then(function(t) {
                         a(t);
-                    }, function(t) {
-                        n(t);
+                    }, function(o) {
+                        t(o);
                     });
-                } catch (e) {
-                    n(e);
+                } catch (o) {
+                    t(o);
                 }
             }
         }, {
             key: "getGoldExplain",
-            value: function(a, n) {
+            value: function(a, t) {
                 try {
-                    l(p.default.api + "user/getGoldExplain", "", "GET").then(function(t) {
+                    l(r.default.api + "user/getGoldExplain", "", "GET").then(function(t) {
                         a(t);
-                    }, function(t) {
-                        n(t);
+                    }, function(o) {
+                        t(o);
                     });
-                } catch (e) {
-                    n(e);
+                } catch (o) {
+                    t(o);
                 }
             }
         }]), t;
     }();
-exports.default = r;
+export default s;

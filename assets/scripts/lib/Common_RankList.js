@@ -33,12 +33,12 @@ var o = function() {
             rankType: 2,
             needRefresh: t
         });
-    }, t.checkSurpassFriend = function(a, n, i) {
-        void 0 === n && (n = 0), void 0 === i && (i = 0), this.isWeChat() && wx.postMessage({
+    }, t.checkSurpassFriend = function(a, n, r) {
+        void 0 === n && (n = 0), void 0 === r && (r = 0), this.isWeChat() && wx.postMessage({
             rankType: 3,
             score: a,
             x: n,
-            y: i
+            y: r
         });
     }, t.checkWillSurpass = function(o, a) {
         void 0 === a && (a = 400), this.isWeChat() && wx.postMessage({

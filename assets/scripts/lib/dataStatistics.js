@@ -4,7 +4,7 @@ function o(t) {
     };
 }
 
-function i(a, e, t) {
+function d(a, e, t) {
     return e in a ? Object.defineProperty(a, e, {
         value: t,
         enumerable: !0,
@@ -13,31 +13,30 @@ function i(a, e, t) {
     }) : a[e] = t, a;
 }
 
-function d(e) {
-    if (l(e), S) {
-        var a = 0;
-        ! function n() {
-            wx.request({
-                url: "https://h5game-log.kuaiyugo.com/dataAnalysis/saveUserBehaviorLogV2",
-                data: e,
-                method: "POST",
-                header: {
-                    "content-type": "application/json"
-                },
-                success: function() {},
-                fail: function() {
-                    2 > a && (a++, e.retryTimes = a, n());
-                }
-            });
-        }();
-    }
+function s(e) {
+    b(e);
+    var a = 0;
+    (function n() {
+        wx.request({
+            url: "https://h5game-log.kuaiyugo.com/dataAnalysis/saveUserBehaviorLogV2",
+            data: e,
+            method: "POST",
+            header: {
+                "content-type": "application/json"
+            },
+            success: function() {},
+            fail: function() {
+                2 > a && (a++, e.retryTimes = a, n());
+            }
+        });
+    })();
 }
 
-function F(a, r, s) {
+function g(a, r, s) {
     try {
         return new Promise(function(n, t) {
             wx.request({
-                url: _.default.api + s,
+                url: N.default.api + s,
                 data: a,
                 method: r,
                 header: {
@@ -52,112 +51,112 @@ function F(a, r, s) {
             });
         });
     } catch (t) {
-        l(t);
+        b(t);
     }
 }
 
-function c(t) {
-    return l(t), {
+function h(t) {
+    return b(t), {
         code: -10110,
         data: t,
         msg: "request fail"
     };
 }
 
-function u(t) {
-    return l(t), {
+function _(t) {
+    return b(t), {
         code: -10111,
         data: "",
         msg: t
     };
 }
 
-function a(o, n, a) {
+function n(o, n, a) {
     try {
         wx.login({
-            success: function(s) {
-                var e = s.code,
-                    d = {
-                        appId: _.default.appId,
+            success: function(r) {
+                var e = r.code,
+                    s = {
+                        appId: N.default.appId,
                         code: e
                     };
-                if (1 == L(d)) F(d, "POST", "user/standAloneLogin").then(function(i) {
-                    if (console.log(i, "res"), l({
+                if (1 == S(s)) g(s, "POST", "user/standAloneLogin").then(function(r) {
+                    if (console.log(r, "res"), b({
                             name: "登录信息",
-                            res: i
-                        }), 0 == i.data.code) {
-                        C = i.data.debug;
+                            res: r
+                        }), 0 == r.data.code) {
+                        k = r.data.debug;
                         try {
-                            console.log(i.data.data.sessionId);
-                            var s = i.data.data.openId;
-                            l("获取" + s), wx.setStorageSync("uid", s), wx.setStorageSync("sessionId", i.data.data.sessionId),
-                                r(o, n, a, i.data);
+                            console.log(r.data.data.sessionId);
+                            var s = r.data.data.openId;
+                            b("获取" + s), wx.setStorageSync("uid", s), wx.setStorageSync("sessionId", r.data.data.sessionId),
+                                y(o, n, a, r.data);
                         } catch (t) {
-                            console.log(t), p(o, n, a, t, "str");
+                            console.log(t), f(o, n, a, t, "str");
                         }
-                    } else p(o, n, a, i, "obj");
+                    } else f(o, n, a, r, "obj");
                 }).catch(function(t) {
-                    p(o, n, a, t, "obj");
+                    f(o, n, a, t, "obj");
                 });
                 else {
-                    var c = u("前端检查参数不正确" + JSON.stringify(d));
-                    a(c);
+                    var d = _("前端检查参数不正确" + JSON.stringify(s));
+                    a(d);
                 }
             },
             fail: function(t) {
-                l("微信Login失败"), p(o, n, a, t, "obj");
+                b("微信Login失败"), f(o, n, a, t, "obj");
             }
         });
-    } catch (e) {
-        l(e), wx.hideLoading();
+    } catch (t) {
+        b(t), wx.hideLoading();
     }
 }
 
-function p(r, t, o, i, e) {
+function f(r, t, o, s, e) {
     try {
-        var n = "网络异常，是否重新登录";
-        "str" == e ? n += " " + i : "obj" == e && (i.data ? n += " " + JSON.stringify(i.data.msg) : n += " " + JSON.stringify(i)),
-            console.log(n), wx.hideLoading(), wx.showModal({
+        var d = "网络异常，是否重新登录";
+        "str" == e ? d += " " + s : "obj" == e && (s.data ? d += " " + JSON.stringify(s.data.msg) : d += " " + JSON.stringify(s)),
+            console.log(d), wx.hideLoading(), wx.showModal({
                 title: "提示",
-                content: n,
+                content: d,
                 showCancel: !1,
-                success: function(n) {
-                    if (n.confirm) try {
+                success: function(a) {
+                    if (a.confirm) try {
                         wx.showLoading({
                             title: "登录中...",
                             mask: !1
-                        }), a(r, t, o);
-                    } catch (n) {
+                        }), n(r, t, o);
+                    } catch (a) {
                         wx.showLoading({
                             title: "登录中...",
                             mask: !1
-                        }), a(r, t, o);
+                        }), n(r, t, o);
                     }
                 },
                 fail: function() {
-                    a(r, t, o);
+                    n(r, t, o);
                 }
             });
-    } catch (e) {
-        l(e);
+    } catch (t) {
+        b(t);
     }
 }
 
-function r(a, e, t, o) {
+function y(a, e, t, o) {
     console.log(a);
     try {
-        var i = m("login_in");
-        wx.setStorageSync("lastlogintime", new Date().getTime()), a.scene && (i.ext.scene = a.scene),
+        var r = v("login_in");
+        wx.setStorageSync("lastlogintime", new Date().getTime()), a.scene && (r.ext.scene = a.scene),
             function(o) {
                 try {
                     var e = "";
                     if (o.query.goto ? e = o.query.goto : o.referrerInfo && o.referrerInfo.extraData && o.referrerInfo.extraData.goto && (e = o.referrerInfo.extraData.goto),
                         "" == e || null == e || null == e) return;
-                    F("", "GET", "game/getGotoConfig?id=" + e).then(function(a) {
-                        l(a);
+                    g("", "GET", "game/getGotoConfig?id=" + e).then(function(a) {
+                        b(a);
                         var e = a.data.data,
                             t = e.is_open;
-                        if (l(t), t) {
+                        if (b(t), t) {
                             var o = e.appid,
                                 r = e.next_id;
                             wx.navigateToMiniProgram({
@@ -167,87 +166,88 @@ function r(a, e, t, o) {
                                     goto: r
                                 },
                                 success: function(t) {
-                                    l(t);
+                                    b(t);
                                 }
                             });
                         }
                     }).catch(function(t) {
-                        l(t);
+                        b(t);
                     });
                 } catch (t) {
-                    l(t);
+                    b(t);
                 }
-            }(a), a.query.channelCode ? i.ext.ccode = a.query.channelCode : a.referrerInfo && a.referrerInfo.extraData && a.referrerInfo.extraData.channelCode && (i.ext.ccode = a.referrerInfo.extraData.channelCode);
+            }(a), a.query.channelCode ? r.ext.ccode = a.query.channelCode : a.referrerInfo && a.referrerInfo.extraData && a.referrerInfo.extraData.channelCode && (r.ext.ccode = a.referrerInfo.extraData.channelCode);
         try {
-            wx.setStorageSync("channelCode", i.ext.ccode);
+            wx.setStorageSync("channelCode", r.ext.ccode);
         } catch (t) {
-            wx.setStorageSync("channelCode", i.ext.ccode);
+            wx.setStorageSync("channelCode", r.ext.ccode);
         }
-        a.query.sid && (i.ext.sid = a.query.sid);
+        a.query.sid && (r.ext.sid = a.query.sid);
         try {
-            wx.setStorageSync("sid", i.ext.sid);
+            wx.setStorageSync("sid", r.ext.sid);
         } catch (t) {
-            wx.setStorageSync("sid", i.ext.sid);
+            wx.setStorageSync("sid", r.ext.sid);
         }
-        e(o), wx.hideLoading(), g(i.ext), d({
-            userLog: i
+        e(o), wx.hideLoading(), R(r.ext), s({
+            userLog: r
         });
     } catch (t) {
-        wx.hideLoading(), l(t);
+        wx.hideLoading(), b(t);
     }
 }
 
-function s(r, t, o, i, n) {
+function C(r, t, o, s, n) {
     try {
         var e = "网络异常，请稍后重试";
-        C && (e += JSON.stringify(n)), wx.showModal({
+        k && (e += JSON.stringify(n)), wx.showModal({
             title: "提示",
             content: e,
             showCancel: !1,
             success: function() {
-                "get" == r ? P.getKVUserData(o, i) : "set" == r && P.setKVUserData(t, o, i);
+                "get" == r ? l.getKVUserData(o, s) : "set" == r && l.setKVUserData(t, o, s);
             },
             fail: function(a) {
-                s(r, t, o, i, a);
+                C(r, t, o, s, a);
             }
         });
-    } catch (e) {
-        l(e);
+    } catch (t) {
+        b(t);
     }
 }
 
-function L(o) {
-    for (var e in l(o), o)
+function S(o) {
+    for (var e in b(o), o)
         if (null == o[e] || "" == o[e] || "undefined" == o[e]) return -1;
     return 1;
 }
 
-function l(t) {
-    y && console.log(t);
+function b(t) {
+    console.log(t);
 }
 
-function m(a) {
+function v(n) {
     try {
-        var n = wx.getSystemInfoSync(),
+        var r = wx.getSystemInfoSync(),
             t = {};
-        return t.v = f, t.ext = {
-            ak: _.default.appKey,
+        return t.v = p, t.ext = {
+            ak: N.default.appKey,
             ccode: wx.getStorageSync("channelCode") || "",
             sid: wx.getStorageSync("sid") || "",
-            type: a,
+            type: n,
             uid: wx.getStorageSync("uid"),
             scene: wx.getStorageSync("scene") || ""
-        }, t.device = n, b && (t.location = v), t;
+        }, t.device = r, a, t;
     } catch (t) {
-        l(t);
+        b(t);
     }
 }
 
-function g(o) {
+function R(o) {
     for (var e in o) "" != o[e] && null != o[e] && null != o[e] && "{}" != JSON.stringify(o[e]) || delete o[e];
     return o;
 }
-var h = function() {
+
+var P = function() {
         function a(a, e) {
             for (var t, n = 0; n < e.length; n++) t = e[n], t.enumerable = t.enumerable || !1,
                 t.configurable = !0, "value" in t && (t.writable = !0), Object.defineProperty(a, t.key, t);
@@ -256,21 +256,18 @@ var h = function() {
             return e && a(n.prototype, e), t && a(n, t), n;
         };
     }(),
-    _ = o(require("./config.js")),
-    n = o(require("./EChannelPrefix")),
-    f = "1.0.7",
-    y = !0,
-    C = !1,
-    S = !0,
-    b = !1,
-    v = {};
-var P = function() {
+    N = o(require("./config.js")),
+    u = o(require("./EChannelPrefix")),
+    p = "1.0.8",
+    k = !1,
+    a = !1;
+var l = function() {
     function t() {
         (function(o, e) {
             if (!(o instanceof e)) throw new TypeError("Cannot call a class as a function");
         })(this, t);
     }
-    return h(t, null, [{
+    return P(t, null, [{
         key: "saveLog",
         value: function(a) {
             try {
@@ -288,40 +285,40 @@ var P = function() {
         key: "shareAppMsg",
         value: function(o) {
             try {
-                var a = m("share");
+                var a = v("share");
                 a.ext.sid = a.ext.uid, o.query && "" != o.query ? o.query += "&sid=" + a.ext.sid + "&channelCode=" + a.ext.ccode : o.query = "sid=" + a.ext.sid + "&channelCode=" + a.ext.ccode,
-                    l({
+                    b({
                         name: "options",
                         options: o
-                    }), wx.shareAppMessage(o), a.ext = g(a.ext), d({
+                    }), wx.shareAppMessage(o), a.ext = R(a.ext), s({
                         userLog: a
                     });
             } catch (t) {
-                l(t);
+                b(t);
             }
         }
     }, {
         key: "onShareAppMsg",
         value: function(o) {
             try {
-                var a = m("share");
+                var a = v("share");
                 return a.ext.sid = a.ext.uid, a.ext.ccode = wx.getStorageSync("passivechannelcode"),
                     o.query && "" != o.query ? o.query += "&sid=" + a.ext.sid + "&channelCode=" + a.ext.ccode : o.query = "sid=" + a.ext.sid + "&channelCode=" + a.ext.ccode,
-                    a.ext = g(a.ext), d({
+                    a.ext = R(a.ext), s({
                         userLog: a
-                    }), l({
+                    }), b({
                         name: "options",
                         options: o
                     }), o;
             } catch (t) {
-                l(t);
+                b(t);
             }
         }
     }, {
         key: "shareSuccess",
         value: function(o) {
             try {
-                var e = m("sharesuccess");
+                var e = v("sharesuccess");
                 if ("initiative" == o) try {
                     e.ext.ccode = wx.getStorageSync("channelCode");
                 } catch (t) {
@@ -331,36 +328,36 @@ var P = function() {
                 } catch (t) {
                     e.ext.ccode = wx.getStorageSync("passivechannelcode");
                 }
-                e.ext.sid = e.ext.uid, e.ext = g(e.ext), d({
+                e.ext.sid = e.ext.uid, e.ext = R(e.ext), s({
                     userLog: e
                 });
             } catch (t) {
-                l(t);
+                b(t);
             }
         }
     }, {
         key: "onShowInfo",
-        value: function(s, e, t) {
-            l("sdk_config.version" + f);
+        value: function(a, e, t) {
+            b("sdk_config.version" + p);
             var o = e || function() {},
-                i = t || function() {};
+                r = t || function() {};
             try {
-                "" == wx.getStorageSync("uid") || null == wx.getStorageSync("uid") ? function n(e, t, o) {
+                "" == wx.getStorageSync("uid") || null == wx.getStorageSync("uid") ? function a(e, t, o) {
                     try {
                         wx.showLoading({
                             title: "登录中...",
                             mask: !0,
                             success: function() {
-                                a(e, t, o);
+                                n(e, t, o);
                             },
                             fail: function() {
-                                n(e, t, o);
+                                a(e, t, o);
                             }
                         });
-                    } catch (e) {
-                        l(e);
+                    } catch (t) {
+                        b(t);
                     }
-                }(s, o, i) : r(s, o, 0, {
+                }(a, o, r) : y(a, o, r, {
                     code: 0,
                     data: {
                         openId: wx.getStorageSync("uid")
@@ -368,60 +365,60 @@ var P = function() {
                     msg: ""
                 });
             } catch (t) {
-                l(t);
+                b(t);
             }
         }
     }, {
         key: "onHideInfo",
         value: function() {
             try {
-                var t = m("login_out");
-                t.ext.preLogin = wx.getStorageSync("lastlogintime"), t.ext = g(t.ext), d({
+                var t = v("login_out");
+                t.ext.preLogin = wx.getStorageSync("lastlogintime"), t.ext = R(t.ext), s({
                     userLog: t
                 });
             } catch (t) {
-                l(t);
+                b(t);
             }
         }
     }, {
         key: "getShareInfo",
         value: function(p, m, t) {
             var o = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : "",
-                i = 4 < arguments.length && void 0 !== arguments[4] ? arguments[4] : "",
-                g = 5 < arguments.length && void 0 !== arguments[5] ? arguments[5] : "",
+                g = 4 < arguments.length && void 0 !== arguments[4] ? arguments[4] : "",
+                n = 5 < arguments.length && void 0 !== arguments[5] ? arguments[5] : "",
                 a = 6 < arguments.length && void 0 !== arguments[6] ? arguments[6] : "",
                 s = 7 < arguments.length && void 0 !== arguments[7] ? arguments[7] : "";
             try {
-                var f = m || function() {},
-                    y = t || function() {},
-                    C = {
+                var c = m || function() {},
+                    f = t || function() {},
+                    y = {
                         channelPrefix: p,
-                        appKey: _.default.appKey
+                        appKey: N.default.appKey
                     };
-                if (1 == L(C))(function(d) {
-                    var i = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : "",
+                if (1 == S(y))(function(d) {
+                    var l = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : "",
                         e = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : "",
-                        p = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : "",
+                        n = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : "",
                         a = 4 < arguments.length && void 0 !== arguments[4] ? arguments[4] : "",
                         s = 5 < arguments.length && void 0 !== arguments[5] ? arguments[5] : "",
-                        c = "";
+                        p = "";
                     try {
-                        c = wx.getStorageSync("uid");
-                    } catch (e) {}
+                        p = wx.getStorageSync("uid");
+                    } catch (t) {}
                     return new Promise(function(r, o) {
                         wx.request({
-                            url: _.default.api + "backendManager/getMaterialInfoByAppkey?channelPrefix=" + d + "&appKey=" + _.default.appKey + "&userId=" + c + "&materialSuffix=" + i + "&name=" + e + "&point=" + p + "&other=" + a + "&channelCode=" + s,
+                            url: N.default.api + "backendManager/getMaterialInfoByAppkey?channelPrefix=" + d + "&appKey=" + N.default.appKey + "&userId=" + p + "&materialSuffix=" + l + "&name=" + e + "&point=" + n + "&other=" + a + "&channelCode=" + s,
                             method: "GET",
                             header: {
                                 "content-type": "application/json"
                             },
                             success: function(o) {
-                                if (l({
+                                if (b({
                                         name: "服务器返回分享信息",
                                         res: o
                                     }), o.data.data.channel_code) {
                                     var a = o.data.data.channel_code;
-                                    if (d == n.default.regular) try {
+                                    if (d == u.default.regular) try {
                                         wx.setStorageSync("passivechannelcode", a);
                                     } catch (t) {
                                         wx.setStorageSync("passivechannelcode", a);
@@ -434,18 +431,18 @@ var P = function() {
                             }
                         });
                     });
-                })(p, o, i, g, a, s).then(function(t) {
-                    "function" == typeof f && f(t);
+                })(p, o, g, n, a, s).then(function(t) {
+                    "function" == typeof c && c(t);
                 }).catch(function(o) {
-                    var e = c(o);
-                    "function" == typeof y && y(e);
+                    var e = h(o);
+                    "function" == typeof f && f(e);
                 });
                 else {
-                    var d = u("前端检查参数不正确" + JSON.stringify(C));
-                    y(d);
+                    var C = _("前端检查参数不正确" + JSON.stringify(y));
+                    f(C);
                 }
             } catch (t) {
-                l(t);
+                b(t);
             }
         }
     }, {
@@ -453,25 +450,25 @@ var P = function() {
         value: function(r, d, e) {
             try {
                 var t = {
-                        appKey: _.default.appKey,
+                        appKey: N.default.appKey,
                         user: wx.getStorageSync("uid"),
                         value: r
                     },
-                    i = d || function() {},
+                    l = d || function() {},
                     p = e || function() {};
-                if (1 == L(t)) F(t, "POST", "game/setKVUserData").then(function(t) {
-                    l(t), "function" == typeof i && i(t);
+                if (1 == S(t)) g(t, "POST", "game/setKVUserData").then(function(t) {
+                    b(t), "function" == typeof l && l(t);
                 }).catch(function(o) {
-                    l(o);
-                    var e = c(o);
-                    "function" == typeof p && p(e), s("set", r, i, p, o);
+                    b(o);
+                    var e = h(o);
+                    "function" == typeof p && p(e), C("set", r, l, p, o);
                 });
                 else {
-                    var m = u("前端检查参数不正确" + JSON.stringify(t));
-                    p(m);
+                    var c = _("前端检查参数不正确" + JSON.stringify(t));
+                    p(c);
                 }
-            } catch (e) {
-                l(e);
+            } catch (t) {
+                b(t);
             }
         }
     }, {
@@ -479,37 +476,37 @@ var P = function() {
         value: function(r, e) {
             try {
                 var d = r || function() {},
-                    p = e || function() {},
+                    l = e || function() {},
                     t = wx.getStorageSync("uid"),
-                    m = {
-                        appKey: _.default.appKey,
+                    p = {
+                        appKey: N.default.appKey,
                         user: t
                     };
-                if (1 == L(m)) F("", "GET", "game/getKVUserData?appKey=" + _.default.appKey + "&user=" + t).then(function(t) {
-                    l(t), "function" == typeof d && d(t);
+                if (1 == S(p)) g("", "GET", "game/getKVUserData?appKey=" + N.default.appKey + "&user=" + t).then(function(t) {
+                    b(t), "function" == typeof d && d(t);
                 }).catch(function(o) {
-                    var e = c(o);
-                    "function" == typeof p && p(e), s("get", "", d, p, o);
+                    var e = h(o);
+                    "function" == typeof l && l(e), C("get", "", d, l, o);
                 });
                 else {
-                    var a = u("前端检查参数不正确" + JSON.stringify(m));
-                    p(a);
+                    var a = _("前端检查参数不正确" + JSON.stringify(p));
+                    l(a);
                 }
             } catch (t) {
-                l(t);
+                b(t);
             }
         }
     }, {
         key: "getServerTime",
         value: function(a, t) {
             try {
-                F("", "GET", "user/getServerTime").then(function(t) {
+                g("", "GET", "user/getServerTime").then(function(t) {
                     a(t);
                 }).catch(function(o) {
                     t(o);
                 });
-            } catch (e) {
-                l(e);
+            } catch (t) {
+                b(t);
             }
         }
     }, {
@@ -518,17 +515,17 @@ var P = function() {
             try {
                 var t = a || function() {},
                     r = e || function() {};
-                if ("" == _.default.appKey || null == _.default.appKey) {
-                    var s = u("前端检查参数不正确appkey=" + _.default.appKey);
+                if ("" == N.default.appKey || null == N.default.appKey) {
+                    var s = _("前端检查参数不正确appkey=" + N.default.appKey);
                     r(s);
-                } else F("", "GET", "game/getGameConfigByAppkey?appKey=" + _.default.appKey).then(function(a) {
-                    l(a), "function" == typeof t && t(a);
+                } else g("", "GET", "game/getGameConfigByAppkey?appKey=" + N.default.appKey).then(function(a) {
+                    b(a), "function" == typeof t && t(a);
                 }).catch(function(o) {
-                    var e = c(o);
+                    var e = h(o);
                     "function" == typeof r && r(e);
                 });
             } catch (t) {
-                l(t);
+                b(t);
             }
         }
     }, {
@@ -538,16 +535,16 @@ var P = function() {
                 n = arguments[1],
                 o = arguments[2];
             try {
-                var i = {
+                var r = {
                     codeBody: JSON.stringify({
                         openid: wx.getStorageSync("uid"),
-                        appKey: _.default.appKey,
-                        appid: _.default.appId,
+                        appKey: N.default.appKey,
+                        appid: N.default.appId,
                         param: a
                     }),
                     pageType: "red_packet"
                 };
-                this.gameHttp(_.default.api + "gamepay/createWXACode", i, "POST").then(function(a) {
+                this.gameHttp(N.default.api + "gamepay/createWXACode", r, "POST").then(function(a) {
                     console.log(a);
                     var e = a.data;
                     wx.previewImage({
@@ -573,20 +570,20 @@ var P = function() {
         }
     }, {
         key: "createPFCode",
-        value: function(t, a) {
+        value: function(t, o) {
             try {
-                var o = {
+                var a = {
                     codeBody: JSON.stringify({
                         openid: wx.getStorageSync("uid"),
-                        appKey: _.default.appKey,
-                        appid: _.default.appId,
+                        appKey: N.default.appKey,
+                        appid: N.default.appId,
                         channelCode: "moregame"
                     }),
                     pageType: "more_games"
                 };
-                this.gameHttp(_.default.api + "gamepay/createWXACode", o, "POST").then(function(o) {
-                    console.log(o);
-                    var e = o.data;
+                this.gameHttp(N.default.api + "gamepay/createWXACode", a, "POST").then(function(a) {
+                    console.log(a);
+                    var e = a.data;
                     wx.previewImage({
                         current: e,
                         urls: [e],
@@ -598,31 +595,31 @@ var P = function() {
                             });
                         },
                         fail: function(t) {
-                            a(t);
+                            o(t);
                         }
                     });
                 }, function(t) {
-                    a(t);
+                    o(t);
                 });
-            } catch (e) {
-                a(e);
+            } catch (t) {
+                o(t);
             }
         }
     }, {
         key: "mysteryCode",
         value: function(a, n, o) {
             try {
-                var i = {
+                var r = {
                     codeBody: JSON.stringify({
                         openid: wx.getStorageSync("uid"),
-                        appKey: _.default.appKey,
-                        appid: _.default.appId,
+                        appKey: N.default.appKey,
+                        appid: N.default.appId,
                         gameName: a,
                         channelCode: "coinpackage"
                     }),
                     pageType: "mystical_reward"
                 };
-                this.gameHttp(_.default.api + "gamepay/createWXACode", i, "POST").then(function(a) {
+                this.gameHttp(N.default.api + "gamepay/createWXACode", r, "POST").then(function(a) {
                     console.log(a);
                     var e = a.data;
                     wx.previewImage({
@@ -648,42 +645,42 @@ var P = function() {
         }
     }, {
         key: "taskGoldMap",
-        value: function(d, p, m, o) {
+        value: function(p, m, g, o) {
             try {
-                var g = wx.getStorageSync("gameUserInfo"),
-                    u = {};
-                if ("string" == typeof g && 5 < g.length) {
-                    var a, s = (g = JSON.parse(g)).nickName,
-                        c = g.avatarUrl;
-                    u.codeBody = JSON.stringify((i(a = {
+                var u = wx.getStorageSync("gameUserInfo"),
+                    h = {};
+                if ("string" == typeof u && 5 < u.length) {
+                    var a, s = (u = JSON.parse(u)).nickName,
+                        c = u.avatarUrl;
+                    h.codeBody = JSON.stringify((d(a = {
                         openid: wx.getStorageSync("uid"),
-                        appKey: _.default.appKey,
-                        appid: _.default.appId,
+                        appKey: N.default.appKey,
+                        appid: N.default.appId,
                         channelCode: "coincheck",
-                        gold: p,
-                        gameName: d,
-                        gameCoin: p
-                    }, "gameCoin", p), i(a, "nickName", s), i(a, "avatarUrl", c), a)), u.pageType = "receive_gift";
+                        gold: m,
+                        gameName: p,
+                        gameCoin: m
+                    }, "gameCoin", m), d(a, "nickName", s), d(a, "avatarUrl", c), a)), h.pageType = "receive_gift";
                 } else {
                     var r;
-                    u.codeBody = JSON.stringify((i(r = {
+                    h.codeBody = JSON.stringify((d(r = {
                         openid: wx.getStorageSync("uid"),
-                        appKey: _.default.appKey,
-                        appid: _.default.appId,
+                        appKey: N.default.appKey,
+                        appid: N.default.appId,
                         channelCode: "coincheck",
-                        gold: p,
-                        gameName: d,
-                        gameCoin: p
-                    }, "gameCoin", p), i(r, "nickName", ""), i(r, "avatarUrl", ""), r)), u.pageType = "receive_gift";
+                        gold: m,
+                        gameName: p,
+                        gameCoin: m
+                    }, "gameCoin", m), d(r, "nickName", ""), d(r, "avatarUrl", ""), r)), h.pageType = "receive_gift";
                 }
-                this.gameHttp(_.default.api + "gamepay/createWXACode", u, "POST").then(function(a) {
+                this.gameHttp(N.default.api + "gamepay/createWXACode", h, "POST").then(function(a) {
                     console.log(a);
                     var e = a.data;
                     wx.previewImage({
                         current: e,
                         urls: [e],
                         success: function(t) {
-                            console.log(t), m({
+                            console.log(t), g({
                                 code: 0,
                                 data: "",
                                 msg: "获取二维码成功"
@@ -702,42 +699,42 @@ var P = function() {
         }
     }, {
         key: "goldMap",
-        value: function(d, p, m, o) {
+        value: function(p, m, g, o) {
             try {
-                var g = wx.getStorageSync("gameUserInfo"),
-                    u = {};
-                if ("string" == typeof g && 5 < g.length) {
-                    var a, s = (g = JSON.parse(g)).nickName,
-                        c = g.avatarUrl;
-                    u.codeBody = JSON.stringify((i(a = {
+                var u = wx.getStorageSync("gameUserInfo"),
+                    h = {};
+                if ("string" == typeof u && 5 < u.length) {
+                    var a, s = (u = JSON.parse(u)).nickName,
+                        c = u.avatarUrl;
+                    h.codeBody = JSON.stringify((d(a = {
                         openid: wx.getStorageSync("uid"),
-                        appKey: _.default.appKey,
-                        appid: _.default.appId,
+                        appKey: N.default.appKey,
+                        appid: N.default.appId,
                         channelCode: "morecoin",
-                        gold: p,
-                        gameName: d,
-                        gameCoin: p
-                    }, "gameCoin", p), i(a, "nickName", s), i(a, "avatarUrl", c), a)), u.pageType = "gold_merge";
+                        gold: m,
+                        gameName: p,
+                        gameCoin: m
+                    }, "gameCoin", m), d(a, "nickName", s), d(a, "avatarUrl", c), a)), h.pageType = "gold_merge";
                 } else {
                     var r;
-                    u.codeBody = JSON.stringify((i(r = {
+                    h.codeBody = JSON.stringify((d(r = {
                         openid: wx.getStorageSync("uid"),
-                        appKey: _.default.appKey,
-                        appid: _.default.appId,
+                        appKey: N.default.appKey,
+                        appid: N.default.appId,
                         channelCode: "morecoin",
-                        gold: p,
-                        gameName: d,
-                        gameCoin: p
-                    }, "gameCoin", p), i(r, "nickName", ""), i(r, "avatarUrl", ""), r)), u.pageType = "gold_merge";
+                        gold: m,
+                        gameName: p,
+                        gameCoin: m
+                    }, "gameCoin", m), d(r, "nickName", ""), d(r, "avatarUrl", ""), r)), h.pageType = "gold_merge";
                 }
-                this.gameHttp(_.default.api + "gamepay/createWXACode", u, "POST").then(function(a) {
+                this.gameHttp(N.default.api + "gamepay/createWXACode", h, "POST").then(function(a) {
                     console.log(a);
                     var e = a.data;
                     wx.previewImage({
                         current: e,
                         urls: [e],
                         success: function(t) {
-                            console.log(t), m({
+                            console.log(t), g({
                                 code: 0,
                                 data: "",
                                 msg: "获取二维码成功"
@@ -776,8 +773,8 @@ var P = function() {
                         }
                     });
                 });
-            } catch (e) {
-                l(e);
+            } catch (t) {
+                b(t);
             }
         }
     }, {
@@ -790,9 +787,9 @@ var P = function() {
     }, {
         key: "goldCount",
         value: function(a, e) {
-            var t = m("changeGold");
-            t.ext.goldValue = a, t.ext.goldAccount = e, t.ext = g(t.ext), d(t);
+            var t = v("changeGold");
+            t.ext.goldValue = a, t.ext.goldAccount = e, t.ext = R(t.ext), s(t);
         }
     }]), t;
 }();
-exports.default = P;
+export default l;

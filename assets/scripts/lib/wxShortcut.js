@@ -11,12 +11,12 @@ var r = require("./Common_CommonUtil"),
                 }), d.clearId = setTimeout(function() {
                     return s.hideToast();
                 }, l));
-        }, d.showModal = function(a, n, i) {
-            void 0 === i && (i = "确定"), wx.showModal({
+        }, d.showModal = function(a, n, r) {
+            void 0 === r && (r = "确定"), wx.showModal({
                 title: a,
                 content: n,
                 showCancel: !1,
-                confirmText: i
+                confirmText: r
             });
         }, d.showModalRet = function(a, r, s, d, l) {
             void 0 === s && (s = "确认"), void 0 === d && (d = "取消"), wx.showModal({
@@ -32,6 +32,7 @@ var r = require("./Common_CommonUtil"),
         }, d.clearId = 0, d;
     }();
 exports.default = o;
+
 var s = function() {
     function t() {}
     return t.showToast = function(t) {

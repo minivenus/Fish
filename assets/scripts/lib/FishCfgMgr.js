@@ -1,4 +1,4 @@
-var o, i = require("./Util"),
+var o, s = require("./Util"),
     d = require("./Fish_UserData");
 (o = exports.emTargetType || (exports.emTargetType = {}))[o.T_BeEaten = 0] = "T_BeEaten", o[o.T_FishMax = 1] = "T_FishMax",
     o[o.T_FishTypeMax = 2] = "T_FishTypeMax", o[o.T_EatFishTotal = 3] = "T_EatFishTotal",
@@ -42,9 +42,9 @@ var n = function() {
                 void 0 === t[a] && (t[a] = []), 0 == o ? t[a].push(e) : t[a] = e;
         }, exports.analysisFishCfg = function(r, e, t, o) {
             void 0 === o && (o = 0);
-            for (var i, s = 0; r;) {
-                if (i = r[(++s).toString()], !i) return;
-                this.pushObj(i[e], i, t, o);
+            for (var s, d = 0; r;) {
+                if (s = r[(++d).toString()], !s) return;
+                this.pushObj(s[e], s, t, o);
             }
             console.log(t);
         }, exports.getSignRewardByDay = function(t) {
@@ -64,23 +64,23 @@ var n = function() {
             }
             return n;
         }, exports.getAllTargetValidByArryType = function(r) {
-            for (var e, i = [], t = 0; t < r.length; t++) {
+            for (var e, s = [], t = 0; t < r.length; t++) {
                 e = this.FishTargetDatas[t], this.FishCompleteList = d.Fish_UserData.getCompleteList();
                 var o = this.FishCompleteList[t];
                 if (e)
-                    for (var n = 0; n < e.length && e[n].num <= r[t]; n++) o < e[n].level && (i.push(e[n]),
+                    for (var n = 0; n < e.length && e[n].num <= r[t]; n++) o < e[n].level && (s.push(e[n]),
                         this.FishCompleteList[t] = e[n].level, console.log("完成目标保存：" + t + ":" + this.FishCompleteList[t]));
                 else console.log("不存在该类型目标_3" + t);
             }
-            return d.Fish_UserData.setCompleteList(this.FishCompleteList), i;
+            return d.Fish_UserData.setCompleteList(this.FishCompleteList), s;
         }, exports.getNoCompleteByType = function(a, e) {
             var t = this.FishTargetDatas[a];
             this.FishCompleteList = d.Fish_UserData.getCompleteList();
             var o = this.FishCompleteList[a];
             if (t) {
-                for (var i = 0; i < t.length; i++)
-                    if (t[i].num > e && (console.log("完成等级：" + o),
-                            o < t[i].level)) return t[i];
+                for (var r = 0; r < t.length; r++)
+                    if (t[r].num > e && (console.log("完成等级：" + o),
+                            o < t[r].level)) return t[r];
                 return console.log("该类型不存在未完成目标"), null;
             }
             return console.log("不存在该类型目标_3" + a), null;
@@ -90,11 +90,11 @@ var n = function() {
             return this.FishSkinSpriteFrames[t];
         }, exports.saveComplete = function(o) {
             var e = JSON.stringify(o);
-            console.log("本地保存完成记录：" + e), i.Util.SaveDataByKey("fristComplete", e);
+            console.log("本地保存完成记录：" + e), s.Util.SaveDataByKey("fristComplete", e);
         }, exports.getRewardFrameByKey = function(t) {
             return this.RewardSpriteFrames[t];
         }, exports.loadNum = 0, exports.FishTargetDatas = {}, exports.FishSkinDatas = {}, exports.FishSkinSpriteFrames = {},
         exports.FishCompleteList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], exports.FishSignList = {},
-        exports.RewardSpriteFrames = [null, null, null], exports;
+        exports.RewardSpriteFrames = [null, null, null], t;
 }();
 exports.FishCfgMgr = n;

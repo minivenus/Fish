@@ -1,13 +1,13 @@
 var o = require("./BaseResourcePage"),
-    i = require("./Common_CommonUtil"),
+    m = require("./Common_CommonUtil"),
     n = require("./EChannelPrefix"),
     a = require("./Common_Data"),
     s = require("./Common_ShareUtils"),
     c = require("./gamesdk"),
     r = cc._decorator,
     l = r.ccclass,
-    d = r.property,
-    m = function(o) {
+    g = r.property,
+    d = function(o) {
         function t() {
             var t = null !== o && o.apply(this, arguments) || this;
             return t.icon = null, t.itemCount = null, t.desc = null, t.btnInvite = null, t.resData = null,
@@ -17,7 +17,7 @@ var o = require("./BaseResourcePage"),
                 var o = this,
                     e = this.propDataList[0];
                 e && e.propIcon && this.scheduleOnce(function() {
-                    return i.default.setSprite(o.icon, e.propIcon, function() {
+                    return m.default.setSprite(o.icon, e.propIcon, function() {
                         return o.icon.node.opacity = 255;
                     });
                 }, .1);
@@ -34,8 +34,8 @@ var o = require("./BaseResourcePage"),
                 });
             }, t.prototype.onClose = function() {
                 this.node.destroy();
-            }, __decorate([d(cc.Sprite)], t.prototype, "icon", void 0), __decorate([d(cc.RichText)], t.prototype, "itemCount", void 0),
-            __decorate([d(cc.Label)], t.prototype, "desc", void 0), __decorate([d(cc.Node)], t.prototype, "btnInvite", void 0),
+            }, __decorate([g(cc.Sprite)], t.prototype, "icon", void 0), __decorate([g(cc.RichText)], t.prototype, "itemCount", void 0),
+            __decorate([g(cc.Label)], t.prototype, "desc", void 0), __decorate([g(cc.Node)], t.prototype, "btnInvite", void 0),
             t = __decorate([l], t);
     }(o.default);
-exports.default = m;
+exports.default = d;

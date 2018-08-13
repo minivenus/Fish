@@ -1,5 +1,5 @@
 var o = cc._decorator.ccclass,
-    i = function(a) {
+    r = function(a) {
         function t() {
             var t = null !== a && a.apply(this, arguments) || this;
             return t._renderFps = 30, t;
@@ -29,4 +29,4 @@ var o = cc._decorator.ccclass,
                 this.node.setContentSize(e, t);
         }, t = __decorate([o], t);
     }(cc.Component);
-exports.default = i;
+exports.default = r;

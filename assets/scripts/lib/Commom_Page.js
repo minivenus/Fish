@@ -1,9 +1,9 @@
-var o, i, n = require("./Common_LogUtil"),
+var o, p, n = require("./Common_LogUtil"),
     a = cc._decorator,
     s = a.ccclass,
-    p = a.property;
-(i = o || (o = {}))[i.Normal = 0] = "Normal", i[i.TransitionSlideInR = 1] = "TransitionSlideInR",
-    i[i.TransitionProgressInOut = 2] = "TransitionProgressInOut", i[i.TransitionFadeInOut = 3] = "TransitionFadeInOut";
+    c = a.property;
+(p = o || (o = {}))[p.Normal = 0] = "Normal", p[p.TransitionSlideInR = 1] = "TransitionSlideInR",
+    p[p.TransitionProgressInOut = 2] = "TransitionProgressInOut", p[p.TransitionFadeInOut = 3] = "TransitionFadeInOut";
 var r = function(a) {
     function t() {
         var t = null !== a && a.apply(this, arguments) || this;
@@ -11,15 +11,8 @@ var r = function(a) {
             t;
     }
     return __extends(t, a), t.prototype.onLoad = function() {
-        this.node.on(cc.Node.EventType.TOUCH_START, function() {
-            console.log("PageUtil TOUCH_START-" + this.node.name);
-        }.bind(this), this), this.node.on(cc.Node.EventType.MOUSE_DOWN, function() {
-            console.log("PageUtil MOUSE_DOWN-" + this.node.name);
-        }.bind(this), this), this.node.on(cc.Node.EventType.TOUCH_MOVE, function() {
-            console.log("PageUtil TOUCH_MOVE-" + this.node.name);
-        }.bind(this), this), this.node.on(cc.Node.EventType.TOUCH_END, function() {
-            console.log("PageUtil TOUCH_END-" + this.node.name);
-        }.bind(this), this);
+        this.node.on(cc.Node.EventType.TOUCH_START, function() {}.bind(this), this), this.node.on(cc.Node.EventType.MOUSE_DOWN, function() {}.bind(this), this),
+            this.node.on(cc.Node.EventType.TOUCH_MOVE, function() {}.bind(this), this), this.node.on(cc.Node.EventType.TOUCH_END, function() {}.bind(this), this);
         var a = this.node.getContentSize();
         if (this.pageWidth = a.width, this.pageHeight = a.height, this.content = this.node.getChildByName("content"),
             this.content) switch (this.pageEffectType) {
@@ -77,7 +70,7 @@ var r = function(a) {
             default:
                 n.LogUtil.ErroLog("PageUtil-不存在效果-" + this.pageEffectType);
         }
-    }, __decorate([p({
+    }, __decorate([c({
         tooltip: "页面开启关闭效果类型 默认0\n0-直接直接展开\n1-从右往左展开\n2-从里面向外扩展变大展开\n3-淡出淡入"
     })], t.prototype, "pageEffectType", void 0), t = __decorate([s], t);
 }(cc.Component);

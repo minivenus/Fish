@@ -1,5 +1,5 @@
 var o = cc._decorator,
-    i = o.ccclass,
+    d = o.ccclass,
     n = o.property,
     a = function(o) {
         function t() {
@@ -43,6 +43,6 @@ var o = cc._decorator,
             tooltip: "按钮基础文字"
         })], t.prototype, "lab1", void 0), __decorate([n({
             tooltip: "按钮选中文字"
-        })], t.prototype, "lab2", void 0), t = __decorate([i], t);
+        })], t.prototype, "lab2", void 0), t = __decorate([d], t);
     }(cc.Component);
 exports.default = a;

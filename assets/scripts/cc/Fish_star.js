@@ -25,19 +25,19 @@ cc.Class({
             e = window.gameCrtl._hero.parent.parent.convertToWorldSpaceAR(e);
             var t = this.node.parent.getPosition();
             t = this.node.parent.parent.convertToWorldSpaceAR(t);
-            var o = 90 - m(e.y - t.y, e.x - t.x) * (180 / C);
-            if (400 > g(_(e.x - t.x, 2) + _(e.y - t.y, 2)) && (this._citie = !0), window.OpenCiTie && this._citie) {
+            var o = 90 - m(e.y - t.y, e.x - t.x) * (180 / y);
+            if (400 > g(u(e.x - t.x, 2) + u(e.y - t.y, 2)) && (this._citie = !0), window.OpenCiTie && this._citie) {
                 o -= this.node.rotation, 180 < p(o) && (o = 0 < o ? o - 360 : o + 360);
-                var i = p(o);
-                if (3 > i);
+                var l = p(o);
+                if (3 > l);
                 else {
                     var n = 0 < o ? 1 : -1;
-                    80 < i && 10, this.node.rotation += 60 * (20 * n * d);
+                    80 < l && 10, this.node.rotation += 60 * (20 * n * d);
                 }
-                var a = -C / 180 * (this.node.rotation + 90),
-                    s = t.x - 30 * y(a),
-                    l = t.y - 30 * f(a);
-                t = this.node.parent.convertToNodeSpaceAR(cc.p(s, l)), console.log("myPos====", t),
+                var a = -y / 180 * (this.node.rotation + 90),
+                    s = t.x - 30 * f(a),
+                    c = t.y - 30 * _(a);
+                t = this.node.parent.convertToNodeSpaceAR(cc.p(s, c)), console.log("myPos====", t),
                     this.node.setPosition(t);
             }
         }

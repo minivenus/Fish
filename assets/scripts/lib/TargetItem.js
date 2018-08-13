@@ -1,5 +1,5 @@
 var o = cc._decorator,
-    i = o.ccclass,
+    d = o.ccclass,
     n = o.property,
     a = function(o) {
         function t() {
@@ -8,6 +8,6 @@ var o = cc._decorator,
         }
         return __extends(t, o), t.prototype.start = function() {}, t.prototype.updateItem = function(o, e) {
             void 0 === e && (e = 0), this.itemID = e, this.labContent.string = o.target_content;
-        }, __decorate([n(cc.Label)], t.prototype, "labContent", void 0), t = __decorate([i], t);
+        }, __decorate([n(cc.Label)], t.prototype, "labContent", void 0), t = __decorate([d], t);
     }(cc.Component);
 exports.default = a;

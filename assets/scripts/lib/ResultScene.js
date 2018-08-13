@@ -1,28 +1,29 @@
 var o = require("./NodeUtil"),
-    i = require("./Common_Data"),
+    S = require("./Common_Data"),
     n = require("./ComPage"),
     a = require("./Common_RankList"),
     s = require("./Fish_UserData"),
     c = require("./EChannelPrefix"),
     r = require("./wxDisplayCheck"),
     l = require("./SoundUtil"),
-    d = require("./FishCfgMgr"),
-    h = require("./Common_GlobalEventUtil"),
+    h = require("./FishCfgMgr"),
+    d = require("./Common_GlobalEventUtil"),
     u = require("./ReadyGo"),
-    p = cc._decorator,
-    m = p.ccclass,
-    f = p.property,
-    g = function(o) {
+    p = require("./Define"),
+    m = cc._decorator,
+    g = m.ccclass,
+    f = m.property,
+    _ = function(o) {
         function t() {
             var t = null !== o && o.apply(this, arguments) || this;
             return t.richScore = null, t.labScoreDec2 = null, t;
         }
         return __extends(t, o), t.prototype.start = function() {
                 try {
-                    u.default.setVisible(2), this.AddButtonEventStart(this, this.GetNodeByName("content/btnShare"), this.onShare),
+                    s.Fish_UserData.setAgainGame(!0), u.default.setVisible(2), this.AddButtonEventStart(this, this.GetNodeByName("content/btnShare"), this.onShare),
                         this.AddButtonEventStart(this, this.GetNodeByName("content/btnRank"), this.onRank),
                         this.AddButtonEventStart(this, this.GetNodeByName("btnRankBg/btnGroupRank"), this.onGroupRankShare),
-                        a.default.showGameResultList(!0), h.GlobalEventUtil.on("showGroupList", function(t) {
+                        a.default.showGameResultList(!0), d.GlobalEventUtil.on("showGroupList", function(t) {
                             t && r.default.onShowRes.query.group && (this.node.getChildByName("rankShow").active = !0,
                                 this.onGroupRank(t), r.default.onShowRes.query.group = null);
                         }.bind(this));
@@ -35,28 +36,40 @@ var o = require("./NodeUtil"),
                         this.AddButtonEventStart(this, this.GetNodeByName("content/btnHome"), this.gonHome),
                         this.AddButtonEventStart(this, this.GetNodeByName("content/btnChallenge"), this.onChallenge),
                         this.AddButtonEventStart(this, this.GetNodeByName("btnRankBg/btnHome"), this.hideRank),
-                        this.richScore.string = "<b>" + s.Fish_UserData.getCurScore() + "</b>", this.GetNodeByName("content/btnRestart/spIcon").getComponent(cc.Sprite).spriteFrame = d.FishCfgMgr.getSkinSpriteFrameByKey(s.Fish_UserData.getCurSkin().toString() + "_1"),
-                        s.Fish_UserData.getServerNewGift()) h.GlobalEventUtil.on("OpenAchie", function() {
+                        this.richScore.string = "<b>" + s.Fish_UserData.getCurScore() + "</b>", this.GetNodeByName("content/btnRestart/spIcon").getComponent(cc.Sprite).spriteFrame = h.FishCfgMgr.getSkinSpriteFrameByKey(s.Fish_UserData.getCurSkin().toString() + "_1"),
+                        s.Fish_UserData.getServerNewGift()) d.GlobalEventUtil.on("OpenAchie", function() {
                         var e = s.Fish_UserData.getTempList(),
-                            t = d.FishCfgMgr.getAllTargetValidByArryType(e);
+                            t = h.FishCfgMgr.getAllTargetValidByArryType(e);
                         t && 0 < t.length ? (console.log("有成就完成"), console.log(t), n.ComPage.openAchievementPop(t)) : console.log("无成就完成");
                     }.bind(this)), s.Fish_UserData.setServerNewGift(!1), n.ComPage.openNewPop();
                     else {
                         var t = s.Fish_UserData.getTempList(),
-                            o = d.FishCfgMgr.getAllTargetValidByArryType(t);
+                            o = h.FishCfgMgr.getAllTargetValidByArryType(t);
                         o && 0 < o.length ? (console.log("有成就完成"), console.log(o), n.ComPage.openAchievementPop(o)) : console.log("无成就完成");
                     }
+                    p.Define.checkPlayerStatus();
                 } catch (t) {
                     console.log("resultscene"), console.log(t);
                 }
             }, t.prototype.onShare = function() {
-                l.SoundUtil.PlayEffectByKey(1), i.default.shareScore2(s.Fish_UserData.getCurScore(), "856404236", s.Fish_UserData.getNickName());
+                l.SoundUtil.PlayEffectByKey(1), S.default.shareScore2(s.Fish_UserData.getCurScore(), "856404236", s.Fish_UserData.getNickName());
             }, t.prototype.onChallenge = function() {
-                l.SoundUtil.PlayEffectByKey(1), i.default.shareScore(s.Fish_UserData.getCurScore());
+                l.SoundUtil.PlayEffectByKey(1), p.Define.createFishRoom(function(t) {
+                    t && (t.rcode == p.Define_Chall_Status.NORMAL || p.Define_Chall_Status.ALREADYINOTHERROOM || p.Define_Chall_Status.REWARDUNRECEIVE ? (console.log("chall 挑战 房间号获取成功，进入房间：" + t.data.roomId),
+                        s.Fish_UserData.challRoomID = t.data.roomId, S.default.share(c.default.pageshare, "chall=" + s.Fish_UserData.challRoomID, function(t) {
+                            return console.log("网络错误 :", t);
+                        }, function(t) {
+                            console.log("成功 :", t), cc.director.loadScene("ChallengeScene");
+                        }, function(t) {
+                            console.log("失败：", t), cc.director.loadScene("ChallengeScene");
+                        }, function(t) {
+                            return console.log("complete:", t);
+                        }, "", "", "", "", "")) : (console.log("chall 挑战 创建房间无有效房间状态：" + t.rcode), n.ComPage.ShowTip("无法发起挑战，请稍后再试。")));
+                });
             }, t.prototype.onRetGame = function() {
                 l.SoundUtil.PlayEffectByKey(1), cc.director.loadScene("Fish_Main");
             }, t.prototype.onMoreGame = function() {
-                l.SoundUtil.PlayEffectByKey(1), i.default.showMoreGame();
+                l.SoundUtil.PlayEffectByKey(1), S.default.showMoreGame();
             }, t.prototype.onRank = function() {
                 l.SoundUtil.PlayEffectByKey(1), u.default.setVisible(1), this.GetNodeByName("btnRankBg").active = !0,
                     a.default.showFriendList(null);
@@ -65,7 +78,7 @@ var o = require("./NodeUtil"),
             }, t.prototype.onGroupRank = function(t) {
                 u.default.setVisible(1), this.GetNodeByName("btnRankBg").active = !0, a.default.showGroupList(t);
             }, t.prototype.onGroupRankShare = function() {
-                l.SoundUtil.PlayEffectByKey(1), i.default.share(c.default.grouprank, "group=1", function(t) {
+                l.SoundUtil.PlayEffectByKey(1), S.default.share(c.default.grouprank, "group=1", function(t) {
                     return console.log("网络错误 :", t);
                 }, function(t) {
                     console.log("成功 :", t), n.ComPage.ShowTip("分享成功，请点击群链接查看群排行");
@@ -77,8 +90,8 @@ var o = require("./NodeUtil"),
             }, t.prototype.gonHome = function() {
                 l.SoundUtil.PlayEffectByKey(1), cc.director.loadScene("GameScene");
             }, t.prototype.onDestroy = function() {
-                h.GlobalEventUtil.offType("OpenAchie"), h.GlobalEventUtil.offType("showGroupList");
+                d.GlobalEventUtil.offType("OpenAchie"), d.GlobalEventUtil.offType("showGroupList");
             }, __decorate([f(cc.RichText)], t.prototype, "richScore", void 0), __decorate([f(cc.Label)], t.prototype, "labScoreDec2", void 0),
-            t = __decorate([m], t);
+            t = __decorate([g], t);
     }(o.NodeUtil);
-exports.default = g;
+exports.default = _;

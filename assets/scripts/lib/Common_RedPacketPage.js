@@ -1,24 +1,24 @@
-var _ = require("./Common_MyHelp"),
-    i = require("./Common_MyRedPackets"),
+var f = require("./Common_MyHelp"),
+    y = require("./Common_MyRedPackets"),
     n = require("./Common_ShareUtils"),
-    a = require("./wxShortcut"),
+    a = require("./utils/wxShortcut"),
     o = require("./Common_CommonUtil"),
     s = require("./gamesdk"),
     r = require("./Common_Define"),
     l = require("./Common_LogUtil"),
-    d = require("./Common_Global"),
-    c = cc._decorator,
-    u = c.ccclass,
-    p = c.property,
-    m = function(c) {
+    c = require("./Common_Global"),
+    d = cc._decorator,
+    u = d.ccclass,
+    p = d.property,
+    m = function(d) {
         function t() {
-            var t = null !== c && c.apply(this, arguments) || this;
+            var t = null !== d && d.apply(this, arguments) || this;
             return t.txt_money = null, t.l_cash = null, t.myHelp = null, t.myRedPackets = null,
                 t.anchor2 = null, t.moneyAni = null, t.moneyAniState = null, t.fristMoney = !1,
                 t.fristCash = !1, t.joinType = 1, t.activityRuleText = "暂无红包助力信息", t.ruleText = null,
                 t.ruleNode = null, t.playCallback = null, t._ruleText = "", t;
         }
-        return __extends(t, c), (e = t).prototype.onLoad = function() {
+        return __extends(t, d), (e = t).prototype.onLoad = function() {
                 e.instance = this;
             }, t.prototype.start = function() {
                 .5 < cc.view.getVisibleSize().width / cc.view.getVisibleSize().height ? (this.node.height = 1920,
@@ -31,8 +31,8 @@ var _ = require("./Common_MyHelp"),
                     else {
                         console.log("load Com_RedConfig success");
                         var t = e.red;
-                        t && (d.Global.RedItemPos = t.RedItemPos, d.Global.MyRedItemPos = t.MyRedItemPos,
-                            d.Global.MaxRedNum = t.MaxRedNum), this.refresh();
+                        t && (c.Global.RedItemPos = t.RedItemPos, c.Global.MyRedItemPos = t.MyRedItemPos,
+                            c.Global.MaxRedNum = t.MaxRedNum), this.refresh();
                     }
                 }.bind(this));
             }, t.prototype.refresh = function(d) {
@@ -90,8 +90,8 @@ var _ = require("./Common_MyHelp"),
                 void 0 === t && (t = ""), this.playCallback = a, this._ruleText = e, this.joinType = o,
                     l.LogUtil.DebugLog("进入红包类型 " + this.joinType), t && (this.activityRuleText = t);
             }, t.instance = null, __decorate([p(cc.Label)], t.prototype, "txt_money", void 0),
-            __decorate([p(cc.Label)], t.prototype, "l_cash", void 0), __decorate([p(_.default)], t.prototype, "myHelp", void 0),
-            __decorate([p(i.default)], t.prototype, "myRedPackets", void 0), __decorate([p(cc.Node)], t.prototype, "anchor2", void 0),
+            __decorate([p(cc.Label)], t.prototype, "l_cash", void 0), __decorate([p(f.default)], t.prototype, "myHelp", void 0),
+            __decorate([p(y.default)], t.prototype, "myRedPackets", void 0), __decorate([p(cc.Node)], t.prototype, "anchor2", void 0),
             __decorate([p(cc.Animation)], t.prototype, "moneyAni", void 0), __decorate([p(cc.RichText)], t.prototype, "ruleText", void 0),
             __decorate([p(cc.Node)], t.prototype, "ruleNode", void 0), t = e = __decorate([u], t);
         var e;

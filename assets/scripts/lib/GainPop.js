@@ -3,10 +3,10 @@ var o = require("./NodeUtil"),
     a = require("./FishCfgMgr"),
     g = require("./Common_GlobalEventUtil"),
     n = require("./SoundUtil"),
-    i = cc._decorator,
-    r = i.ccclass,
-    s = i.property,
-    d = function(o) {
+    s = cc._decorator,
+    r = s.ccclass,
+    l = s.property,
+    c = function(o) {
         function t() {
             var t = null !== o && o.apply(this, arguments) || this;
             return t.labName = null, t.callBack = null, t;
@@ -25,8 +25,8 @@ var o = require("./NodeUtil"),
                     } else {
                         this.GetNodeByName("content/spEffect1").active = !1, this.GetNodeByName("content/spEffect2").active = !1,
                             this.GetNodeByName("content/spEffect0").active = !0;
-                        var i = this.GetNodeByName("content/spEffect0");
-                        this.upReward(a[0], i), m.Fish_UserData.addReward(a), g.GlobalEventUtil.emit("UpdateGold");
+                        var r = this.GetNodeByName("content/spEffect0");
+                        this.upReward(a[0], r), m.Fish_UserData.addReward(a), g.GlobalEventUtil.emit("UpdateGold");
                     }
             } catch (t) {
                 console.error("加载错误"), console.error(t);
@@ -37,6 +37,6 @@ var o = require("./NodeUtil"),
         }, t.prototype.onTrue = function() {
             n.SoundUtil.PlayEffectByKey(1), this.callBack && (console.log("打开报偶像回调"), this.callBack(!0)),
                 console.log("打开回调"), this.node.destroy();
-        }, __decorate([s(cc.Label)], t.prototype, "labName", void 0), t = __decorate([r], t);
+        }, __decorate([l(cc.Label)], t.prototype, "labName", void 0), t = __decorate([r], t);
     }(o.NodeUtil);
-exports.default = d;
+exports.default = c;

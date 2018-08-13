@@ -38,31 +38,31 @@ cc.Class({
                     this.runAction = !1;
             }, .2);
     },
-    update: function(S) {
+    update: function(C) {
         if (!(this.gameCtl && this.gameCtl.isPause || this._isdestroy)) {
             window.isGameOver && this.onBlast();
             var e = this._heroNode.getPosition();
             e = this._heroNode.parent.convertToWorldSpaceAR(e);
             var t = this.node.getPosition();
             t = this.node.parent.convertToWorldSpaceAR(t);
-            var o = 90 - m(e.y - t.y, e.x - t.x) * (180 / C),
-                i = g(_(e.x - t.x, 2) + _(e.y - t.y, 2));
+            var o = 90 - m(e.y - t.y, e.x - t.x) * (180 / y),
+                S = g(u(e.x - t.x, 2) + u(e.y - t.y, 2));
             o -= this.node.rotation, o *= this.Contrary ? -1 : 1, 180 < p(o) && (o = 0 < o ? o - 360 : o + 360);
             var n = p(o);
             if (3 > n);
             else {
                 var a = 1,
                     s = 0 < o ? 1 : -1;
-                80 < n && (a = 10), this.node.rotation += 40 * (a * s * S);
+                80 < n && (a = 10), this.node.rotation += 40 * (a * s * C);
             }
-            this._add_speed;
-            var c = 1.9 < 1.5 + this._add_speed ? 1.9 : 1.5 + this._add_speed,
-                r = this._hero_speed * c,
-                l = -C / 180 * (this.node.rotation + 90),
-                d = t.x - y(l) * r,
-                h = t.y - f(l) * r;
-            return t = this.node.parent.convertToNodeSpaceAR(cc.p(d, h)), this.node.setPosition(t),
-                2500 < i ? (this.node.destroy(), void(this._isdestroy = !0)) : void 0;
+            this._add_speed, 1.9 < 1.5 + this._add_speed || this._add_speed;
+            var c = 1.5 * this._hero_speed;
+            "mainpt" == window.cur_scence && (c *= 1.3);
+            var r = -y / 180 * (this.node.rotation + 90),
+                l = t.x - f(r) * c,
+                h = t.y - _(r) * c;
+            return t = this.node.parent.convertToNodeSpaceAR(cc.p(l, h)), this.node.setPosition(t),
+                2500 < S ? (this.node.destroy(), void(this._isdestroy = !0)) : void 0;
         }
     }
 });

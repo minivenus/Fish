@@ -1,23 +1,23 @@
 var o = require("./Common_RedPacketPage"),
-    i = require("./Common_CommonUtil"),
+    _ = require("./Common_CommonUtil"),
     n = require("./Common_ShareUtils"),
     a = require("./Common_Global"),
     s = require("./wxShortcut"),
     c = require("./EChannelPrefix"),
     r = require("./Common_GlobalEventUtil"),
     l = require("./Common_LogUtil"),
-    d = cc._decorator,
-    h = d.ccclass,
-    u = d.property,
-    p = function(d) {
+    h = cc._decorator,
+    d = h.ccclass,
+    u = h.property,
+    p = function(p) {
         function t() {
-            var t = null !== d && d.apply(this, arguments) || this;
+            var t = null !== p && p.apply(this, arguments) || this;
             return t.noRedPacketPage = null, t.haveRedPacketPage = null, t.itemRoot = null,
                 t.itemPrefab = null, t.l_myRedPacket = null, t.spRedPack = [], t.baseHead = null,
                 t.playCallback = null, t.itemData = null, t.itemDataLists = [], t.redPack = 0, t.isHaveRedByMe = !1,
                 t.isSendEvent = !1, t;
         }
-        return __extends(t, d), t.prototype.start = function() {
+        return __extends(t, p), t.prototype.start = function() {
                 r.GlobalEventUtil.on("event_sendred", function(t) {
                     t ? this.isSendEvent = !0 : (l.LogUtil.Log("我的助力-邀请或者获取红包"), this.onSendRedEvent(this.isHaveRedByMe));
                 }.bind(this));
@@ -42,7 +42,7 @@ var o = require("./Common_RedPacketPage"),
                 for (var o, t = 0; t < a.Global.MaxRedNum; t++) o = cc.instantiate(this.itemPrefab),
                     this.itemRoot.addChild(o), o.setPosition(a.Global.RedItemPos[t].x, a.Global.RedItemPos[t].y);
                 if (this.itemData.inviteList.forEach(function(o, e) {
-                        console.log(o), a.Global.RedItemPos[e] && null != a.Global.RedItemPos[e] ? ("" == o.avatar_url ? n.itemRoot.children[e].getChildByName("mkHead").getChildByName("spHead").getComponent(cc.Sprite).spriteFrame = n.baseHead : i.default.setSprite(n.itemRoot.children[e].getChildByName("mkHead").getChildByName("spHead"), o.avatar_url + "?a=a.jpg"),
+                        console.log(o), a.Global.RedItemPos[e] && null != a.Global.RedItemPos[e] ? ("" == o.avatar_url ? n.itemRoot.children[e].getChildByName("mkHead").getChildByName("spHead").getComponent(cc.Sprite).spriteFrame = n.baseHead : _.default.setSprite(n.itemRoot.children[e].getChildByName("mkHead").getChildByName("spHead"), o.avatar_url + "?a=a.jpg"),
                             n.itemRoot.children[e].getChildByName("mkHead").active = !0) : l.LogUtil.DebugLog("错误，没有找到红包item坐标相应配置" + e);
                     }), this.itemData.inviteList.length >= a.Global.MaxRedNum) this.l_myRedPacket.string = "好友来齐，即可开启",
                     this.redPack = 1, this.haveRedPacketPage.getChildByName("btnOpen").getComponent(cc.Sprite).spriteFrame = this.spRedPack[this.redPack],
@@ -76,6 +76,6 @@ var o = require("./Common_RedPacketPage"),
             }, __decorate([u(cc.Node)], t.prototype, "noRedPacketPage", void 0), __decorate([u(cc.Node)], t.prototype, "haveRedPacketPage", void 0),
             __decorate([u(cc.Node)], t.prototype, "itemRoot", void 0), __decorate([u(cc.Prefab)], t.prototype, "itemPrefab", void 0),
             __decorate([u(cc.Label)], t.prototype, "l_myRedPacket", void 0), __decorate([u([cc.SpriteFrame])], t.prototype, "spRedPack", void 0),
-            __decorate([u(cc.SpriteFrame)], t.prototype, "baseHead", void 0), t = __decorate([h], t);
+            __decorate([u(cc.SpriteFrame)], t.prototype, "baseHead", void 0), t = __decorate([d], t);
     }(cc.Component);
 exports.default = p;

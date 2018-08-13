@@ -7,8 +7,8 @@ var d = require("./Common_CommonUtil"),
                 var t = null !== a && a.apply(this, arguments) || this;
                 return t.bannerAd = null, t;
             }
-            return __extends(t, a), (i = t).prototype.start = function() {
-                i.sThis = this;
+            return __extends(t, a), (r = t).prototype.start = function() {
+                r.sThis = this;
             }, t.prototype.onCreate = function() {
                 var a = this;
                 if (d.default.isWeChat()) {
@@ -31,10 +31,10 @@ var d = require("./Common_CommonUtil"),
             }, t.prototype.onHide = function() {
                 this.bannerAd.hide();
             }, t.setVisible = function(t) {
-                console.log("设置广告：" + t), 0 == t ? i.sThis.onShow() : 1 == t ? i.sThis.onHide() : i.sThis.onCreate();
+                console.log("设置广告：" + t), 0 == t ? r.sThis.onShow() : 1 == t ? r.sThis.onHide() : r.sThis.onCreate();
             }, t.prototype.onDestroy = function() {
                 this.bannerAd && (this.bannerAd.destroy(), this.bannerAd = null), cc.game.removePersistRootNode(this.node);
-            }, t.sThis = null, t = i = __decorate([n], t);
-            var i;
+            }, t.sThis = null, t = r = __decorate([n], t);
+            var r;
         }(cc.Component));
 exports.default = a;

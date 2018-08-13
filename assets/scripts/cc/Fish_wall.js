@@ -7,15 +7,17 @@ cc.Class({
             var e = window.gameCrtl._hero.parent.getPosition();
             e = window.gameCrtl._hero.parent.parent.convertToWorldSpaceAR(e);
             var t = window.gameCrtl.sceneNode.getPosition();
-            3200 < g(_(e.x - t.x, 2) + _(e.y - t.y, 2)) && this.loadNewScene();
+            3200 < g(u(e.x - t.x, 2) + u(e.y - t.y, 2)) && this.loadNewScene();
         }
     },
     loadNewScene: function() {
-        var a = window.gameCrtl._hero.parent.getPosition(),
-            e = (a = window.gameCrtl._hero.parent.parent.convertToWorldSpaceAR(a)).x,
-            t = a.y;
-        0 == this.node._name ? e -= 2e3 : 1 == this.node._name ? e += 2e3 : 2 == this.node._name ? t -= 2e3 : 3 == this.node._name && (t += 2e3),
-            a = window.gameCrtl.node.convertToNodeSpaceAR(cc.p(e, t)), window.gameCrtl.sceneNode.setPosition(a),
-            window.gameCrtl.updateScene();
+        if (!window._goldScene) {
+            var a = window.gameCrtl._hero.parent.getPosition(),
+                e = (a = window.gameCrtl._hero.parent.parent.convertToWorldSpaceAR(a)).x,
+                t = a.y;
+            0 == this.node._name ? e -= 2e3 : 1 == this.node._name ? e += 2e3 : 2 == this.node._name ? t -= 2e3 : 3 == this.node._name && (t += 2e3),
+                a = window.gameCrtl.node.convertToNodeSpaceAR(cc.p(e, t)), window.gameCrtl.sceneNode.setPosition(a),
+                window.gameCrtl.updateScene();
+        }
     }
 });
