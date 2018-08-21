@@ -1,0 +1,164 @@
+[{
+            "__type__": "cc.Prefab",
+            "_name": "RewardItem",
+            "data": {
+                "__id__": 1
+            },
+            "asyncLoadAssets": null
+        }
+
+        ,
+        {
+            "__type__": "cc.Node",
+            "_name": "RewardItem",
+            "_children": [{
+                    "__id__": 2
+                },
+                {
+                    "__id__": 3
+                },
+                {
+                    "__id__": 4
+                }
+            ],
+            "_components": [{
+                "__type__": "cae56J4lgZAsroGwOxClm1x",
+                "node": {
+                    "__id__": 1
+                }
+            }],
+            "_prefab": {
+                "__type__": "cc.PrefabInfo",
+                "root": {
+                    "__id__": 1
+                },
+                "asset": {
+                    "__id__": 0
+                },
+                "fileId": "9dvg3u8L5B7ao9xQ4kFm1e"
+            },
+            "_contentSize": {
+                "__type__": "cc.Size",
+                "width": 300,
+                "height": 350
+            },
+            "_position": {
+                "__type__": "cc.Vec2",
+                "y": 3
+            }
+        }
+
+        ,
+        {
+            "__type__": "cc.Node",
+            "_name": "spBg",
+            "_parent": {
+                "__id__": 1
+            },
+            "_components": [{
+                "__type__": "cc.Sprite",
+                "node": {
+                    "__id__": 2
+                },
+                "_spriteFrame": {
+                    "__uuid__": "6bWUMIklhGKp4IT6znJ9OD"
+                }
+            }],
+            "_prefab": {
+                "__type__": "cc.PrefabInfo",
+                "root": {
+                    "__id__": 1
+                },
+                "asset": {
+                    "__id__": 0
+                },
+                "fileId": "b3ZHu0+UNGipxx/TErkHiW"
+            },
+            "_contentSize": {
+                "__type__": "cc.Size",
+                "width": 218,
+                "height": 218
+            },
+            "_position": {
+                "__type__": "cc.Vec2",
+                "y": 32
+            }
+        }
+
+        ,
+        {
+            "__type__": "cc.Node",
+            "_name": "spIcon",
+            "_parent": {
+                "__id__": 1
+            },
+            "_components": [{
+                "__type__": "cc.Sprite",
+                "node": {
+                    "__id__": 3
+                },
+                "_sizeMode": 0
+            }],
+            "_prefab": {
+                "__type__": "cc.PrefabInfo",
+                "root": {
+                    "__id__": 1
+                },
+                "asset": {
+                    "__id__": 0
+                },
+                "fileId": "cfspcNaCxLXI7UpJVPpgxm"
+            },
+            "_contentSize": {
+                "__type__": "cc.Size",
+                "width": 150,
+                "height": 150
+            },
+            "_position": {
+                "__type__": "cc.Vec2",
+                "y": 32
+            }
+        }
+
+        ,
+        {
+            "__type__": "cc.Node",
+            "_name": "labDec",
+            "_parent": {
+                "__id__": 1
+            },
+            "_components": [{
+                "__type__": "cc.Label",
+                "node": {
+                    "__id__": 4
+                },
+                "_useOriginalSize": false,
+                "_actualFontSize": 70,
+                "_fontSize": 70,
+                "_lineHeight": 75,
+                "_N$string": "x0",
+                "_N$horizontalAlign": 1,
+                "_N$verticalAlign": 1
+            }],
+            "_prefab": {
+                "__type__": "cc.PrefabInfo",
+                "root": {
+                    "__id__": 1
+                },
+                "asset": {
+                    "__id__": 0
+                },
+                "fileId": "8bpebJEsxERqTX6dLiKXIi"
+            },
+            "_contentSize": {
+                "__type__": "cc.Size",
+                "width": 74,
+                "height": 75
+            },
+            "_position": {
+                "__type__": "cc.Vec2",
+                "y": -124
+            }
+        }
+
+    ]

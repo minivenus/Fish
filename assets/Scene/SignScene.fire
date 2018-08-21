@@ -2009,7 +2009,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 537.9999999999999,
-      "y": 0
+      "y": 153.55
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -2028,7 +2028,7 @@
     "_enabled": true,
     "alignMode": 1,
     "_target": null,
-    "_alignFlags": 40,
+    "_alignFlags": 44,
     "_left": -0.35,
     "_right": 3.65,
     "_top": 0,

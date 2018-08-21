@@ -1,0 +1,28 @@
+{
+    "__type__": "cc.AnimationClip",
+    "_name": "gift",
+    "_duration": 3,
+    "sample": 5,
+    "wrapMode": 2,
+    "curveData": {
+        "props": {
+            "rotation": [{
+                    "frame": 0,
+                    "value": 0
+                },
+                {
+                    "frame": 1.6,
+                    "value": 188.7034666666625
+                },
+                {
+                    "frame": 3,
+                    "value": 353.81899999999223
+                },
+                {
+                    "frame": 3,
+                    "value": 324
+                }
+            ]
+        }
+    }
+}

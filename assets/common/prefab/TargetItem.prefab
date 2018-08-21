@@ -1,0 +1,137 @@
+[{
+            "__type__": "cc.Prefab",
+            "_name": "TargetItem",
+            "data": {
+                "__id__": 1
+            },
+            "asyncLoadAssets": null
+        }
+
+        ,
+        {
+            "__type__": "cc.Node",
+            "_name": "TargetItem",
+            "_children": [{
+                    "__id__": 2
+                },
+                {
+                    "__id__": 3
+                }
+            ],
+            "_components": [{
+                "__type__": "97edcbBLqxD9qU2nMEEwrol",
+                "node": {
+                    "__id__": 1
+                },
+                "labContent": {
+                    "__id__": 4
+                }
+            }],
+            "_prefab": {
+                "__type__": "cc.PrefabInfo",
+                "root": {
+                    "__id__": 1
+                },
+                "asset": {
+                    "__uuid__": "84QbFLNhlPg5O5mxN9h3T8"
+                },
+                "fileId": "c5I9wks2ZKu7lFYPVhWson"
+            },
+            "_contentSize": {
+                "__type__": "cc.Size",
+                "width": 850,
+                "height": 100
+            },
+            "_position": {
+                "__type__": "cc.Vec2",
+                "y": -89.60000000000004
+            }
+        }
+
+        ,
+        {
+            "__type__": "cc.Node",
+            "_name": "spIcon",
+            "_parent": {
+                "__id__": 1
+            },
+            "_components": [{
+                "__type__": "cc.Sprite",
+                "node": {
+                    "__id__": 2
+                },
+                "_spriteFrame": {
+                    "__uuid__": "2fddiSOExHioz9LqqTeSSW"
+                },
+                "_sizeMode": 0
+            }],
+            "_prefab": {
+                "__type__": "cc.PrefabInfo",
+                "root": {
+                    "__id__": 1
+                },
+                "asset": {
+                    "__uuid__": "84QbFLNhlPg5O5mxN9h3T8"
+                },
+                "fileId": "afwbAZXB9Etp/VeyNxmxRl"
+            },
+            "_contentSize": {
+                "__type__": "cc.Size",
+                "width": 59,
+                "height": 59
+            },
+            "_position": {
+                "__type__": "cc.Vec2",
+                "x": 351
+            }
+        }
+
+        ,
+        {
+            "__type__": "cc.Node",
+            "_name": "labDec",
+            "_parent": {
+                "__id__": 1
+            },
+            "_components": [{
+                "__id__": 4
+            }],
+            "_prefab": {
+                "__type__": "cc.PrefabInfo",
+                "root": {
+                    "__id__": 1
+                },
+                "asset": {
+                    "__uuid__": "84QbFLNhlPg5O5mxN9h3T8"
+                },
+                "fileId": "bf24Hg1hlFtofjs855DOEf"
+            },
+            "_anchorPoint": {
+                "__type__": "cc.Vec2",
+                "y": 0.5
+            },
+            "_contentSize": {
+                "__type__": "cc.Size",
+                "width": 542,
+                "height": 45
+            },
+            "_position": {
+                "__type__": "cc.Vec2",
+                "x": -353
+            }
+        }
+
+        ,
+        {
+            "__type__": "cc.Label",
+            "node": {
+                "__id__": 3
+            },
+            "_useOriginalSize": false,
+            "_lineHeight": 45,
+            "_N$string": "目标：当局被大鱼吃掉1条小鱼",
+            "_N$horizontalAlign": 1,
+            "_N$verticalAlign": 1
+        }
+
+    ]

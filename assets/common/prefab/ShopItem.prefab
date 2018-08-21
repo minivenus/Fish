@@ -1,0 +1,103 @@
+[{
+            "__type__": "cc.Prefab",
+            "_name": "ShopItem",
+            "data": {
+                "__id__": 1
+            },
+            "asyncLoadAssets": null
+        }
+
+        ,
+        {
+            "__type__": "cc.Node",
+            "_name": "ShopItem",
+            "_children": [{
+                    "__id__": 2
+                },
+                {
+                    "__id__": 3
+                }
+            ],
+            "_prefab": {
+                "__type__": "cc.PrefabInfo",
+                "root": {
+                    "__id__": 1
+                },
+                "asset": {
+                    "__uuid__": "85/nCnlplERYuQ5Zkvnx9v"
+                },
+                "fileId": "cfMuOdhZxLQKZmy7VLzDAy"
+            },
+            "_contentSize": {
+                "__type__": "cc.Size",
+                "width": 650,
+                "height": 300
+            }
+        }
+
+        ,
+        {
+            "__type__": "cc.Node",
+            "_name": "spBg",
+            "_parent": {
+                "__id__": 1
+            },
+            "_components": [{
+                "__type__": "cc.Sprite",
+                "node": {
+                    "__id__": 2
+                },
+                "_spriteFrame": {
+                    "__uuid__": "9bb6CoFDhJOpjuL227b8An"
+                },
+                "_type": 1,
+                "_sizeMode": 0
+            }],
+            "_prefab": {
+                "__type__": "cc.PrefabInfo",
+                "root": {
+                    "__id__": 1
+                },
+                "asset": {
+                    "__uuid__": "85/nCnlplERYuQ5Zkvnx9v"
+                },
+                "fileId": "020JgyMq1NKqgrQkF5y2Xu"
+            },
+            "_contentSize": {
+                "__type__": "cc.Size",
+                "width": 460,
+                "height": 260
+            }
+        }
+
+        ,
+        {
+            "__type__": "cc.Node",
+            "_name": "spIcon",
+            "_parent": {
+                "__id__": 1
+            },
+            "_components": [{
+                "__type__": "cc.Sprite",
+                "node": {
+                    "__id__": 3
+                }
+            }],
+            "_prefab": {
+                "__type__": "cc.PrefabInfo",
+                "root": {
+                    "__id__": 1
+                },
+                "asset": {
+                    "__uuid__": "85/nCnlplERYuQ5Zkvnx9v"
+                },
+                "fileId": "10Memta7xOzaAqaOSXHs3W"
+            },
+            "_contentSize": {
+                "__type__": "cc.Size",
+                "width": 40,
+                "height": 36
+            }
+        }
+
+    ]
