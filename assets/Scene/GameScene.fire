@@ -2525,13 +2525,6 @@
     "_atlas": null
   },
   {
-    "__type__": "e2f9cpPKcROXZlaPfx3ihPr",
-    "node": {
-      "__id__": 58
-    },
-    "_objFlags": 0
-  },
-  {
     "__type__": "cc.Widget",
     "_name": "",
     "_objFlags": 0,
@@ -2556,6 +2549,15 @@
     "_isAbsVerticalCenter": true,
     "_originalWidth": 1080,
     "_originalHeight": 1920
+  },
+  {
+    "__type__": "20271BsyCxBV7CvtDtD2qPp",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 58
+    },
+    "_enabled": true
   },
   {
     "__type__": "cc.Node",
