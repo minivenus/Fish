@@ -1,0 +1,366 @@
+[{
+        "__type__": "cc.Prefab",
+        "_name": "Missile",
+        "data": {
+            "__id__": 1
+        },
+        "asyncLoadAssets": null
+    }, {
+        "__type__": "cc.Node",
+        "_name": "Missile",
+        "_children": [{
+            "__id__": 2
+        }, {
+            "__id__": 5
+        }, {
+            "__id__": 6
+        }],
+        "_components": [{
+            "__type__": "cc.PolygonCollider",
+            "node": {
+                "__id__": 1
+            },
+            "points": [{
+                "__type__": "cc.Vec2",
+                "x": -60.6,
+                "y": 43.8
+            }, {
+                "__type__": "cc.Vec2",
+                "x": -57.1,
+                "y": 17.1
+            }, {
+                "__type__": "cc.Vec2",
+                "x": -49.9,
+                "y": 7.8
+            }, {
+                "__type__": "cc.Vec2",
+                "x": -25.2,
+                "y": -25.2
+            }, {
+                "__type__": "cc.Vec2",
+                "x": -5.6,
+                "y": -18.8
+            }, {
+                "__type__": "cc.Vec2",
+                "x": 13.8,
+                "y": -13.9
+            }, {
+                "__type__": "cc.Vec2",
+                "x": 29.7,
+                "y": 2.5
+            }, {
+                "__type__": "cc.Vec2",
+                "x": 51.2,
+                "y": 33.3
+            }, {
+                "__type__": "cc.Vec2",
+                "x": 40,
+                "y": 62.9
+            }, {
+                "__type__": "cc.Vec2",
+                "x": 18.2,
+                "y": 67.5
+            }, {
+                "__type__": "cc.Vec2",
+                "x": 30.2,
+                "y": 33.2
+            }, {
+                "__type__": "cc.Vec2",
+                "x": -0.7,
+                "y": 45.6
+            }, {
+                "__type__": "cc.Vec2",
+                "x": 0.02,
+                "y": 12.39
+            }, {
+                "__type__": "cc.Vec2",
+                "x": -3.8,
+                "y": 15.2
+            }, {
+                "__type__": "cc.Vec2",
+                "x": -17.9,
+                "y": 23.6
+            }, {
+                "__type__": "cc.Vec2",
+                "x": -41.7,
+                "y": 40.5
+            }, {
+                "__type__": "cc.Vec2",
+                "x": -52.8,
+                "y": 70.8
+            }, {
+                "__type__": "cc.Vec2",
+                "x": -75.1,
+                "y": 68.6
+            }, {
+                "__type__": "cc.Vec2",
+                "x": -71.2,
+                "y": 46.8
+            }]
+        }, {
+            "__type__": "33407LoE85GdLHuYPEXpVTJ",
+            "node": {
+                "__id__": 1
+            }
+        }, {
+            "__type__": "cc.RigidBody",
+            "node": {
+                "__id__": 1
+            },
+            "_linearVelocity": {
+                "__type__": "cc.Vec2",
+                "x": 1,
+                "y": 1
+            },
+            "bullet": true
+        }],
+        "_prefab": {
+            "__type__": "cc.PrefabInfo",
+            "root": {
+                "__id__": 1
+            },
+            "asset": {
+                "__uuid__": "ceAzTRUEJBXqqy/3zk2kG2"
+            },
+            "fileId": "3b2RBMoKBGmrTfcT3XXzRY"
+        },
+        "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 9,
+            "height": 24
+        },
+        "_position": {
+            "__type__": "cc.Vec2",
+            "x": 4.3,
+            "y": 0.1
+        },
+        "groupIndex": 1
+    }, {
+        "__type__": "cc.Node",
+        "_name": "Missile",
+        "_parent": {
+            "__id__": 1
+        },
+        "_children": [{
+            "__id__": 3
+        }, {
+            "__id__": 4
+        }],
+        "_components": [{
+            "__type__": "cc.Sprite",
+            "node": {
+                "__id__": 2
+            },
+            "_spriteFrame": {
+                "__uuid__": "2cZORQnC5LF4WdmH9WUiv7"
+            },
+            "_sizeMode": 0
+        }],
+        "_prefab": {
+            "__type__": "cc.PrefabInfo",
+            "root": {
+                "__id__": 1
+            },
+            "asset": {
+                "__uuid__": "ceAzTRUEJBXqqy/3zk2kG2"
+            },
+            "fileId": "de4dHwLdRNwIuEjBuDgd88"
+        },
+        "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 224,
+            "height": 163
+        },
+        "_rotationX": -90,
+        "_rotationY": -90,
+        "groupIndex": 1
+    }, {
+        "__type__": "cc.Node",
+        "_name": "Missile",
+        "_parent": {
+            "__id__": 2
+        },
+        "_active": false,
+        "_components": [{
+            "__type__": "cc.ParticleSystem",
+            "node": {
+                "__id__": 3
+            },
+            "_custom": true,
+            "_texture": {
+                "__uuid__": "7epKlEmipCc7AM8lOCIdgj"
+            },
+            "_dstBlendFactor": 1,
+            "_autoRemoveOnFinish": true,
+            "_totalParticles": 198,
+            "_emissionRate": 70,
+            "_lifeVar": 0.7,
+            "_startColor": {
+                "__type__": "cc.Color",
+                "r": 255,
+                "g": 255,
+                "b": 102
+            },
+            "_startColorVar": {
+                "__type__": "cc.Color",
+                "b": 51,
+                "a": 25
+            },
+            "_endColor": {
+                "__type__": "cc.Color",
+                "r": 255,
+                "g": 255,
+                "b": 255
+            },
+            "_angleVar": 12,
+            "_startSize": 5,
+            "_startSizeVar": 8,
+            "_endSize": 18,
+            "_endSizeVar": 30,
+            "_startSpin": 720,
+            "_posVar": {
+                "__type__": "cc.Vec2",
+                "x": 3,
+                "y": 6
+            },
+            "_emitterMode": 1,
+            "_speed": 0,
+            "_speedVar": 0,
+            "_tangentialAccel": 0,
+            "_startRadius": 38,
+            "_endRadius": 30
+        }],
+        "_prefab": {
+            "__type__": "cc.PrefabInfo",
+            "root": {
+                "__id__": 1
+            },
+            "asset": {
+                "__uuid__": "ceAzTRUEJBXqqy/3zk2kG2"
+            },
+            "fileId": "0fYZWuaqJEZ7Kr2mjcaB7s"
+        },
+        "_scaleX": 0.5,
+        "_scaleY": 0.5,
+        "_position": {
+            "__type__": "cc.Vec2",
+            "y": -2.51
+        }
+    }, {
+        "__type__": "cc.Node",
+        "_name": "boss",
+        "_parent": {
+            "__id__": 2
+        },
+        "_components": [{
+            "__type__": "cc.Sprite",
+            "node": {
+                "__id__": 4
+            }
+        }],
+        "_prefab": {
+            "__type__": "cc.PrefabInfo",
+            "root": {
+                "__id__": 1
+            },
+            "asset": {
+                "__uuid__": "ceAzTRUEJBXqqy/3zk2kG2"
+            },
+            "fileId": "99D5s2w0hCcJR7al+eLRv+"
+        },
+        "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 226,
+            "height": 147
+        },
+        "_rotationX": 90,
+        "_rotationY": 90
+    }, {
+        "__type__": "cc.Node",
+        "_name": "boss2",
+        "_parent": {
+            "__id__": 1
+        },
+        "_active": false,
+        "_components": [{
+            "__type__": "cc.Sprite",
+            "node": {
+                "__id__": 5
+            },
+            "_spriteFrame": {
+                "__uuid__": "11swuzPx9M2Y6Lyv+8ORh2"
+            },
+            "_sizeMode": 0
+        }],
+        "_prefab": {
+            "__type__": "cc.PrefabInfo",
+            "root": {
+                "__id__": 1
+            },
+            "asset": {
+                "__uuid__": "ceAzTRUEJBXqqy/3zk2kG2"
+            },
+            "fileId": "15y7Rw0jJFuaZ+GcQGDJaD"
+        },
+        "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 224,
+            "height": 163
+        },
+        "_rotationX": -90,
+        "_rotationY": -90
+    }, {
+        "__type__": "cc.Node",
+        "_name": "blast",
+        "_parent": {
+            "__id__": 1
+        },
+        "_active": false,
+        "_components": [{
+            "__type__": "cc.ParticleSystem",
+            "node": {
+                "__id__": 6
+            },
+            "_custom": true,
+            "_texture": {
+                "__uuid__": "fdInwwu69HPbi0EepRq+gF"
+            },
+            "_totalParticles": 50,
+            "_duration": 0.7,
+            "_emissionRate": 30,
+            "_life": 0.5,
+            "_lifeVar": 0.7,
+            "_startColor": {
+                "__type__": "cc.Color",
+                "r": 247,
+                "g": 64,
+                "b": 64
+            },
+            "_endColor": {
+                "__type__": "cc.Color",
+                "r": 236,
+                "g": 69,
+                "b": 69,
+                "a": 185
+            },
+            "_angle": 0,
+            "_angleVar": 360,
+            "_startSize": 30,
+            "_startSizeVar": 40,
+            "_endSize": 20,
+            "_endSizeVar": 20,
+            "_positionType": 1,
+            "_speed": 100,
+            "_speedVar": 80
+        }],
+        "_prefab": {
+            "__type__": "cc.PrefabInfo",
+            "root": {
+                "__id__": 1
+            },
+            "asset": {
+                "__uuid__": "ceAzTRUEJBXqqy/3zk2kG2"
+            },
+            "fileId": "7foLs5r4hIapsDxk9pKTeR"
+        }
+    }]

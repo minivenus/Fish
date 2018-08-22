@@ -1,0 +1,32 @@
+{
+    "__type__": "cc.AnimationClip",
+    "_name": "kankan",
+    "_duration": 0.75,
+    "wrapMode": 2,
+    "curveData": {
+        "props": {
+            "rotation": [{
+                    "frame": 0,
+                    "value": 0
+                },
+                {
+                    "frame": 0.25,
+                    "value": -10,
+                    "curve": "linear"
+                },
+                {
+                    "frame": 0.31666666666666665,
+                    "value": -5.55320000025688
+                },
+                {
+                    "frame": 0.4166666666666667,
+                    "value": 0.09764999939932323
+                },
+                {
+                    "frame": 0.75,
+                    "value": 10
+                }
+            ]
+        }
+    }
+}
