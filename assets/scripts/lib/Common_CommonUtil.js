@@ -4,7 +4,7 @@ var r = require("./Common_Data"),
         return a.isWeChat = function() {
             return cc.sys.platform == cc.sys.WECHAT_GAME;
         }, a.showTips = function(e, a) {
-            cc.loader.loadRes("common/prefabs/h5game_Tips", function(n, r) {
+            cc.loader.loadRes("resources/prefab/h5game_Tips", function(n, r) {
                 if (n) cc.error(n);
                 else {
                     var t = cc.instantiate(r);

@@ -6,17 +6,17 @@ var n = function() {
     return t.LoadPop = function() {
         var o = this;
         if (!this.FbTip) {
-            cc.loader.loadRes("fishPop/prefab/PublicTips", function(o, e) {
+            cc.loader.loadRes("prefab/PublicTips", function(o, e) {
                 o ? console.log(o.message || o) : this.FbTip = e;
             }.bind(this));
-            var t = "fishPop/prefab/ShopPop";
+            var t = "prefab/ShopPop";
             r.default.getPrefab(t, function(t) {
                 o.pageList.ShopPop = t;
-            }), t = "fishPop/prefab/BoxPop", r.default.getPrefab(t, function(t) {
+            }), t = "prefab/BoxPop", r.default.getPrefab(t, function(t) {
                 o.pageList.BoxPop = t;
-            }), t = "fishPop/prefab/NewGiftPop", r.default.getPrefab(t, function(t) {
+            }), t = "prefab/NewGiftPop", r.default.getPrefab(t, function(t) {
                 o.pageList.NewGiftPop = t;
-            }), t = "fishPop/prefab/AchievementPop", r.default.getPrefab(t, function(t) {
+            }), t = "prefab/AchievementPop", r.default.getPrefab(t, function(t) {
                 o.pageList.AchievementPop = t;
             });
         }
