@@ -1,5 +1,5 @@
-var o = require("./Common_ShareUtils"),
-    d = require("./Common_CommonUtil"),
+var Common_ShareUtils = require("./Common_ShareUtils"),
+    Common_CommonUtil = require("./Common_CommonUtil"),
     n = cc._decorator,
     a = n.ccclass,
     s = (n.property,
@@ -9,13 +9,13 @@ var o = require("./Common_ShareUtils"),
                 return t.reward_code = "", t.nick_name = "", t.isHelperRedPacket = !1, t;
             }
             return __extends(t, n), t.prototype.start = function() {
-                d.default.resetScale(this.node);
+                Common_CommonUtil.default.resetScale(this.node);
             }, t.prototype.setParams = function(a, e, t) {
                 this.reward_code = a, this.nick_name = e, this.isHelperRedPacket = t;
             }, t.prototype.onClose = function() {
                 this.node.destroy();
             }, t.prototype.onOpen = function() {
-                this.onClose(), o.default.openRedPacket(this.reward_code, this.isHelperRedPacket);
+                this.onClose(), Common_ShareUtils.default.openRedPacket(this.reward_code, this.isHelperRedPacket);
             }, t = __decorate([a], t);
         }(cc.Component));
 exports.default = s;

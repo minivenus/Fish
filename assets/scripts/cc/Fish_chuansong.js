@@ -1,5 +1,7 @@
-function a(o, e) {
-    return C(Math.random() * (e - o + 1) + o);
+//var p = Math.abs, m = Math.atan2, g = Math.sqrt, u = Math.pow, _ = Math.sin, f = Math.cos, y = Math.PI, t = Math.ceil, C = Math.floor;
+
+function RandomRange(o, e) {
+    return Math.floor(Math.random() * (e - o + 1) + o);
 }
 
 cc.Class({
@@ -9,40 +11,40 @@ cc.Class({
         chuansong2: cc.Node
     },
     start: function() {
-        var o = cc.scaleTo(.5, .5, .5),
-            e = cc.scaleTo(.5, .45, .45);
-        this.chuansong2.runAction(cc.repeatForever(cc.sequence(o, e))), this.chuansong1.active = !1,
+        var effect_1 = cc.scaleTo(.5, .5, .5),
+        effect_2 = cc.scaleTo(.5, .45, .45);
+        this.chuansong2.runAction(cc.repeatForever(cc.sequence(effect_1, effect_2))), this.chuansong1.active = !1,
             this.chuansong2.active = !1, this.node.active = !1, this.setNewPos();
     },
     setNewPos: function() {
-        var n = -y / 180 * (a(0, 359) + 90),
-            e = window.gameCrtl._hero.parent.getPosition(),
-            t = (e = window.gameCrtl._hero.parent.parent.convertToWorldSpaceAR(e)).x + f(n) * a(400, 600),
-            o = e.y + _(n) * a(700, 1e3);
-        e = this.node.parent.convertToNodeSpaceAR(cc.p(t, o)), this.node.setPosition(e),
-            this.scheduleOnce(function() {
-                this.chuansong1.active = !0, this.chuansong2.active = !0, this.node.active = !0;
-            }, 1.5);
+            this.chuansong1.active = !1, this.chuansong2.active = !1, this.node.active = !1;
+            var radius = -Math.PI / 180 * (RandomRange(0, 359) + 90),
+            pos = window.gameCrtl._hero.parent.getPosition(),
+            x = (pos = window.gameCrtl._hero.parent.parent.convertToWorldSpaceAR(pos)).x + Math.cos(radius) * RandomRange(400, 600),
+            y = pos.y + Math.sin(radius) * RandomRange(700, 1e3);
+            pos = this.node.parent.convertToNodeSpaceAR(cc.p(x, y)), this.node.setPosition(pos),
+
+            this.chuansong1.active = !0, this.chuansong2.active = !0, this.node.active = !0;
     },
-    onCollisionEnter: function(a) {
-        var e = a.node.name;
-        if (console.log("传送门---------------------------------------"), "plane" == e && a.node.getComponent("Fish_fishCtr").myFish) {
+    onCollisionEnter: function(other) {
+        var nodeName = other.node.name;
+        if (console.log("传送门---------------------------------------"), "plane" == nodeName && other.node.getComponent("Fish_fishCtr").myFish) {
             window._goldScene = !0, window.gameCrtl._missileNode.removeAllChildren(), window.gameCrtl._pufferNode.removeAllChildren(),
                 window.gameCrtl._bigbossNode.removeAllChildren(), window.gameCrtl._fishNode.removeAllChildren(),
                 window.gameCrtl._starNode.removeAllChildren(), window.gameCrtl.sceneNode.active = !1,
                 window.gameCrtl._goldBuild = !1, this.node.active = !1, window.gameCrtl._goldBuild = !1,
                 window.gameCrtl.goldSceneNode.active = !0, window.gameCrtl.goldSceneNode.setPosition(this.node.getPosition());
-            var t = cc.scaleTo(.5, 1.2, 1.2),
-                o = cc.scaleTo(.5, 1, 1);
-            window.gameCrtl.ongoldtimer.runAction(cc.repeatForever(cc.sequence(t, o)));
-        } else "puffer" != e && "point5" != e && "stone01" != e && "point4" != e && "point3" != e && "point2" != e && "point1" != e && "pufferMod" != e || (this.node.active = !1);
+            var effect_1 = cc.scaleTo(.5, 1.2, 1.2),
+                effect_2 = cc.scaleTo(.5, 1, 1);
+            window.gameCrtl.ongoldtimer.runAction(cc.repeatForever(cc.sequence(effect_1, effect_2)));
+        } else "puffer" != nodeName && "point5" != nodeName && "stone01" != nodeName && "point4" != nodeName && "point3" != nodeName && "point2" != nodeName && "point1" != nodeName && "pufferMod" != nodeName || (this.node.active = !1);
     },
     update: function() {
         if (this.node.active) {
-            var e = window.gameCrtl._hero.parent.getPosition();
-            e = window.gameCrtl._hero.parent.parent.convertToWorldSpaceAR(e);
-            var t = this.node.getPosition();
-            2500 < g(u(e.x - t.x, 2) + u(e.y - t.y, 2)) && this.setNewPos();
+            var heroPos = window.gameCrtl._hero.parent.getPosition();
+            heroPos = window.gameCrtl._hero.parent.parent.convertToWorldSpaceAR(heroPos);
+            var nodePos = this.node.getPosition();
+            2500 < Math.sqrt(Math.pow(heroPos.x - nodePos.x, 2) + Math.pow(heroPos.y - nodePos.y, 2)) && this.setNewPos();
         }
     }
 });

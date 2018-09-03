@@ -1,3 +1,5 @@
+//var p = Math.abs, m = Math.atan2, g = Math.sqrt, u = Math.pow, _ = Math.sin, f = Math.cos, y = Math.PI, t = Math.ceil, C = Math.floor;
+
 cc.Class({
     extends: cc.Component,
     properties: {
@@ -17,15 +19,15 @@ cc.Class({
     start: function() {
         this._time = 5, cc.director.getCollisionManager().enabled = !0, this.ration = .5 < Math.random(),
             this.node.y = this.ration ? -1e3 : 1e3, this.node.rotation = this.ration ? 0 : 180,
-            this.speed = 200 * C(window.gameCrtl.timergo / 10) + 400, 800 < this.speed && (this.speed = 800);
-        var a = cc.fadeTo(.5, 255),
-            e = cc.fadeTo(.2, 200),
-            t = cc.fadeTo(.2, 255),
-            o = cc.fadeTo(.5, 100);
-        this.redRode.runAction(cc.sequence(a, e, t, o));
+            this.speed = 200 * Math.floor(window.gameCrtl.timergo / 10) + 400, 800 < this.speed && (this.speed = 800);
+        var effect_1 = cc.fadeTo(.5, 255),
+            effect_2 = cc.fadeTo(.2, 200),
+            effect_3 = cc.fadeTo(.2, 255),
+            effect_4 = cc.fadeTo(.5, 100);
+        this.redRode.runAction(cc.sequence(effect_1, effect_2, effect_3, effect_4));
     },
-    onCollisionEnter: function(t) {
-        "gold" != t.node.name && this.onRunAction();
+    onCollisionEnter: function(other) {
+        "gold" != other.node.name && this.onRunAction();
     },
     onBlast: function() {},
     onRunAction: function() {
@@ -35,10 +37,10 @@ cc.Class({
                     this.runAction = !1;
             }, .2);
     },
-    update: function(o) {
+    update: function(dt) {
         if (window.gameCrtl && !window.gameCrtl.isPause) {
-            var e = this.ration ? 1 : -1;
-            this.node.y += o * this.speed * e, (1e3 <= this.node.y || -1e3 >= this.node.y) && this.node.parent.destroy();
+            var ration = this.ration ? 1 : -1;
+            this.node.y += dt * this.speed * ration, (1e3 <= this.node.y || -1e3 >= this.node.y) && this.node.parent.destroy();
         }
     }
 });

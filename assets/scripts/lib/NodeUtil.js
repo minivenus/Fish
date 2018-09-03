@@ -1,14 +1,14 @@
-var r = require("./LogUtil"),
+var LogUtil = require("./LogUtil"),
     o = function(o) {
         function e() {
             return null !== o && o.apply(this, arguments) || this;
         }
         return __extends(e, o), e.prototype.GetComponentByNodeName = function(a, e) {
             var t = this.GetNodeByName(a);
-            if (!t) return r.LogUtil.ErroLog(" BaseGameUI.GetNodeComponent : path is not exist!"),
+            if (!t) return LogUtil.LogUtil.ErroLog(" BaseGameUI.GetNodeComponent : path is not exist!"),
                 null;
             var n = t.getComponent(e);
-            return n || (r.LogUtil.ErroLog(" BaseGameUI.GetNodeComponent : Node=>'" + t.name + "' does not hava Component=>'" + e + "' !"),
+            return n || (LogUtil.LogUtil.ErroLog(" BaseGameUI.GetNodeComponent : Node=>'" + t.name + "' does not hava Component=>'" + e + "' !"),
                 null);
         }, e.prototype.GetNodeByRootName = function(a) {
             for (var e = a.split("/"), t = null, o = 0; o < e.length; o++)
@@ -25,7 +25,7 @@ var r = require("./LogUtil"),
             for (var o = 0; o < e.length; o++) {
                 e[o];
                 var s = t[o].getChildByName(e[o]);
-                if (null == s) return r.LogUtil.ErroLog("BaseGameUI.GetNodeByName : Not find node=>'" + e[o] + "'"),
+                if (null == s) return LogUtil.LogUtil.ErroLog("BaseGameUI.GetNodeByName : Not find node=>'" + e[o] + "'"),
                     null;
                 t.push(s);
             }
@@ -36,7 +36,7 @@ var r = require("./LogUtil"),
                 n.target = s, n.component = e, n.handler = t, n.customEventData = null == d ? "" : d,
                     o.getComponent(cc.Toggle).checkEvents.push(n);
             } catch (t) {
-                r.LogUtil.ErroLog("NodeUtil<AddToggleEvent> " + o.name + " " + t);
+                LogUtil.LogUtil.ErroLog("NodeUtil<AddToggleEvent> " + o.name + " " + t);
             }
         }, e.prototype.AddButtonEvent = function(s, e, t, o, d) {
             try {
@@ -44,7 +44,7 @@ var r = require("./LogUtil"),
                 n.target = s, n.component = e, n.handler = t, n.customEventData = null == d ? "" : d,
                     o.getComponent(cc.Button).clickEvents.push(n);
             } catch (t) {
-                r.LogUtil.ErroLog("NodeUtil<AddButtonEvent> " + o.name + " " + t);
+                LogUtil.LogUtil.ErroLog("NodeUtil<AddButtonEvent> " + o.name + " " + t);
             }
         }, e.prototype.AddButtonEventStart = function(a, e, t) {
             e.on("touchstart", t, a);

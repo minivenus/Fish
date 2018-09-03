@@ -1,13 +1,13 @@
 var o = cc._decorator,
     s = o.ccclass,
-    n = (o.property, function(o) {
-        function e() {
-            return null !== o && o.apply(this, arguments) || this;
+    Common_BgSetting = (o.property, function(__super) {
+        function Common_BgSetting() {
+            return null !== __super && __super.apply(this, arguments) || this;
         }
-        return __extends(e, o), e.prototype.start = function() {
+        return __extends(Common_BgSetting, __super), Common_BgSetting.prototype.start = function() {
             var o = cc.director.getWinSize(),
                 e = this.node.getContentSize();
             this.node.scaleX = o.width / e.width, this.node.scaleY = o.height / e.height;
-        }, e = __decorate([s], e);
+        }, Common_BgSetting = __decorate([s], Common_BgSetting);
     }(cc.Component));
-exports.default = n;
+exports.default = Common_BgSetting;

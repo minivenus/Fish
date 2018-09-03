@@ -1,7 +1,6 @@
 {
   "ver": "1.0.1",
   "uuid": "116f4703-f0b8-4b5b-9052-e925c4f6a471",
-  "isSubpackage": false,
-  "subpackageName": "",
+  "isGroup": false,
   "subMetas": {}
 }

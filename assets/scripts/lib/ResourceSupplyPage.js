@@ -1,6 +1,6 @@
-var o = require("./BaseResourcePage"),
-    p = require("./ResourceItem"),
-    s = require("./ResourceConfig"),
+var BaseResourcePage = require("./BaseResourcePage"),
+    ResourceItem = require("./ResourceItem"),
+    ResourceConfig = require("./ResourceConfig"),
     c = cc._decorator,
     n = c.ccclass,
     a = c.property,
@@ -18,8 +18,8 @@ var o = require("./BaseResourcePage"),
                     o.data.forEach(function(n) {
                         var e = cc.instantiate(a);
                         e.parent = r.itemRoot;
-                        var t = e.getComponent(p.default),
-                            o = s.default.get(n);
+                        var t = e.getComponent(ResourceItem.default),
+                            o = ResourceConfig.default.get(n);
                         t.propData = r.propDataList.filter(function(t) {
                             return t.propId == o.id;
                         })[0] || null, t.refresh(o);
@@ -29,5 +29,5 @@ var o = require("./BaseResourcePage"),
                 this.pageData && this.pageData.clickHomeCallback && this.pageData.clickHomeCallback();
             }, __decorate([a(cc.Label)], t.prototype, "desc", void 0), __decorate([a(cc.RichText)], t.prototype, "subTitle", void 0),
             __decorate([a(cc.Node)], t.prototype, "itemRoot", void 0), t = __decorate([n], t);
-    }(o.default);
+    }(BaseResourcePage.default);
 exports.default = r;

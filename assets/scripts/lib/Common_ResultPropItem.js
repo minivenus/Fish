@@ -1,4 +1,4 @@
-var o = require("./Common_CommonUtil"),
+var Common_CommonUtil = require("./Common_CommonUtil"),
     d = cc._decorator,
     n = d.ccclass,
     a = d.property,
@@ -14,7 +14,7 @@ var o = require("./Common_CommonUtil"),
                 enumerable: !0,
                 configurable: !0
             }), t.prototype.refresh = function() {
-                o.default.setSprite(this.icon, this._data.icon), this.alertIcon.active = this._data.showMark,
+                Common_CommonUtil.default.setSprite(this.icon, this._data.icon), this.alertIcon.active = this._data.showMark,
                     this.propName.string = this._data.name + "x" + this._data.count;
             }, t.prototype.onClick = function() {
                 this._data.callback();

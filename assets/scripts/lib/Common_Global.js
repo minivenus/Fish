@@ -1,6 +1,6 @@
-var o = function() {
-    function t() {}
-    return t.RedItemPos = [{
+var Global = function() {
+    function Global() {}
+    return Global.RedItemPos = [{
         x: -269,
         y: 0
     }, {
@@ -9,7 +9,7 @@ var o = function() {
     }, {
         x: 271,
         y: 0
-    }], t.MyRedItemPos = [{
+    }], Global.MyRedItemPos = [{
         x: -175,
         y: 0
     }, {
@@ -18,6 +18,6 @@ var o = function() {
     }, {
         x: 217,
         y: 0
-    }], t.MaxRedNum = 3, t;
+    }], Global.MaxRedNum = 3, Global;
 }();
-exports.Global = o;
+exports.Global = Global;

@@ -4,14 +4,14 @@ function o(t) {
     };
 }
 
-var r = o(require("./dataStatistics.js")),
-    l = o(require("./game.js")),
-    n = o(require("./coinsdk.js")),
-    a = o(require("./config")),
-    s = o(require("./track.js"));
+var dataStatistics = o(require("./dataStatistics.js")),
+    game = o(require("./game.js")),
+    coinsdk = o(require("./coinsdk.js")),
+    config = o(require("./config")),
+    track = o(require("./track.js"));
 export default new function t() {
     (function(o, e) {
         if (!(o instanceof e)) throw new TypeError("Cannot call a class as a function");
-    })(this, t), this.dataStatistics = r.default, this.game = l.default, this.coin = n.default,
-        this.config = a.default, this.track = s.default;
+    })(this, t), this.dataStatistics = dataStatistics.default, this.game = game.default, this.coin = coinsdk.default,
+        this.config = config.default, this.track = track.default;
 }();

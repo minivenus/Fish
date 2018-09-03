@@ -1,7 +1,7 @@
-var o = require("./Common_ResultPage"),
-    p = require("./EChannelPrefix"),
-    n = require("./Common_RankList"),
-    a = require("./Common_Data"),
+var Common_ResultPage = require("./Common_ResultPage"),
+    EChannelPrefix = require("./EChannelPrefix"),
+    Common_RankList = require("./Common_RankList"),
+    Common_Data = require("./Common_Data"),
     s = cc._decorator,
     c = s.ccclass,
     r = s.property,
@@ -12,11 +12,11 @@ var o = require("./Common_ResultPage"),
                 t;
         }
         return __extends(t, s), t.prototype.start = function() {
-                this.btns.active = !1, this.bg.scale /= o.default.getScale();
+                this.btns.active = !1, this.bg.scale /= Common_ResultPage.default.getScale();
             }, t.prototype.onBack = function() {
-                this.btns.active = !1, this.node.active = !1, n.default.showGameResultList(), this.refresh(2);
+                this.btns.active = !1, this.node.active = !1, Common_RankList.default.showGameResultList(), this.refresh(2);
             }, t.prototype.onGroupRank = function() {
-                a.default.share(p.default.grouprank);
+                Common_Data.default.share(EChannelPrefix.default.grouprank);
             }, t.prototype.refresh = function(t) {
                 switch (this.node.active = !0, this.btns.active = !0, t) {
                     case 0:

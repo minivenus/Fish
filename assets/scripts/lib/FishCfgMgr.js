@@ -1,5 +1,5 @@
-var o, s = require("./utils/Util"),
-    d = require("./Fish_UserData");
+var o, Util = require("./Util"),
+    Fish_UserData = require("./Fish_UserData");
 (o = exports.emTargetType || (exports.emTargetType = {}))[o.T_BeEaten = 0] = "T_BeEaten", o[o.T_FishMax = 1] = "T_FishMax",
     o[o.T_FishTypeMax = 2] = "T_FishTypeMax", o[o.T_EatFishTotal = 3] = "T_EatFishTotal",
     o[o.T_BigFishNum = 4] = "T_BigFishNum", o[o.T_FishFeedTotal = 5] = "T_FishFeedTotal",
@@ -54,7 +54,7 @@ var n = function() {
                 null);
         }, t.getTargetValidByType = function(r, e, t) {
             var o = this.FishTargetDatas[r];
-            this.FishCompleteList = d.Fish_UserData.getCompleteList();
+            this.FishCompleteList = Fish_UserData.Fish_UserData.getCompleteList();
             var l = this.FishCompleteList[t],
                 n = [];
             if (!o) return console.error("不存在该类型目标_2" + r), n;
@@ -65,17 +65,17 @@ var n = function() {
             return n;
         }, t.getAllTargetValidByArryType = function(r) {
             for (var e, s = [], t = 0; t < r.length; t++) {
-                e = this.FishTargetDatas[t], this.FishCompleteList = d.Fish_UserData.getCompleteList();
+                e = this.FishTargetDatas[t], this.FishCompleteList = Fish_UserData.Fish_UserData.getCompleteList();
                 var o = this.FishCompleteList[t];
                 if (e)
                     for (var n = 0; n < e.length && e[n].num <= r[t]; n++) o < e[n].level && (s.push(e[n]),
                         this.FishCompleteList[t] = e[n].level, console.log("完成目标保存：" + t + ":" + this.FishCompleteList[t]));
                 else console.log("不存在该类型目标_3" + t);
             }
-            return d.Fish_UserData.setCompleteList(this.FishCompleteList), s;
+            return Fish_UserData.Fish_UserData.setCompleteList(this.FishCompleteList), s;
         }, t.getNoCompleteByType = function(a, e) {
             var t = this.FishTargetDatas[a];
-            this.FishCompleteList = d.Fish_UserData.getCompleteList();
+            this.FishCompleteList = Fish_UserData.Fish_UserData.getCompleteList();
             var o = this.FishCompleteList[a];
             if (t) {
                 for (var r = 0; r < t.length; r++)
@@ -90,7 +90,7 @@ var n = function() {
             return this.FishSkinSpriteFrames[t];
         }, t.saveComplete = function(o) {
             var e = JSON.stringify(o);
-            console.log("本地保存完成记录：" + e), s.Util.SaveDataByKey("fristComplete", e);
+            console.log("本地保存完成记录：" + e), Util.Util.SaveDataByKey("fristComplete", e);
         }, t.getRewardFrameByKey = function(t) {
             return this.RewardSpriteFrames[t];
         }, t.loadNum = 0, t.FishTargetDatas = {}, t.FishSkinDatas = {}, t.FishSkinSpriteFrames = {},

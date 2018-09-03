@@ -1,4 +1,4 @@
-var d, o, r = require("./Common_CommonUtil");
+var d, o, Common_CommonUtil = require("./Common_CommonUtil");
 (o = d || (d = {}))[o.TransitionFadeInOut = 0] = "TransitionFadeInOut", o[o.TransitionProgressInOut = 1] = "TransitionProgressInOut",
     o[o.TransitionMoveInOut = 2] = "TransitionMoveInOut";
 var n = function() {
@@ -10,13 +10,13 @@ var n = function() {
                 o ? console.log(o.message || o) : this.FbTip = e;
             }.bind(this));
             var t = "prefab/ShopPop";
-            r.default.getPrefab(t, function(t) {
+            Common_CommonUtil.default.getPrefab(t, function(t) {
                 o.pageList.ShopPop = t;
-            }), t = "prefab/BoxPop", r.default.getPrefab(t, function(t) {
+            }), t = "prefab/BoxPop", Common_CommonUtil.default.getPrefab(t, function(t) {
                 o.pageList.BoxPop = t;
-            }), t = "prefab/NewGiftPop", r.default.getPrefab(t, function(t) {
+            }), t = "prefab/NewGiftPop", Common_CommonUtil.default.getPrefab(t, function(t) {
                 o.pageList.NewGiftPop = t;
-            }), t = "prefab/AchievementPop", r.default.getPrefab(t, function(t) {
+            }), t = "prefab/AchievementPop", Common_CommonUtil.default.getPrefab(t, function(t) {
                 o.pageList.AchievementPop = t;
             });
         }

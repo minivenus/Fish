@@ -1,17 +1,17 @@
-var o = require("./Common_CommonUtil"),
+var commonUtil = require("./Common_CommonUtil"),
     d = cc._decorator,
     n = d.ccclass,
     a = d.property,
-    s = function(r) {
-        function t() {
-            var t = null !== r && r.apply(this, arguments) || this;
-            return t.logo = null, t;
+    SceneLogo = function(__super) {
+        function SceneLogo() {
+            var SceneLogo = null !== __super && __super.apply(this, arguments) || this;
+            return SceneLogo.logo = null, SceneLogo;
         }
-        return __extends(t, r), t.prototype.start = function() {
-            cc.director.setClearColor(cc.Color.WHITE), o.default.fitScreen(), this.logo.opacity = 0,
+        return __extends(SceneLogo, __super), SceneLogo.prototype.start = function() {
+            cc.director.setClearColor(cc.Color.WHITE), commonUtil.default.fitScreen(), this.logo.opacity = 0,
                 this.logo.runAction(cc.sequence(cc.fadeIn(1), cc.delayTime(1), cc.fadeOut(1), cc.callFunc(function() {
                     return cc.director.loadScene("SignScene");
                 })));
-        }, __decorate([a(cc.Node)], t.prototype, "logo", void 0), t = __decorate([n], t);
+        }, __decorate([a(cc.Node)], SceneLogo.prototype, "logo", void 0), SceneLogo = __decorate([n], SceneLogo);
     }(cc.Component);
-exports.default = s;
+exports.default = SceneLogo;

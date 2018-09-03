@@ -1,6 +1,6 @@
-var o = require("./Common_CommonUtil"),
-    p = require("./Common_ShareUtils"),
-    n = require("./Common_RankUtils"),
+var Common_CommonUtil = require("./Common_CommonUtil"),
+    Common_ShareUtils = require("./Common_ShareUtils"),
+    Common_RankUtils = require("./Common_RankUtils"),
     a = cc._decorator,
     s = a.ccclass,
     c = a.property,
@@ -12,13 +12,13 @@ var o = require("./Common_CommonUtil"),
                 t.needShowPos = 20, t.isNowRefreshing = !1, t.myScore = 0, t.tip = null, t;
         }
         return __extends(t, a), t.prototype.start = function() {}, t.prototype.refresh = function(a, e, t) {
-                if (this.curPos = 0, this.myScore = t, n.Common_RankUtils.titleLists = e, a && a.list && 0 < a.list.length) {
+                if (this.curPos = 0, this.myScore = t, Common_RankUtils.Common_RankUtils.titleLists = e, a && a.list && 0 < a.list.length) {
                     if (a.userInfo) {
                         console.log("userinfo"), console.log(a.userInfo), -1 == a.userInfo.rank ? (this.labRank.string = "未上榜",
                             this.labScore.string = this.myScore.toString()) : (this.labRank.string = (a.userInfo.rank + 1).toString(),
-                            this.labScore.string = n.Common_RankUtils.scoreCheck(a.userInfo.score)), this.labName.string = n.Common_RankUtils.nameCheck(a.userInfo.nick_name);
-                        var r = n.Common_RankUtils.getTitle(a.userInfo.score);
-                        "" == r ? this.labTitle.node.parent.active = !1 : this.labTitle.string = r, "" != a.userInfo.avatar_url && o.default.setSprite(this.spHead, a.userInfo.avatar_url + "?a=a.jpg");
+                            this.labScore.string = Common_RankUtils.Common_RankUtils.scoreCheck(a.userInfo.score)), this.labName.string = Common_RankUtils.Common_RankUtils.nameCheck(a.userInfo.nick_name);
+                        var r = Common_RankUtils.Common_RankUtils.getTitle(a.userInfo.score);
+                        "" == r ? this.labTitle.node.parent.active = !1 : this.labTitle.string = r, "" != a.userInfo.avatar_url && Common_CommonUtil.default.setSprite(this.spHead, a.userInfo.avatar_url + "?a=a.jpg");
                     }
                     console.log(a.list), this.addWorldList(a.list);
                 }
@@ -30,7 +30,7 @@ var o = require("./Common_CommonUtil"),
                     var r = this.curPos + 1,
                         n = this.curPos + this.needShowPos;
                     if (console.log("开始名次：" + r + " 结束名次：" + n), 1e3 <= r) return void(this.isNowRefreshing = !1);
-                    n = 1e3 < n ? 1e3 : n, console.log("检测后 开始名次：" + r + " 结束名次：" + n), p.default._updateWorldRankList(r, n, function(o) {
+                    n = 1e3 < n ? 1e3 : n, console.log("检测后 开始名次：" + r + " 结束名次：" + n), Common_ShareUtils.default._updateWorldRankList(r, n, function(o) {
                         o && o.list && t.addWorldList(o.list), t.isNowRefreshing = !1;
                     });
                 }

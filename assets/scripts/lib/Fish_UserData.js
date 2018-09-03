@@ -1,6 +1,6 @@
-var d = require("./Common_Data"),
-    o = require("./Util"),
-    l = require("./ComPage"),
+var commonData = require("./Common_Data"),
+    util = require("./Util"),
+    comPage = require("./ComPage"),
     n = function() {
         function t() {}
         return t.setShareOpen = function(t) {
@@ -61,7 +61,7 @@ var d = require("./Common_Data"),
                             n = parseInt(d[0]),
                             a = 0 == n ? 1 : n + 1,
                             s = (a = 7 < a ? 1 : a) + "-1-" + new Date().getTime().toString();
-                        this.setSign(s), l.ComPage.ShowTip(this.signTip), this.setSignReward([], "");
+                        this.setSign(s), comPage.ComPage.ShowTip(this.signTip), this.setSignReward([], "");
                     } else console.log("签到效验不通过");
                 }
             }, t.addReward = function(o) {
@@ -96,7 +96,7 @@ var d = require("./Common_Data"),
                 this.openGameBoxTemp = new Date();
             }, t.getOpenGameBoxtemp = function() {
                 var t = !0;
-                return t = this.openGameBoxTemp ? o.Util.isToday(this.openGameBoxTemp) : t;
+                return t = this.openGameBoxTemp ? util.Util.isToday(this.openGameBoxTemp) : t;
             }, t.getOpenGameBoxTimer = function() {
                 return this.getOpenGameBoxtemp() || (this.openGameBoxTimer = 0), this.openGameBoxTimer;
             }, t.setAgainGame = function(t) {
@@ -123,17 +123,17 @@ var d = require("./Common_Data"),
             }, t.saveUserDataToLocal = function() {
                 console.log("存储数据到本地");
                 var t = this.userdataArryToStr();
-                o.Util.SaveDataByKey("UserData", t);
+                util.Util.SaveDataByKey("UserData", t);
             }, t.saveUserDataToServer = function() {
                 console.log("存储数据到服务器");
                 var t = this.userdataArryToStr();
-                console.log(t), d.default.setData(t, function() {
+                console.log(t), commonData.default.setData(t, function() {
                     console.log("上传服务器成功");
                 }, function() {
                     console.log("上传服务器失败");
                 });
             }, t.initUserDataByServer = function(a) {
-                console.log("加载服务器数据"), d.default.getData(function(o) {
+                console.log("加载服务器数据"), commonData.default.getData(function(o) {
                     console.log(o);
                     try {
                         if ("" == o.data.data) console.log("服务器不存在数据"), a(!1);
@@ -151,7 +151,7 @@ var d = require("./Common_Data"),
             }, t.initUserDataByLocal = function() {
                 console.log("加载本地数据");
                 try {
-                    var a = o.Util.GetByKey("UserData");
+                    var a = util.Util.GetByKey("UserData");
                     if ("string" == typeof a && "" != a) {
                         var n = this.userdataStrToArry(a);
                         this.updateUserData(n), this.signLocal = this.sign;

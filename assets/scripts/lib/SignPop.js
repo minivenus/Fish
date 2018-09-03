@@ -1,20 +1,20 @@
-var o = require("./NodeUtil"),
-    l = require("./Fish_UserData"),
+var nodeUtil = require("./NodeUtil"),
+    fishUserData = require("./Fish_UserData"),
     n = cc._decorator,
     a = n.ccclass,
     s = n.property,
-    p = function(o) {
-        function t() {
-            var t = null !== o && o.apply(this, arguments) || this;
-            return t.label = null, t.reward = 10, t.getReward = 0, t;
+    NodeUtil = function(__super) {
+        function NodeUtil() {
+            var NodeUtil = null !== __super && __super.apply(this, arguments) || this;
+            return NodeUtil.label = null, NodeUtil.reward = 10, NodeUtil.getReward = 0, NodeUtil;
         }
-        return __extends(t, o), t.prototype.start = function() {
+        return __extends(NodeUtil, __super), NodeUtil.prototype.start = function() {
             this.AddButtonEventStart(this, this.GetNodeByName("content/btnTrue"), this.onTrue);
-        }, t.prototype.init = function(t) {
+        }, NodeUtil.prototype.init = function(t) {
             this.getReward = this.reward * t, this.GetNodeByName("content/labTop").getComponent(cc.Label).string = "第" + t + "签到奖励",
                 this.GetNodeByName("content/labNum").getComponent(cc.Label).string = "金币x" + this.getReward;
-        }, t.prototype.onTrue = function() {
-            l.Fish_UserData.addGold(this.getReward), cc.director.loadScene("GameScene");
-        }, __decorate([s(cc.Label)], t.prototype, "label", void 0), t = __decorate([a], t);
-    }(o.NodeUtil);
-exports.default = p;
+        }, NodeUtil.prototype.onTrue = function() {
+            fishUserData.Fish_UserData.addGold(this.getReward), cc.director.loadScene("GameScene");
+        }, __decorate([s(cc.Label)], NodeUtil.prototype, "label", void 0), NodeUtil = __decorate([a], NodeUtil);
+    }(nodeUtil.NodeUtil);
+exports.default = NodeUtil;

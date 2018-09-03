@@ -8,12 +8,12 @@ cc.Class({
     },
     start: function() {
         cc.director.getCollisionManager().enabled = !0;
-        var t = this.node.getPosition();
-        this._pos = this.node.parent.convertToWorldSpaceAR(t);
+        var pos = this.node.getPosition();
+        this._pos = this.node.parent.convertToWorldSpaceAR(pos);
     },
-    onCollisionEnter: function(o) {
-        var e = o.node.name;
-        "puffer" == e && (this.node.removeFromParent(), this._isdestroy = !0), "BigBoss" == e && this.onBlast();
+    onCollisionEnter: function(other) {
+        var nodeName = other.node.name;
+        "puffer" == nodeName && (this.node.removeFromParent(), this._isdestroy = !0), "BigBoss" == nodeName && this.onBlast();
     },
     onBlast: function() {
         this._isdestroy || (this._isdestroy = !0, this.node.getChildByName("puffer").active = !1,
@@ -24,10 +24,10 @@ cc.Class({
     update: function() {
         if (!this._isdestroy) {
             window.isGameOver && this.onBlast();
-            var e = this._heroNode.getPosition();
-            e = this._heroNode.parent.convertToWorldSpaceAR(e);
-            var t = this._pos;
-            2500 < g(u(e.x - t.x, 2) + u(e.y - t.y, 2)) && this.node.removeFromParent();
+            var heroPos = this._heroNode.getPosition();
+            heroPos = this._heroNode.parent.convertToWorldSpaceAR(heroPos);
+            var pos = this._pos;
+            2500 < Math.sqrt(Math.pow(heroPos.x - pos.x, 2) + Math.pow(heroPos.y - pos.y, 2)) && this.node.removeFromParent();
         }
     }
 });

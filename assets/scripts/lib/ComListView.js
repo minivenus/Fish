@@ -1,18 +1,21 @@
 var o = cc._decorator,
     d = o.ccclass,
     n = o.property,
-    a = function(o) {
-        function t() {
-            var t = null !== o && o.apply(this, arguments) || this;
-            return t.scrollView = null, t.itemTemplate = null, t.spawnCount = 5, t.spacing = 0,
-                t.bufferZone = 0, t.content = null, t.updateTimer = 0, t.updateInterval = 0, t.lastContentPosY = 0,
-                t.totalCount = 0, t.items = [], t.data = [], t;
+    ComListView = function(__super) {
+        function ComListView() {
+            var ComListView = null !== __super && __super.apply(this, arguments) || this;
+            return ComListView.scrollView = null, ComListView.itemTemplate = null, ComListView.spawnCount = 5, ComListView.spacing = 0,
+            ComListView.bufferZone = 0, ComListView.content = null, ComListView.updateTimer = 0, ComListView.updateInterval = 0, ComListView.lastContentPosY = 0,
+            ComListView.totalCount = 0, ComListView.items = [], ComListView.data = [], ComListView;
         }
-        return __extends(t, o), t.prototype.start = function() {}, t.prototype.init = function(t) {
+        return __extends(ComListView, __super), ComListView.prototype.start = function() {}, ComListView.prototype.init = function(t) {
                 t && (this.data = t, this.totalCount = this.data.length, this.content = this.scrollView.content,
                     this.items = [], 0 < this.totalCount && this.initialize(), this.updateTimer = 0,
                     this.updateInterval = .2, this.lastContentPosY = 0);
-            }, t.prototype.initialize = function() {
+            }, ComListView.prototype.initialize = function() {
+                this.spawnCount = 5;
+                this.spacing = 0;
+                this.bufferZone = 0;
                 this.scrollView.node.getChildByName("view").height, this.itemTemplate.height, this.spawnCount = parseInt((this.scrollView.node.getChildByName("view").height / this.itemTemplate.height).toString()) + 3,
                     this.spawnCount = this.spawnCount > this.totalCount ? this.totalCount : this.spawnCount,
                     this.content.height = this.totalCount * (this.itemTemplate.height + this.spacing) + this.spacing,
@@ -23,10 +26,10 @@ var o = cc._decorator,
                     var e = -a.height * (.5 + t) - this.spacing * (t + 1);
                     a.setPosition(0, e), a.getComponent(a.name).updateItem(this.data[t], t), this.items.push(a);
                 }
-            }, t.prototype.getPositionInView = function(o) {
+            }, ComListView.prototype.getPositionInView = function(o) {
                 var e = o.parent.convertToWorldSpaceAR(o.position);
                 return this.scrollView.node.convertToNodeSpaceAR(e);
-            }, t.prototype.update = function(d) {
+            }, ComListView.prototype.update = function(d) {
                 if (this.updateTimer += d, !(this.updateTimer < this.updateInterval)) {
                     this.updateTimer = 0;
                     for (var e, s = this.items, t = this.bufferZone, p = this.scrollView.content.y < this.lastContentPosY, m = (this.itemTemplate.height + this.spacing) * s.length, n = 0; n < s.length; ++n)
@@ -44,8 +47,8 @@ var o = cc._decorator,
                     }
                     this.lastContentPosY = this.scrollView.content.y;
                 }
-            }, __decorate([n(cc.ScrollView)], t.prototype, "scrollView", void 0), __decorate([n(cc.Node)], t.prototype, "itemTemplate", void 0),
-            __decorate([n()], t.prototype, "spawnCount", void 0), __decorate([n()], t.prototype, "spacing", void 0),
-            __decorate([n()], t.prototype, "bufferZone", void 0), t = __decorate([d], t);
+            }, __decorate([n(cc.ScrollView)], ComListView.prototype, "scrollView", void 0), __decorate([n(cc.Node)], ComListView.prototype, "itemTemplate", void 0),
+            /*__decorate([n()], ComListView.prototype, "spawnCount", void 0), __decorate([n()], ComListView.prototype, "spacing", void 0),
+            __decorate([n()], ComListView.prototype, "bufferZone", void 0), */ComListView = __decorate([d], ComListView);
     }(cc.Component);
-exports.default = a;
+exports.default = ComListView;

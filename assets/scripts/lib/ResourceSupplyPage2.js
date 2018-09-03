@@ -1,9 +1,9 @@
-var o = require("./BaseResourcePage"),
-    m = require("./Common_CommonUtil"),
-    n = require("./EChannelPrefix"),
-    a = require("./Common_Data"),
-    s = require("./Common_ShareUtils"),
-    c = require("./gamesdk"),
+var BaseResourcePage = require("./BaseResourcePage"),
+    Common_CommonUtil = require("./Common_CommonUtil"),
+    EChannelPrefix = require("./EChannelPrefix"),
+    Common_Data = require("./Common_Data"),
+    Common_ShareUtils = require("./Common_ShareUtils"),
+    gamesdk = require("./gamesdk"),
     r = cc._decorator,
     l = r.ccclass,
     g = r.property,
@@ -17,7 +17,7 @@ var o = require("./BaseResourcePage"),
                 var o = this,
                     e = this.propDataList[0];
                 e && e.propIcon && this.scheduleOnce(function() {
-                    return m.default.setSprite(o.icon, e.propIcon, function() {
+                    return Common_CommonUtil.default.setSprite(o.icon, e.propIcon, function() {
                         return o.icon.node.opacity = 255;
                     });
                 }, .1);
@@ -28,14 +28,14 @@ var o = require("./BaseResourcePage"),
                     this.itemCount.string = e, this.desc.string = this.pageData.desc, this.btnInvite.interactable = !!this.resData.open_status;
             }, t.prototype.onInvite = function() {
                 var o = this,
-                    t = "propId=" + this.resData.id + "&shareId=" + c.game.getOpenId();
-                a.default.share(n.default.reward, t, null, function() {
-                    console.log("发送邀请成功！"), s.default.requestForServerRecord(o.resData.id);
+                    t = "propId=" + this.resData.id + "&shareId=" + gamesdk.game.getOpenId();
+                    Common_Data.default.share(EChannelPrefix.default.reward, t, null, function() {
+                    console.log("发送邀请成功！"), Common_ShareUtils.default.requestForServerRecord(o.resData.id);
                 });
             }, t.prototype.onClose = function() {
                 this.node.destroy();
             }, __decorate([g(cc.Sprite)], t.prototype, "icon", void 0), __decorate([g(cc.RichText)], t.prototype, "itemCount", void 0),
             __decorate([g(cc.Label)], t.prototype, "desc", void 0), __decorate([g(cc.Node)], t.prototype, "btnInvite", void 0),
             t = __decorate([l], t);
-    }(o.default);
+    }(BaseResourcePage.default);
 exports.default = d;

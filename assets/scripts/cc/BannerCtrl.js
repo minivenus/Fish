@@ -2,33 +2,33 @@ cc.Class({
     extends: cc.Component,
     properties: {},
     start: function() {
-        var t = this;
+        var self = this;
         this.show(), this.schedule(function() {
-            console.log("this.node.active", t.node.active), t.node.active && (t.onDisable(),
-                t.show());
+            console.log("this.node.active", self.node.active), self.node.active && (self.onDisable(),
+            self.show());
         }, 10);
     },
     onEnable: function() {},
     show: function() {
-        var a = this;
+        var self = this;
         console.log("==========onEnable==========="), window.BanerCtrl = this;
-        var t = wx.getSystemInfoSync(),
-            e = t.screenWidth,
-            n = t.screenHeight;
-        console.log("=========Bannder测试=====================", e), this.bannerAd = wx.createBannerAd({
+        var sysInfo = wx.getSystemInfoSync(),
+            screenWidth = sysInfo.screenWidth,
+            screenHeight = sysInfo.screenHeight;
+        console.log("=========Bannder测试=====================", screenWidth), this.bannerAd = wx.createBannerAd({
             adUnitId: "adunit-fa62233d7ef1be36",
             style: {
                 left: 0,
-                top: n,
-                width: e
+                top: screenHeight,
+                width: screenWidth
             }
         }), this.bannerAd.show().catch(function() {
             console.log("拉起失败");
         }).then(function() {
             console.log("拉起成功");
         }), this.bannerAd.onResize(function(t) {
-            console.log(t.width, t.height), console.log(a.bannerAd.style.realWidth, a.bannerAd.style.realHeight),
-                a.bannerAd.style.top = n - t.height, a.bannerAd.style.height = t.height;
+            console.log(t.width, t.height), console.log(self.bannerAd.style.realWidth, self.bannerAd.style.realHeight),
+            self.bannerAd.style.top = screenHeight - t.height, self.bannerAd.style.height = t.height;
         });
     },
     onHide: function() {

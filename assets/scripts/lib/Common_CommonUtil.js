@@ -1,9 +1,9 @@
-var r = require("./Common_Data"),
-    o = function() {
-        function a() {}
-        return a.isWeChat = function() {
+var commonData = require("./Common_Data"),
+    Common_CommonUtil = function() {
+        function Common_CommonUtil() {}
+        return Common_CommonUtil.isWeChat = function() {
             return cc.sys.platform == cc.sys.WECHAT_GAME;
-        }, a.showTips = function(e, a) {
+        }, Common_CommonUtil.showTips = function(e, a) {
             cc.loader.loadRes("resources/prefab/h5game_Tips", function(n, r) {
                 if (n) cc.error(n);
                 else {
@@ -11,25 +11,25 @@ var r = require("./Common_Data"),
                     t.getComponent("h5game_Tips").setText(e, a), t.parent = cc.director.getScene();
                 }
             });
-        }, a.shakeScreen = function(a) {
+        }, Common_CommonUtil.shakeScreen = function(a) {
             var e = .02,
                 t = a;
             t.stopAllActions(), t.runAction(cc.sequence(cc.moveBy(e, cc.p(20, 0)), cc.moveBy(.04, cc.p(-40)), cc.moveBy(e, cc.p(20)), cc.moveBy(e, cc.p(0, 20)), cc.moveBy(.04, cc.p(0, -40)), cc.moveBy(e, cc.p(0, 20)), cc.moveBy(e, cc.p(10, 0)), cc.moveBy(.04, cc.p(-20, 0)), cc.moveBy(e, cc.p(10, 0)), cc.moveBy(e, cc.p(0, 10)), cc.moveBy(.04, cc.p(0, -20)), cc.moveBy(e, cc.p(0, 10))));
-        }, a.fitScreen = function() {
+        }, Common_CommonUtil.fitScreen = function() {
             var o = cc.director.getScene().getComponentInChildren(cc.Canvas),
                 e = cc.view.getVisibleSize();
             e.width / e.height < 9 / 16 ? (o.fitWidth = !0, o.fitHeight = !1) : (o.fitWidth = !1,
                 o.fitHeight = !0);
-        }, a.resetScale = function(o) {
+        }, Common_CommonUtil.resetScale = function(o) {
             var e = cc.view.getVisibleSize();
             o.scale = e.width / e.height < 9 / 16 ? e.width / 1080 : e.height / 1920;
-        }, a.imgStr = function(t) {
+        }, Common_CommonUtil.imgStr = function(t) {
             return t;
-        }, a.txtStr = function(t) {
+        }, Common_CommonUtil.txtStr = function(t) {
             return t;
-        }, a.getLaunchParams = function() {
+        }, Common_CommonUtil.getLaunchParams = function() {
             if (cc.sys.isNative) return null;
-            if (a.isWeChat()) {
+            if (Common_CommonUtil.isWeChat()) {
                 var n = wx.getLaunchOptionsSync().query;
                 return n.token && n.userId && n.gameId && n.serverHost ? n : null;
             }
@@ -43,11 +43,11 @@ var r = require("./Common_Data"),
                         n[r[0]] = r[1];
                     return n.token && n.userId && n.gameId && n.serverHost ? n : null;
                 }(t);
-        }, a.preview = function() {
-            a.isWeChat() && wx.previewImage({
+        }, Common_CommonUtil.preview = function() {
+            Common_CommonUtil.isWeChat() && wx.previewImage({
                 urls: ["https://h5gameres.kuaiyugo.com/chatgame/cocos_games_res/images/codeImage.jpg"]
             });
-        }, a.setSprite = function(r, s, d) {
+        }, Common_CommonUtil.setSprite = function(r, s, d) {
             if (void 0 === s && (s = ""), void 0 === d && (d = null), !r) throw new Error("请传入正确的节点名称");
             if (!s) throw new Error("请传入正确的资源路径");
             var o;
@@ -66,16 +66,16 @@ var r = require("./Common_Data"),
                         d && d());
                 });
             }
-        }, a.getPrefab = function(t, a) {
+        }, Common_CommonUtil.getPrefab = function(t, a) {
             cc.loader.loadRes(t, function(o, e) {
                 if (o) throw o;
                 a(cc.instantiate(e));
             });
-        }, a.toPlatform = function(n, t, o) {
+        }, Common_CommonUtil.toPlatform = function(n, t, o) {
             void 0 === n && (n = null), void 0 === t && (t = null), void 0 === o && (o = null),
-                a.isWeChat() && (wx.navigateToMiniProgram ? wx.navigateToMiniProgram({
+            Common_CommonUtil.isWeChat() && (wx.navigateToMiniProgram ? wx.navigateToMiniProgram({
                     appId: "wxce8556babd23a6b3",
-                    path: "pages/index/index?channelCode=gametoplatform&openid=" + r.default.getOpenId() + "&appid=" + r.default.getAppId(),
+                    path: "pages/index/index?channelCode=gametoplatform&openid=" + commonData.default.getOpenId() + "&appid=" + commonData.default.getAppId(),
                     success: function(t) {
                         n && n(t);
                     },
@@ -85,11 +85,11 @@ var r = require("./Common_Data"),
                     complete: function(t) {
                         o && o(t);
                     }
-                }) : r.default.createPFCode(function() {
+                }) : commonData.default.createPFCode(function() {
                     console.log("小程序码 显示成功");
                 }, function(o) {
                     console.log("小程序码 获取失败", o), t && t(o);
                 }));
-        }, a;
+        }, Common_CommonUtil;
     }();
-exports.default = o;
+exports.default = Common_CommonUtil;

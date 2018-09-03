@@ -1,4 +1,4 @@
-var d = require("./Common_CommonUtil"),
+var Common_CommonUtil = require("./Common_CommonUtil"),
     o = cc._decorator,
     n = o.ccclass,
     a = (o.property,
@@ -11,7 +11,7 @@ var d = require("./Common_CommonUtil"),
                 r.sThis = this;
             }, t.prototype.onCreate = function() {
                 var a = this;
-                if (d.default.isWeChat()) {
+                if (Common_CommonUtil.default.isWeChat()) {
                     this.bannerAd && this.bannerAd.destroy();
                     var t = wx.getSystemInfoSync();
                     this.bannerAd = wx.createBannerAd({
@@ -31,7 +31,7 @@ var d = require("./Common_CommonUtil"),
             }, t.prototype.onHide = function() {
                 this.bannerAd.hide();
             }, t.setVisible = function(t) {
-                console.log("设置广告：" + t), 0 == t ? r.sThis.onShow() : 1 == t ? r.sThis.onHide() : r.sThis.onCreate();
+                //console.log("设置广告：" + t), 0 == t ? r.sThis.onShow() : 1 == t ? r.sThis.onHide() : r.sThis.onCreate();
             }, t.prototype.onDestroy = function() {
                 this.bannerAd && (this.bannerAd.destroy(), this.bannerAd = null), cc.game.removePersistRootNode(this.node);
             }, t.sThis = null, t = r = __decorate([n], t);

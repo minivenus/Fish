@@ -1,8 +1,8 @@
-var o = require("./Common_CommonUtil"),
-    m = require("./EChannelPrefix"),
-    n = require("./Common_Data"),
-    a = require("./Common_ShareUtils"),
-    s = require("./gamesdk"),
+var Common_CommonUtil = require("./Common_CommonUtil"),
+    EChannelPrefix = require("./EChannelPrefix"),
+    Common_Data = require("./Common_Data"),
+    Common_ShareUtils = require("./Common_ShareUtils"),
+    gamesdk = require("./gamesdk"),
     c = cc._decorator,
     r = c.ccclass,
     l = c.property,
@@ -15,7 +15,7 @@ var o = require("./Common_CommonUtil"),
         return __extends(t, d), t.prototype.start = function() {
                 var t = this;
                 this.propData && this.propData.propIcon && this.scheduleOnce(function() {
-                    return o.default.setSprite(t.icon, t.propData.propIcon, function() {
+                    return Common_CommonUtil.default.setSprite(t.icon, t.propData.propIcon, function() {
                         return t.icon.node.opacity = 255;
                     });
                 }, .1);
@@ -28,9 +28,9 @@ var o = require("./Common_CommonUtil"),
             }, t.prototype.onClickInvite = function() {
                 var o = this;
                 console.log("点击邀请");
-                var t = "propId=" + this.itemData.id + "&shareId=" + s.game.getOpenId();
-                n.default.share(m.default.reward, t, null, function() {
-                    console.log("发送邀请成功！"), a.default.requestForServerRecord(o.itemData.id);
+                var t = "propId=" + this.itemData.id + "&shareId=" + gamesdk.game.getOpenId();
+                Common_Data.default.share(EChannelPrefix.default.reward, t, null, function() {
+                    console.log("发送邀请成功！"), Common_ShareUtils.default.requestForServerRecord(o.itemData.id);
                 });
             }, __decorate([l(cc.Sprite)], t.prototype, "icon", void 0), __decorate([l(cc.RichText)], t.prototype, "iconName", void 0),
             __decorate([l(cc.Button)], t.prototype, "btnInvite", void 0), __decorate([l(cc.RichText)], t.prototype, "btnStr", void 0),

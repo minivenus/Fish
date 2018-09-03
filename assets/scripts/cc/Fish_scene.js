@@ -1,3 +1,5 @@
+var p = Math.abs, m = Math.atan2, g = Math.sqrt, u = Math.pow, _ = Math.sin, f = Math.cos, y = Math.PI, t = Math.ceil, C = Math.floor;
+
 cc.Class({
     extends: cc.Component,
     properties: {
@@ -13,8 +15,8 @@ cc.Class({
         buildCount: 0
     },
     start: function() {
-        for (var C, S = this, t = (cc.instantiate(this.point1List[0]), 0); 4 > t; t++) C = cc.instantiate(this.point1List[0]),
-            C.parent = this.point1List[0].parent, this.point1List[this.point1List.length] = C;
+        for (var node, self = this, t = (cc.instantiate(this.point1List[0]), 0); 4 > t; t++) node = cc.instantiate(this.point1List[0]),
+        node.parent = this.point1List[0].parent, this.point1List[this.point1List.length] = node;
         for (var e, o = 0; 4 > o; o++) e = cc.instantiate(this.point2List[0]), e.parent = this.point2List[0].parent,
             this.point2List[this.point2List.length] = e;
         for (var n, s = 0; 4 > s; s++) n = cc.instantiate(this.point3List[0]), n.parent = this.point3List[0].parent,
@@ -45,12 +47,12 @@ cc.Class({
                 cc.loader.load(t, function(n, e) {
                     return n ? (console.error("load FishLineCfg failed"), void console.error(n.message || n)) : void(console.log("load FishLineCfg success", o),
                         g.scene[a] = e);
-                }.bind(S));
+                }.bind(self));
             }, y = 0; 12 > y; y++) _(y);
     },
     updateBuild: function() {
         this.buildCount++;
-        var r, e, t = (r = 1, e = 12, C(Math.random() * (e - r + 1) + r)),
+        var r, e, t = (r = 1, e = 12, Math.floor(Math.random() * (e - r + 1) + r)),
             o = this.scene[t],
             d = 0;
         if (o && o.length)

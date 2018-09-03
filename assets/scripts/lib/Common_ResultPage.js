@@ -1,10 +1,10 @@
-var g = require("./Common_ResultPropItem"),
-    _ = require("./Common_ResultSubdomine"),
-    o = require("./EChannelPrefix"),
-    a = require("./Common_RankList"),
-    n = require("./Common_CommonUtil"),
-    s = require("./Common_Data"),
-    r = require("./wxDisplayCheck"),
+var Common_ResultPropItem = require("./Common_ResultPropItem"),
+    Common_ResultSubdomine = require("./Common_ResultSubdomine"),
+    EChannelPrefix = require("./EChannelPrefix"),
+    Common_RankList = require("./Common_RankList"),
+    Common_CommonUtil = require("./Common_CommonUtil"),
+    Common_Data = require("./Common_Data"),
+    wxDisplayCheck = require("./wxDisplayCheck"),
     l = cc._decorator,
     c = l.ccclass,
     d = l.property,
@@ -28,9 +28,9 @@ var g = require("./Common_ResultPropItem"),
                 });
                 return t[t.length - 1].title;
             }, t.prototype.start = function() {
-                a.default.showGameResultList(), this.resultSubdomine.refresh(2), this.node.scale = p.getScale();
+                Common_RankList.default.showGameResultList(), this.resultSubdomine.refresh(2), this.node.scale = p.getScale();
             }, t.prototype.onDisable = function() {
-                this.callbackId && r.default.clearCallback(this.callbackId);
+                this.callbackId && wxDisplayCheck.default.clearCallback(this.callbackId);
             }, t.getScale = function() {
                 cc.director.getScene().getComponentInChildren(cc.Canvas);
                 var t = cc.view.getVisibleSize();
@@ -38,22 +38,22 @@ var g = require("./Common_ResultPropItem"),
             }, t.prototype.onClickHome = function() {
                 this.data.homeCallback();
             }, t.prototype.onClickMoreGame = function() {
-                n.default.preview();
+                Common_CommonUtil.default.preview();
             }, t.prototype.onClickGroupRank = function() {
-                s.default.share(o.default.grouprank, "group=1"), this.callbackId || (this.callbackId = r.default.addOnShowCallback(this.checkShowGroupRank.bind(this)));
+                Common_Data.default.share(EChannelPrefix.default.grouprank, "group=1"), this.callbackId || (this.callbackId = wxDisplayCheck.default.addOnShowCallback(this.checkShowGroupRank.bind(this)));
             }, t.prototype.checkShowGroupRank = function(t) {
-                t && t.shareTicket && t.query && 1 == t.query.group && (a.default.showGroupList(t.shareTicket, this.data.titleList),
-                    this.resultSubdomine.refresh(0), r.default.clearCallback(this.callbackId));
+                t && t.shareTicket && t.query && 1 == t.query.group && (Common_RankList.default.showGroupList(t.shareTicket, this.data.titleList),
+                    this.resultSubdomine.refresh(0), wxDisplayCheck.default.clearCallback(this.callbackId));
             }, t.prototype.onClickWorldRnak = function() {
-                a.default.showFriendList(this.data.titleList), this.resultSubdomine.refresh(1);
+                Common_RankList.default.showFriendList(this.data.titleList), this.resultSubdomine.refresh(1);
             }, t.prototype.onClickPlay = function() {
                 this.data.restartCallback();
             }, t.prototype.onClickFlaunt = function() {
-                s.default.share(o.default.result, "", null, null, null, null, "", "", "", this.data.score);
+                Common_Data.default.share(EChannelPrefix.default.result, "", null, null, null, null, "", "", "", this.data.score);
             }, t.prototype.onInviteFirend = function() {
-                s.default.share(o.default.grouprank);
+                Common_Data.default.share(EChannelPrefix.default.grouprank);
             }, t.prototype.onShare = function() {
-                s.default.share(o.default.pageshare, "", function(t) {
+                Common_Data.default.share(EChannelPrefix.default.pageshare, "", function(t) {
                     return console.log("网络错误 :", t);
                 }, function(t) {
                     return console.log("成功 :", t);
@@ -69,13 +69,13 @@ var g = require("./Common_ResultPropItem"),
                 for (var a, t = 0; t < this.data.props.length; t++) {
                     a = cc.instantiate(this.propPrefab), a.parent = this.propRoot;
                     var e = -this.data.props.length / 2 + .5 + t;
-                    a.position = cc.p(220 * e, 0), a.getComponent(g.default).data = this.data.props[t];
+                    a.position = cc.p(220 * e, 0), a.getComponent(Common_ResultPropItem.default).data = this.data.props[t];
                 }
             }, __decorate([d(cc.RichText)], t.prototype, "score", void 0), __decorate([d(cc.Label)], t.prototype, "bestScore", void 0),
             __decorate([d(cc.Label)], t.prototype, "coins", void 0), __decorate([d(cc.Label)], t.prototype, "title", void 0),
             __decorate([d(cc.Label)], t.prototype, "surpassLabel", void 0), __decorate([d(cc.Label)], t.prototype, "tipLabel", void 0),
             __decorate([d(cc.Node)], t.prototype, "propRoot", void 0), __decorate([d(cc.Prefab)], t.prototype, "propPrefab", void 0),
-            __decorate([d(_.default)], t.prototype, "resultSubdomine", void 0), t = p = __decorate([c], t);
+            __decorate([d(Common_ResultSubdomine.default)], t.prototype, "resultSubdomine", void 0), t = p = __decorate([c], t);
         var p;
     }(cc.Component);
 exports.default = u;

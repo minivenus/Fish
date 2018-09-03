@@ -1,13 +1,15 @@
+var p = Math.abs, m = Math.atan2, g = Math.sqrt, u = Math.pow, _ = Math.sin, f = Math.cos, y = Math.PI, t = Math.ceil, C = Math.floor;
+
 function t(t) {
     return t && t.__esModule ? t : {
         default: t
     };
 }
 
-var r = require("../lib/Fish_UserData"),
-    n = t(require("../lib/Common_Data")),
-    d = t(require("../lib/EChannelPrefix")),
-    a = require("../lib/Define");
+var fishUserData = require("../lib/Fish_UserData"),
+    commonData = t(require("../lib/Common_Data")),
+    eChannelPrefix = t(require("../lib/EChannelPrefix")),
+    define = require("../lib/Define");
 cc.Class({
     extends: cc.Component,
     properties: {
@@ -31,10 +33,10 @@ cc.Class({
         this.node.setLocalZOrder(4), this.enablelable.setLocalZOrder(4), this.GameCtrl = window.gameCrtl,
             this.reliveNeedGold = this.GameCtrl.reliveNeedGold || 120, this.TimeNum = 10, this.TimeTex.string = this.TimeNum,
             this.timeOut = !1, this.CountDownClick(1e3);
-        var a, e, t = r.Fish_UserData.getFristGame();
-        if (console.log("state======", t), t) this.fistGameLable.string = "免费复活", this.kankanreliveBtn.active = !1;
+        var a, e, isFirst = fishUserData.Fish_UserData.getFristGame();
+        if (console.log("state======", isFirst), isFirst) this.fistGameLable.string = "免费复活", this.kankanreliveBtn.active = !1;
         else {
-            var o = (e = 3, (a = 1) < C(Math.random() * (e - a + 1) + a));
+            var o = (e = 3, (a = 1) < Math.floor(Math.random() * (e - a + 1) + a));
             this.kankanreliveBtn.active = o, this.goldreliveBtn.active = !o;
         }
         this.gobt.on("touchstart", this.ShowSkipBtn, this);
@@ -50,31 +52,31 @@ cc.Class({
         this._SeeAvState || (this.TimeNum -= 1, this.TimeTex.string = this.TimeNum, this.TimeNum);
     },
     onKanKan: function() {
-        var o = this;
-        a.Define.wxShowVideo("adunit-9d8fdf17e13482f5", function(t) {
-            t && (o.shareCoid = 0, o.GameCtrl.ReliveGame("你已原地复活", 2), o.ShowView(!1));
+        var self = this;
+        define.Define.wxShowVideo("adunit-9d8fdf17e13482f5", function(t) {
+            t && (self.shareCoid = 0, self.GameCtrl.ReliveGame("你已原地复活", 2), self.ShowView(!1));
         });
     },
-    SetScoreLabel: function(o) {
-        this.Score.string = o, this.has.string = r.Fish_UserData.getGold();
-        var e = r.Fish_UserData.getHeightScore();
-        console.log("score===", o, e);
+    SetScoreLabel: function(score) {
+        this.Score.string = score, this.has.string = fishUserData.Fish_UserData.getGold();
+        var heightScore = fishUserData.Fish_UserData.getHeightScore();
+        console.log("score===", score, heightScore);
     },
     ShareBtnClick: function() {
         var o = this.reliveNeedGold * this.shareCoid,
-            e = r.Fish_UserData.getGold();
-        return r.Fish_UserData.getFristGame() ? (this.ShowView(!1), this.GameCtrl.ReliveGame("你已原地复活", 2),
-            void r.Fish_UserData.setFristGame(!1)) : void(o <= e ? (this.ShowView(!1), this.GameCtrl.ReliveGame("你已原地复活", 1, o)) : (this.enablelable.active = !0,
+            gold = fishUserData.Fish_UserData.getGold();
+        return fishUserData.Fish_UserData.getFristGame() ? (this.ShowView(!1), this.GameCtrl.ReliveGame("你已原地复活", 2),
+            void fishUserData.Fish_UserData.setFristGame(!1)) : void(o <= gold ? (this.ShowView(!1), this.GameCtrl.ReliveGame("你已原地复活", 1, o)) : (this.enablelable.active = !0,
             this.scheduleOnce(function() {
                 this.enablelable.active = !1;
             }, .5)));
     },
     ShareBtnClick2: function() {
-        var e = this,
+        var self = this,
             t = this;
-        n.default.share(d.default.resurrection, "", null, function() {
-            console.log("发送复活成功！"), .5 == e.shareCoidDob ? (e.shareCoid = .5, e.reliveGoldLabel.string = "50金币复活") : 0 == e.shareCoidDob && (e.shareCoid = 0,
-                t.GameCtrl.ReliveGame("你已原地复活", 2), e.ShowView(!1));
+            commonData.default.share(eChannelPrefix.default.resurrection, "", null, function() {
+            console.log("发送复活成功！"), .5 == self.shareCoidDob ? (self.shareCoid = .5, self.reliveGoldLabel.string = "50金币复活") : 0 == self.shareCoidDob && (self.shareCoid = 0,
+                self.GameCtrl.ReliveGame("你已原地复活", 2), self.ShowView(!1));
         });
     },
     cancelBtnClick: function() {
