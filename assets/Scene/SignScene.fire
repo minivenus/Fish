@@ -620,8 +620,14 @@
       "__id__": 13
     },
     "_enabled": true,
-    "_defaultClip": null,
-    "_clips": [],
+    "_defaultClip": {
+      "__uuid__": "07a512ab-42b8-4943-a841-855cac87a49b"
+    },
+    "_clips": [
+      {
+        "__uuid__": "07a512ab-42b8-4943-a841-855cac87a49b"
+      }
+    ],
     "playOnLoad": true
   },
   {
@@ -666,7 +672,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 0,
+      "x": 7,
       "y": 26
     },
     "_skewX": 0,
@@ -745,7 +751,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 12,
-      "y": 47
+      "y": 40
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -813,7 +819,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 80.62,
+      "width": 81,
       "height": 55
     },
     "_rotationX": 0,
@@ -941,7 +947,7 @@
       }
     ],
     "_tag": -1,
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 27
@@ -1112,8 +1118,6 @@
     },
     "duration": 0.1,
     "zoomScale": 0.9,
-    "pressedSprite": null,
-    "hoverSprite": null,
     "clickEvents": [],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
@@ -1132,6 +1136,10 @@
       "a": 255
     },
     "_N$normalSprite": null,
+    "_N$pressedSprite": null,
+    "pressedSprite": null,
+    "_N$hoverSprite": null,
+    "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
       "__id__": 24
@@ -1324,8 +1332,6 @@
     },
     "duration": 0.1,
     "zoomScale": 0.9,
-    "pressedSprite": null,
-    "hoverSprite": null,
     "clickEvents": [],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
@@ -1344,6 +1350,10 @@
       "a": 255
     },
     "_N$normalSprite": null,
+    "_N$pressedSprite": null,
+    "pressedSprite": null,
+    "_N$hoverSprite": null,
+    "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
       "__id__": 29
@@ -1380,7 +1390,7 @@
       }
     ],
     "_tag": -1,
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 47
@@ -1663,8 +1673,6 @@
     },
     "duration": 0.1,
     "zoomScale": 0.9,
-    "pressedSprite": null,
-    "hoverSprite": null,
     "clickEvents": [],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
@@ -1683,6 +1691,10 @@
       "a": 255
     },
     "_N$normalSprite": null,
+    "_N$pressedSprite": null,
+    "pressedSprite": null,
+    "_N$hoverSprite": null,
+    "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
       "__id__": 35
@@ -1880,8 +1892,6 @@
     },
     "duration": 0.1,
     "zoomScale": 1.2,
-    "pressedSprite": null,
-    "hoverSprite": null,
     "clickEvents": [],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
@@ -1900,6 +1910,10 @@
       "a": 255
     },
     "_N$normalSprite": null,
+    "_N$pressedSprite": null,
+    "pressedSprite": null,
+    "_N$hoverSprite": null,
+    "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
       "__id__": 35
