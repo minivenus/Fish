@@ -1,4 +1,6 @@
-function set(t) {
+var p = Math.abs, m = Math.atan2, g = Math.sqrt, u = Math.pow, _ = Math.sin, f = Math.cos, y = Math.PI, t = Math.ceil;
+
+function c(t) {
     return t && t.__esModule ? t : {
         default: t
     };
@@ -8,10 +10,10 @@ function RandomRange(o, e) {
     return Math.floor(Math.random() * (e - o + 1) + o);
 }
 
-var commonRankList = set(require("../lib/Common_RankList")),
+var commonRankList = c(require("../lib/Common_RankList")),
     fishCfgMgr = require("../lib/FishCfgMgr"),
     fishUserData = require("../lib/Fish_UserData"),
-    readyGo = set(require("../lib/ReadyGo")),
+    readyGo = c(require("../lib/ReadyGo")),
     define = require("../lib/Define");
 cc.Class({
     extends: cc.Component,
@@ -143,7 +145,7 @@ cc.Class({
             this.shareBtn1.active = this.isShowShareBtn1, window.cloudSpriteFrames ? (self._cloudSpriteFrames = window.cloudSpriteFrames,
                 self._loadcount++) : cc.loader.loadResDir("Fish/Texture/main/cloud", cc.SpriteFrame, function(err, assets) {
                 err && (console.log("Loading resource fail."), cc.director.loadScene("Fish_Main")),
-                    self._cloudSpriteFrames = assets, self._loadcount++; //, 2 <= self._loadcount && self.onStartGame();
+                self._cloudSpriteFrames = assets, self._loadcount++;//, 2 <= self._loadcount && self.onStartGame();
             }), this.initHandler();
         var curSkin = fishUserData.Fish_UserData.getCurSkin();
         console.log("设置使用的小鱼=设置使用的小鱼", curSkin), cc.loader.loadRes("prefab/fish", function(err, assets) {
@@ -159,12 +161,12 @@ cc.Class({
         var skins = fishUserData.Fish_UserData.getHaveSkins();
         console.log("skinList===", skins, skins[0]);
         for (var t = 0; t < skins.length; t++) self.fishSpriteFrames[self.fishSpriteFrames.length] = fishCfgMgr.FishCfgMgr.getSkinSpriteFrameByKey(skins[t] + "_1"),
-            self.fishSpriteFrames2[self.fishSpriteFrames2.length] = fishCfgMgr.FishCfgMgr.getSkinSpriteFrameByKey(skins[t] + "_2"),
+        self.fishSpriteFrames2[self.fishSpriteFrames2.length] = fishCfgMgr.FishCfgMgr.getSkinSpriteFrameByKey(skins[t] + "_2"),
             window.gameCrtl._achievementList[2] = window.gameCrtl._achievementList[2] ? window.gameCrtl._achievementList[2] + 1 : 1;
         var o = cc.url.raw("resources/fishPop/config/FishLineCfg.json");
         cc.loader.load(o, function(err, assets) {
             return err ? (console.error("load FishLineCfg failed"), void console.error(o.message || o)) : void(console.log("load FishLineCfg success"),
-                self._fishPos = assets);
+            self._fishPos = assets);
         }.bind(this)), cc.director.getCollisionManager().enabled = !0;
         for (var loadbg = function(id) {
                 cc.loader.loadRes("Fish/Texture/main/bg" + (id + 1), function(err, assets) {
@@ -174,7 +176,8 @@ cc.Class({
         this.checkOpenProtect();
 
         setTimeout(function() {
-            self.begin();
+            
+            self.is_game_start == !1 && self.begin();
         }, 1000);
     },
     begin: function() {
@@ -413,7 +416,7 @@ cc.Class({
         }
     },
     onStartGame: function() {
-        2 <= this._loadcount && (this.guide_tips.active = !1, this.is_game_start = !0, this.begin());
+        2 <= this._loadcount && this.is_game_start == !1 (this.guide_tips.active = !1, this.is_game_start = !0, this.begin());
     },
     onTouchMove: function(o) {
         if (this.is_game_start) {
@@ -455,7 +458,7 @@ cc.Class({
             this._createMissileTime -= dt, this._isafetime -= dt;
             var o = this._hero_rotate - this._hero.rotation,
                 S = this._hero_speed;
-
+                
             3 < Math.abs(o) && 360 != Math.abs(o) ? (180 < Math.abs(o) && (o = -Math.abs(o) / o * (360 - Math.abs(o))), 310 < Math.abs(o) ? this._hero.rotation = this._hero_rotate : this._hero.rotation += 15 < Math.abs(o) ? 15 * (Math.abs(o) / o) : o,
                     0 == this._hero_isRotate && (this._hero_isRotate = !0)) : this._hero_isRotate && (this._hero_isRotate = !1),
                 S = 100 * (S * dt);
@@ -471,7 +474,7 @@ cc.Class({
                     self._cloundNode.setPosition(o);
                     var e = self._cloundNode_bg.convertToNodeSpaceAR(self._hero.parent.parent.convertToWorldSpaceAR(o));
                     self._cloundNode_bg.setPosition(cc.p(o.x - e.x % 1080, o.y - e.y % 1920)), self._cloundNode.runAction(cc.fadeTo(.1, 255)),
-                        self._isreset = !1, 0 >= self.sceneLoad && (self.sceneLoad = 10);
+                    self._isreset = !1, 0 >= self.sceneLoad && (self.sceneLoad = 10);
                 })))), this.moveCloud(), 0 >= this._isafetime && !window._goldScene && (this._buid_MissleTemp -= dt,
                 0 > this._buid_MissleTemp && (this._buid_MissleTemp = .3, this.createMissile(),
                     this._isafetime = 0)), this.createFish(), this.speed_all -= dt, this.timergo += dt;
@@ -548,7 +551,7 @@ cc.Class({
     },
     onWuDi: function() {
         this.wudiTimer = window.ReliveTimer, this.useWudiState = 2, this.wudiNode.active = !1,
-            fishUserData.Fish_UserData.addProtect(-1), this.checkOpenProtect();
+        fishUserData.Fish_UserData.addProtect(-1), this.checkOpenProtect();
         for (var t = 0; t < this._hero.parent.childrenCount; t++) this._hero.parent.children[t].getComponent("Fish_fishCtr").onWuDi();
     },
     onCiTie: function() {

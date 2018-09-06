@@ -29,6 +29,7 @@ var nodeUtil = require("./NodeUtil"),
                         }.bind(this));
                     var l = fishUserData.Fish_UserData.getCurScore(),
                         e = 0;
+                        this.GetNodeByName("content/btnRestart").active = true;
                     if (0 <= l && 400 >= l ? e = .0375 * l : 401 <= l && 1500 >= l ? e = .06 * l : 1501 <= l && 3e4 >= l ? e = .00317 * l : 30001 <= l && 2e5 >= l && (e = 495e-6 * l),
                         e = 99 < e ? 99 : e, this.labScoreDec2.string = "你已超过全球" + e.toFixed(2) + "%的玩家",
                         this.AddButtonEventStart(this, this.GetNodeByName("content/btnRestart"), this.onRetGame),

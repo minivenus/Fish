@@ -3,13 +3,13 @@ var commonUtil = require("./Common_CommonUtil"),
         function wxShortcut() {}
         return wxShortcut.showToast = function(a, l, t, p, c) {
             void 0 === t && (t = "none"), void 0 === p && (p = ""), void 0 === c && (c = 0),
-                commonUtil.default.isWeChat() && (Wx.hideToast(), clearTimeout(wxShortcut.clearId), Wx.showToast({
+                commonUtil.default.isWeChat() && (s.hideToast(), clearTimeout(wxShortcut.clearId), s.showToast({
                     title: a,
                     icon: t,
                     image: p,
                     duration: c || 0
                 }), wxShortcut.clearId = setTimeout(function() {
-                    return Wx.hideToast();
+                    return s.hideToast();
                 }, l));
         }, wxShortcut.showModal = function(a, n, r) {
             void 0 === r && (r = "确定"), wx.showModal({
