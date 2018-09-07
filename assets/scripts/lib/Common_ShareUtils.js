@@ -34,7 +34,7 @@ var g = function() {
             });
     }, m.showRedPacketPage = function(a, t, o, r) {
         void 0 === o && (o = ""), void 0 === r && (r = 1), this.callback = t, this.ruleText = a,
-        Common_CommonUtil.default.getPrefab("common/redPack/prefabs/Common_RedPacketPage", function(n) {
+            Common_CommonUtil.default.getPrefab("common/redPack/prefabs/Common_RedPacketPage", function(n) {
                 n.parent = cc.find("Canvas") || cc.director.getScene().children[0], n.getComponent(Common_RedPacketPage.default).setParams(t, a, o, r);
             });
     }, m.getActivityState = function(a, n, t) {
@@ -249,7 +249,7 @@ var g = function() {
         console.log(n), gamesdk.game.gameHttp(n, t, d).then(function(t) {
             o && o(t);
         }, function(t) {
-            Common_LogUtil.LogUtil.DebugLog("Common_ShareUtils:request 请求失败："), console.log(t), wxShortcut.default.showModal("提示", t.msg),
+            Common_LogUtil.LogUtil.DebugLog("Common_ShareUtils:request 请求失败："), console.log(t), //wxShortcut.default.showModal("提示", t.msg),
                 l && l(t);
         });
     }, m.httpGet = function(a, e, t, o) {

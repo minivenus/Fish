@@ -20,9 +20,9 @@ var common_RankList = require("./Common_RankList"),
                 return GameScene.isFrist = !1, GameScene.isLoad = !0, GameScene.gameClub = null, GameScene;
             }
             return __extends(GameScene, __super), GameScene.prototype.ontest = function() {}, GameScene.prototype.start = function() {
-                fishUserData.Fish_UserData.Init ? this.init() : (fishUserData.Fish_UserData.Init = !0, //d.Fish_UserData.initUserDataByServer(function(t) {
-                    GameScene || fishUserData.Fish_UserData.initUserDataByLocal(), this.init());
-                //}.bind(this)));
+                fishUserData.Fish_UserData.Init ? this.init() : (fishUserData.Fish_UserData.Init = !0, d.Fish_UserData.initUserDataByServer(function(t) {
+                    GameScene || fishUserData.Fish_UserData.initUserDataByLocal(), this.init();
+                }.bind(this)));
             }, GameScene.prototype.initGame = function() {
                 var self = this;
                 console.log("初始化主页场景"), readyGo.default.setVisible(2), commonUtil.default.isWeChat() && (this.gameClub = wx.createGameClubButton({
@@ -52,19 +52,19 @@ var common_RankList = require("./Common_RankList"),
                         this.GetNodeByName("content/btnShop").setPositionY(this.GetNodeByName("content/btnShop").y + 100),
                         this.GetNodeByName("content/btnMore").setPositionY(this.GetNodeByName("content/btnMore").y + 100)) : (common_RankList.default.showGameResultList(),
                         console.log("排行榜事件"), this.AddButtonEventStart(this, this.GetNodeByName("content/btnRank"), this.onRank)),
-                        this.AddButtonEventStart(this, this.GetNodeByName("content/labGold/spGold"), this.onOpenShop),
-                        this.AddButtonEventStart(this, this.GetNodeByName("content/btnShop"), this.onOpenShop),
-                        this.AddButtonEventStart(this, this.GetNodeByName("content/btnMore"), this.onMoreGame),
-                        this.AddButtonEventStart(this, this.GetNodeByName("content/btnStart"), this.onStartGame),
-                        this.AddButtonEventStart(this, this.GetNodeByName("btnRankBg/btnHome"), this.goHome),
-                        this.AddButtonEventStart(this, this.GetNodeByName("btnRankBg/btnGroupRank"), this.onGroupRankShare),
-                        this.AddButtonEventStart(this, this.GetNodeByName("content/btnChall"), this.onChallenge),
-                        this.GetNodeByName("content/labGold").getComponent(cc.Label).string = fishUserData.Fish_UserData.getGold().toString(),
-                        this.GetNodeByName("content/btnStart/spIcon").getComponent(cc.Sprite).spriteFrame = fishCfgMgr.FishCfgMgr.getSkinSpriteFrameByKey(fishUserData.Fish_UserData.getCurSkin().toString() + "_1"),
-                        this.isFrist = fishUserData.Fish_UserData.getFristGame(), wxDisplayCheck.default.onShowRes && wxDisplayCheck.default.onShowRes.shareTicket && wxDisplayCheck.default.onShowRes.query.group && (this.node.getChildByName("rankShow").active = !0,
+                    this.AddButtonEventStart(this, this.GetNodeByName("content/labGold/spGold"), this.onOpenShop),
+                    this.AddButtonEventStart(this, this.GetNodeByName("content/btnShop"), this.onOpenShop),
+                    this.AddButtonEventStart(this, this.GetNodeByName("content/btnMore"), this.onMoreGame),
+                    this.AddButtonEventStart(this, this.GetNodeByName("content/btnStart"), this.onStartGame),
+                    this.AddButtonEventStart(this, this.GetNodeByName("btnRankBg/btnHome"), this.goHome),
+                    this.AddButtonEventStart(this, this.GetNodeByName("btnRankBg/btnGroupRank"), this.onGroupRankShare),
+                    this.AddButtonEventStart(this, this.GetNodeByName("content/btnChall"), this.onChallenge),
+                    this.GetNodeByName("content/labGold").getComponent(cc.Label).string = fishUserData.Fish_UserData.getGold().toString(),
+                    this.GetNodeByName("content/btnStart/spIcon").getComponent(cc.Sprite).spriteFrame = fishCfgMgr.FishCfgMgr.getSkinSpriteFrameByKey(fishUserData.Fish_UserData.getCurSkin().toString() + "_1"),
+                    this.isFrist = fishUserData.Fish_UserData.getFristGame(), wxDisplayCheck.default.onShowRes && wxDisplayCheck.default.onShowRes.shareTicket && wxDisplayCheck.default.onShowRes.query.group && (this.node.getChildByName("rankShow").active = !0,
                         this.onGroupRank(wxDisplayCheck.default.onShowRes.shareTicket), wxDisplayCheck.default.onShowRes.query.group = null),
-                        define.Define.checkPlayerStatus(function() {
-                            self.GetNodeByName("content/labGold").getComponent(cc.Label).string = fishUserData.Fish_UserData.getGold().toString();
+                    define.Define.checkPlayerStatus(function() {
+                        self.GetNodeByName("content/labGold").getComponent(cc.Label).string = fishUserData.Fish_UserData.getGold().toString();
                     });
             }, GameScene.prototype.postShare = function() {
                 if (wxDisplayCheck.default.onShowRes && wxDisplayCheck.default.onShowRes.query && wxDisplayCheck.default.onShowRes.query.shareType && wxDisplayCheck.default.onShowRes.query.time) {
@@ -74,7 +74,7 @@ var common_RankList = require("./Common_RankList"),
             }, GameScene.prototype.init = function() {
                 var self = this;
                 if (console.log("进入主页 init"), this.postShare(), fishUserData.Fish_UserData.setAgainGame(!1),
-                define.Define.getShareRawardBySer(commonData.default.getAppId(), function(t) {
+                    define.Define.getShareRawardBySer(commonData.default.getAppId(), function(t) {
                         t && (console.log("分享奖励 存在配置"), define.Define.checkShareReward(commonData.default.getAppId(), commonData.default.getOpenId(), function(l) {
                             if ("{}" !== JSON.stringify(l)) {
                                 for (var e, g = "", t = 0; t < define.Define.ShareTypes.length; t++)
@@ -87,7 +87,7 @@ var common_RankList = require("./Common_RankList"),
                                                 var n = [o],
                                                     s = comPage.ComPage.getRewardStr(n),
                                                     c = define.Define.getShareStrByID(e[a].share_type);
-                                                    comPage.ComPage.ShowTip("恭喜获得分享" + c + "奖励：" + s), fishUserData.Fish_UserData.addReward(n), g = "" == g ? "" : ",",
+                                                comPage.ComPage.ShowTip("恭喜获得分享" + c + "奖励：" + s), fishUserData.Fish_UserData.addReward(n), g = "" == g ? "" : ",",
                                                     g += e[a].id;
                                             } else console.log("分享奖励 没找到奖励类型：" + e[a].share_type);
                                     }
@@ -126,7 +126,7 @@ var common_RankList = require("./Common_RankList"),
             }, GameScene.prototype.onChallenge = function() {
                 soundUtil.SoundUtil.PlayEffectByKey(1), define.Define.createFishRoom(function(t) {
                     t && (t.rcode == define.Define_Chall_Status.NORMAL || define.Define_Chall_Status.ALREADYINOTHERROOM || define.Define_Chall_Status.REWARDUNRECEIVE ? (console.log("chall 挑战 房间号获取成功，进入房间：" + t.data.roomId),
-                    fishUserData.Fish_UserData.challRoomID = t.data.roomId, commonData.default.share(eChannelPrefix.default.pageshare, "chall=" + fishUserData.Fish_UserData.challRoomID, function(t) {
+                        fishUserData.Fish_UserData.challRoomID = t.data.roomId, commonData.default.share(eChannelPrefix.default.pageshare, "chall=" + fishUserData.Fish_UserData.challRoomID, function(t) {
                             return console.log("网络错误 :", t);
                         }, function(t) {
                             console.log("成功 :", t), cc.director.loadScene("ChallengeScene");
@@ -142,7 +142,7 @@ var common_RankList = require("./Common_RankList"),
                 soundUtil.SoundUtil.PlayEffectByKey(1), commonData.default.showMoreGame();
             }, GameScene.prototype.onRank = function() {
                 soundUtil.SoundUtil.PlayEffectByKey(1), readyGo.default.setVisible(1), this.GetNodeByName("btnRankBg").active = !0,
-                common_RankList.default.showFriendList(null);
+                    common_RankList.default.showFriendList(null);
             }, GameScene.prototype.onGroupRank = function(t) {
                 readyGo.default.setVisible(1), this.GetNodeByName("btnRankBg").active = !0, common_RankList.default.showGroupList(t);
             }, GameScene.prototype.hideRank = function() {
@@ -162,8 +162,8 @@ var common_RankList = require("./Common_RankList"),
                     this.node.getChildByName("rankShow").active = !1), this.hideRank();
             }, GameScene.prototype.onDestroy = function() {
                 this.gameClub && this.gameClub.destroy(), commonGlobalEventUtil.GlobalEventUtil.offType("UpdateGold"),
-                commonGlobalEventUtil.GlobalEventUtil.offType("UpdateSkin"), commonGlobalEventUtil.GlobalEventUtil.offType("showGroupList"),
-                commonGlobalEventUtil.GlobalEventUtil.offType("PostShare");
+                    commonGlobalEventUtil.GlobalEventUtil.offType("UpdateSkin"), commonGlobalEventUtil.GlobalEventUtil.offType("showGroupList"),
+                    commonGlobalEventUtil.GlobalEventUtil.offType("PostShare");
             }, GameScene = __decorate([u], GameScene);
         }(nodeUtil.NodeUtil));
 exports.default = GameScene;

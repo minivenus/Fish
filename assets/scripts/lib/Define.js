@@ -114,7 +114,10 @@ var g = function() {
             return null == this.ShareString[t - 1] ? "" : this.ShareString[t - 1];
         }, s.request = function(r, e, t, o, s) {
             var n = gamesdk.config.apiGameServer + e;
-            console.log(n), gamesdk.game.gameHttp(n, t, r).then(function(t) {
+            console.log("GameHttp:");
+            console.log(n);
+            console.log(t);
+            gamesdk.game.gameHttp(n, t, r).then(function(t) {
                 o && o(t);
             }, function(t) {
                 console.log(t), s && s(t);

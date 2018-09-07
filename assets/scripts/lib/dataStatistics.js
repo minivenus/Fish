@@ -80,6 +80,9 @@ function n(o, n, a) {
                         appId: N.default.appId,
                         code: e
                     };
+                // var s = "1";
+                // b("获取" + s), wx.setStorageSync("uid", s), wx.setStorageSync("sessionId", "1"),
+                //     y(o, n, a, null);
                 if (1 == S(s)) g(s, "POST", "user/standAloneLogin").then(function(r) {
                     if (console.log(r, "res"), b({
                             name: "登录信息",

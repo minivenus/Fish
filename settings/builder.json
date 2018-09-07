@@ -1,14 +1,15 @@
 {
   "appKey": "",
   "appSecret": "",
+  "encryptJs": true,
   "excludeScenes": [],
+  "fb-instant-games": {},
   "includeAnySDK": false,
   "includeSDKBox": false,
-  "includeSdk": [
-    "anysdk"
-  ],
   "inlineSpriteFrames": true,
   "inlineSpriteFrames_native": true,
+  "jailbreakPlatform": false,
+  "md5Cache": true,
   "mergeStartScene": true,
   "oauthLoginServer": "",
   "optimizeHotUpdate": false,
@@ -20,8 +21,21 @@
   },
   "packageName": "org.cocos2d.FishDemo",
   "privateKey": "",
+  "qqplay": {
+    "REMOTE_SERVER_ROOT": "",
+    "orientation": "portrait"
+  },
   "renderMode": "0",
   "startScene": "8b84558e-e9db-4e74-9099-e78b0c878165",
   "title": "FishDemo",
-  "webOrientation": "auto"
+  "webOrientation": "auto",
+  "wechatgame": {
+    "REMOTE_SERVER_ROOT": "",
+    "appid": "wx8adff73d6cafd6b6",
+    "isSubdomain": false,
+    "orientation": "portrait",
+    "subContext": ""
+  },
+  "xxteaKey": "4376b133-71d2-49",
+  "zipCompressJs": true
 }

@@ -17,16 +17,17 @@ var commonUtil = require("./Common_CommonUtil"),
         function SignScene() {
             var SignScene = null !== __super && __super.apply(this, arguments) || this;
             return SignScene.time = 1, SignScene.isSign = !1, SignScene.isLogin = !1, SignScene.isok = !0, SignScene.reward = [], SignScene.isShare = !1,
-            SignScene.shareCount = 10, SignScene.upTime = 0, SignScene.labSign = null, SignScene.myNode = null, SignScene.tgShare = null,
-            SignScene;
+                SignScene.shareCount = 10, SignScene.upTime = 0, SignScene.labSign = null, SignScene.myNode = null, SignScene.tgShare = null,
+                SignScene;
         }
         return __extends(SignScene, __super), SignScene.prototype.start = function() {
                 cc.game.addPersistRootNode(this.myNode), fishCfgMgr.FishCfgMgr.LoadCfg(), soundUtil.SoundUtil.LoadAudio(),
-                comPage.ComPage.LoadPop(), fish_UserData.Fish_UserData.initUserDataByLocal(), this.schedule(this.loadCompe,1);/*s.dataStatistics.getGameConfigByAppkey(function(t) {
-                        console.log("开关=", t), b.Fish_UserData.setShareOpen(t.data.data.invation), this.schedule(this.loadCompe, 1);
-                    }.bind(this), function() {
-                        console.log("onShow fail getGameConfigByAppkey");
-                    });*/
+                    comPage.ComPage.LoadPop(), fish_UserData.Fish_UserData.initUserDataByLocal(), this.schedule(this.loadCompe, 1);
+                /*s.dataStatistics.getGameConfigByAppkey(function(t) {
+                                        console.log("开关=", t), b.Fish_UserData.setShareOpen(t.data.data.invation), this.schedule(this.loadCompe, 1);
+                                    }.bind(this), function() {
+                                        console.log("onShow fail getGameConfigByAppkey");
+                                    });*/
             }, SignScene.prototype.loadCompe = function() {
                 console.log('log');
                 this.loginComplete();
@@ -56,7 +57,7 @@ var commonUtil = require("./Common_CommonUtil"),
                 } catch (exception) {
                     console.log("signscene初始化加载错误"), console.log(exception);
                 }
-                if (commonUtil.default.isWeChat() && wxShortcut.Wx.showLoading({
+                /*if (commonUtil.default.isWeChat() && wxShortcut.Wx.showLoading({
                         title: "连接中..."
                     }), cc.director.setClearColor(cc.Color.GRAY), wxDisplayCheck.default.onShowRes) {
                     if (!commonUtil.default.isWeChat()) return;
@@ -68,7 +69,7 @@ var commonUtil = require("./Common_CommonUtil"),
                             self.login(320, 568);
                         }
                     });
-                }
+                    }*/
             }, SignScene.prototype.login = function(a, e) {
                 var t = this;
                 common_Data.default.login2(wxDisplayCheck.default.onShowRes, function() {
@@ -76,7 +77,7 @@ var commonUtil = require("./Common_CommonUtil"),
                 }, null, function() {
                     commonUtil.default.isWeChat() && wxShortcut.Wx.hideLoading();
                 }, function() {
-                    t.isLogin = !1, wxShortcut.default.showModal("提示", "登录失败，请稍候再试");
+                    t.isLogin = !1, wxShortcut.default.showModal("", "登录失败，请稍候再试");
                 }, null, a, e);
             }, SignScene.prototype.loginComplete = function() {
                 console.log("===========登录成功回调==========="), this.isSign ? (this.isLogin = !0, this.node.getChildByName("content").active = !0) : cc.director.loadScene("GameScene");
